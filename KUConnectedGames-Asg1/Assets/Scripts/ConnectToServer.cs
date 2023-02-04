@@ -1,0 +1,34 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Photon.Pun;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class ConnectToServer : MonoBehaviourPunCallbacks
+{
+
+
+	void Start()
+	{
+
+		PhotonNetwork.ConnectUsingSettings();
+
+	}
+
+
+	//any call inside this function is called when successfully connected to the server
+	public override void OnConnectedToMaster()
+	{
+		PhotonNetwork.JoinLobby();
+	}
+
+
+	public override void OnJoinedLobby()
+	{
+		SceneManager.LoadScene("LobbyScene");
+
+
+	}
+
+}
