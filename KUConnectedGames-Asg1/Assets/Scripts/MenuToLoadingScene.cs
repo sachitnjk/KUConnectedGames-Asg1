@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class MenuToLoadingScene : MonoBehaviour
 {
-   
-    public void LoadScene(string sceneName)
+
+    public void LoadScene(int sceneNumber)
     {
 
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(sceneNumber);
+
+        Debug.Log("Doo DOO");
 
     }
 
