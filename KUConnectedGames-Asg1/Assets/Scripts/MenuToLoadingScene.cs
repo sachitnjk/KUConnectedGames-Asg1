@@ -11,7 +11,7 @@ public class MenuToLoadingScene : MonoBehaviour
 
         SceneManager.LoadScene(sceneNumber);
 
-        Debug.Log("Doo DOO");
+        //Debug.Log("Doo DOO");
 
     }
 
