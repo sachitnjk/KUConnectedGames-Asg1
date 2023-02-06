@@ -2,7 +2,7 @@
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
-using Photon.Pun;
+//using Photon.Pun;
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
  */
@@ -13,7 +13,7 @@ namespace StarterAssets
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
     [RequireComponent(typeof(PlayerInput))]
 #endif
-    public class ThirdPersonController : MonoBehaviourPunCallbacks
+    public class ThirdPersonController : MonoBehaviour
     {
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
@@ -76,8 +76,8 @@ namespace StarterAssets
         [Tooltip("For locking the camera position on all axis")]
         public bool LockCameraPosition = false;
 
-        [Header("Photon view")]
-        PhotonView phView;
+        //[Header("Photon view")]
+        //PhotonView phView;
 
         // cinemachine
         private float _cinemachineTargetYaw;
@@ -141,7 +141,7 @@ namespace StarterAssets
         {
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
 
-            phView = GetComponent<PhotonView>();
+            //phView = GetComponent<PhotonView>();
             
             _hasAnimator = TryGetComponent(out _animator);
             _controller = GetComponent<CharacterController>();
@@ -166,13 +166,13 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 
-            if(phView.IsMine)
-            {
-                Move();
-            }
+            //if(phView.IsMine)
+            //{
+            //    Move();
+            //}
 
-            //Move();
-			
+            Move();
+
         }
 
         private void LateUpdate()
