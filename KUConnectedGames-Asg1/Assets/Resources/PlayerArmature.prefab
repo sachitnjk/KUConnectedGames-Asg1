@@ -1118,6 +1118,7 @@ GameObject:
   - component: {fileID: 3363259848303861639}
   - component: {fileID: -5631032673912208400}
   - component: {fileID: 1153294328679365783}
+  - component: {fileID: 8105024763133557330}
   m_Layer: 8
   m_Name: PlayerArmature
   m_TagString: Player
@@ -1398,6 +1399,21 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 4938280552918583279}
+--- !u!114 &8105024763133557330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3363259848303861643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d8f7228eeed8f1499964a81c71efe69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stamDecay: 10
+  stamRegen: 1
+  stamBarScript: {fileID: 3079493921623841978}
 --- !u!1 &3431887501438043480
 GameObject:
   m_ObjectHideFlags: 0
@@ -1624,6 +1640,7 @@ GameObject:
   m_Component:
   - component: {fileID: 811738766780769070}
   - component: {fileID: 757691936572447277}
+  - component: {fileID: 3079493921623841978}
   m_Layer: 5
   m_Name: PlayerStaminaBar
   m_TagString: Untagged
@@ -1700,10 +1717,23 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 1
-  m_Value: 64
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3079493921623841978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4573161765520835106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95821036ee0d0484a9e200a06f8e8f75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stamSlider: {fileID: 757691936572447277}
 --- !u!1 &4732308847454056015
 GameObject:
   m_ObjectHideFlags: 0
@@ -2508,7 +2538,19 @@ MonoBehaviour:
   m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEditor.MonoScript, UnityEditor.CoreModule
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4938280552918583279
 MonoBehaviour:
   m_ObjectHideFlags: 0
