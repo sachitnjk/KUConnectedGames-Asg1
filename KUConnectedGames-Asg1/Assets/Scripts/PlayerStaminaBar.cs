@@ -7,11 +7,11 @@ using UnityEngine.InputSystem;
 public class PlayerStaminaBar : MonoBehaviour
 {
 
-    int maxStam = 100;
-	int currentStam;
+    public int maxStam = 100;
+	public int currentStam;
 
-	//[SerializeField] private int stamDecay;
-    //[SerializeField] private int stamRegen;
+    [SerializeField] private int stamDecay;
+    [SerializeField] private int stamRegen;
 
     public StaminaBarScript stamBarScript;
     private PlayerInput playerInput;
@@ -33,15 +33,17 @@ public class PlayerStaminaBar : MonoBehaviour
 
     void StaminaExecute()
     {
-        if(sprintEnabled.enabled)
+        if(sprintEnabled.triggered)
         {
-            Debug.Log("BRUH");
-            //SprintStamDepletion(10);
+            SprintStamDepletion(stamDecay);
+            Debug.Log("sprint Decay");
+            Debug.Log(currentStam);
         }
         else
         {
-            //SprintStamRegen(2);
-        }
+            SprintStamRegen(stamRegen);
+			Debug.Log("sprint Regen");
+		}
     }
 
     void SprintStamRegen(int stamRegen)
