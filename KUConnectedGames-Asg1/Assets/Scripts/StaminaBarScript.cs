@@ -8,7 +8,7 @@ public class StaminaBarScript : MonoBehaviour
 
     [SerializeField] Slider stamSlider;
 
-    public void SetMaxStamina(int stamina)
+    public void SetMaxStamina(float stamina)
     {
 
         stamSlider.maxValue = stamina;
@@ -16,7 +16,7 @@ public class StaminaBarScript : MonoBehaviour
 
     }
 
-    public void SetStamina(int stamina)
+    public void SetStamina(float stamina)
     {
 
         stamSlider.value = stamina;

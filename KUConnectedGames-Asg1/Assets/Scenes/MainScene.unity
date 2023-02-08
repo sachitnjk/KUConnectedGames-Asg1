@@ -2003,12 +2003,12 @@ PrefabInstance:
     - target: {fileID: 1153294328679365783, guid: de8b507764b14044f8ecbbef278cbb9b,
         type: 3}
       propertyPath: maxHealth
-      value: 200
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1153294328679365783, guid: de8b507764b14044f8ecbbef278cbb9b,
         type: 3}
       propertyPath: currentHealth
-      value: 200
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2731261305981502769, guid: de8b507764b14044f8ecbbef278cbb9b,
         type: 3}
@@ -2128,7 +2128,7 @@ PrefabInstance:
     - target: {fileID: 8105024763133557330, guid: de8b507764b14044f8ecbbef278cbb9b,
         type: 3}
       propertyPath: maxStam
-      value: 500
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8105024763133557330, guid: de8b507764b14044f8ecbbef278cbb9b,
         type: 3}
@@ -2143,7 +2143,7 @@ PrefabInstance:
     - target: {fileID: 8105024763133557330, guid: de8b507764b14044f8ecbbef278cbb9b,
         type: 3}
       propertyPath: currentStam
-      value: 500
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8870643181897504611, guid: de8b507764b14044f8ecbbef278cbb9b,
         type: 3}
