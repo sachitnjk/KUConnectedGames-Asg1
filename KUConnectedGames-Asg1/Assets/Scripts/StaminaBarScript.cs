@@ -7,6 +7,8 @@ public class StaminaBarScript : MonoBehaviour
 {
 
     [SerializeField] Slider stamSlider;
+    [SerializeField] private Gradient gradient;
+    [SerializeField] private Image fill;
 
     public void SetMaxStamina(float stamina)
     {
@@ -14,12 +16,15 @@ public class StaminaBarScript : MonoBehaviour
         stamSlider.maxValue = stamina;
         stamSlider.value = stamina;
 
+        fill.color = gradient.Evaluate(1f);
+
     }
 
     public void SetStamina(float stamina)
     {
-
         stamSlider.value = stamina;
+
+        fill.color = gradient.Evaluate(stamSlider.normalizedValue);
 
     }
 

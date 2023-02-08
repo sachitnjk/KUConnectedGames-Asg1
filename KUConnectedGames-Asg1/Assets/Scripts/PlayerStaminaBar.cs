@@ -15,13 +15,15 @@ public class PlayerStaminaBar : MonoBehaviour
 
     public StaminaBarScript stamBarScript;
     private PlayerInput playerInput;
+    //private ThirdPersonController tpController;
 
     InputAction sprintEnabled;
 
     void Start()
     {
 		playerInput = gameObject.GetComponent<PlayerInput>();
-		currentStam = maxStam;
+        //tpController = gameObject.GetComponent<ThirdPersonController>();
+        currentStam = maxStam;
         sprintEnabled = playerInput.actions["Sprint"];
         stamBarScript.SetMaxStamina(maxStam);
 
@@ -38,12 +40,13 @@ public class PlayerStaminaBar : MonoBehaviour
         if(sprintEnabled.IsPressed() && currentStam > 0)
         {
             SprintStamDepletion(stamDecay);
-            Debug.Log("Toooob");
+            //Debug.Log("Toooob");
         }
         else if(!sprintEnabled.IsPressed() && currentStam < maxStam)
         {
+            //tpController._speed = tpController.MoveSpeed;
             SprintStamRegen(stamRegen);
-            Debug.Log("Hedfones");
+            //Debug.Log("Hedfones");
         }
     }
 
@@ -58,7 +61,7 @@ public class PlayerStaminaBar : MonoBehaviour
 
         currentStam -= stamDecay * Time.deltaTime;
 		stamBarScript.SetStamina(currentStam);
-        Debug.Log(currentStam);
+        //Debug.Log(currentStam);
 
     }
 

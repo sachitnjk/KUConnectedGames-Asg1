@@ -2095,6 +2095,16 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3363259848303861632, guid: de8b507764b14044f8ecbbef278cbb9b,
+        type: 3}
+      propertyPath: MoveSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363259848303861632, guid: de8b507764b14044f8ecbbef278cbb9b,
+        type: 3}
+      propertyPath: SprintSpeed
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3363259848303861643, guid: de8b507764b14044f8ecbbef278cbb9b,
         type: 3}
       propertyPath: m_Name
@@ -2133,17 +2143,22 @@ PrefabInstance:
     - target: {fileID: 8105024763133557330, guid: de8b507764b14044f8ecbbef278cbb9b,
         type: 3}
       propertyPath: stamDecay
-      value: 1
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8105024763133557330, guid: de8b507764b14044f8ecbbef278cbb9b,
         type: 3}
       propertyPath: stamRegen
-      value: 1
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8105024763133557330, guid: de8b507764b14044f8ecbbef278cbb9b,
         type: 3}
       propertyPath: currentStam
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8105024763133557330, guid: de8b507764b14044f8ecbbef278cbb9b,
+        type: 3}
+      propertyPath: sprintSpeed
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8870643181897504611, guid: de8b507764b14044f8ecbbef278cbb9b,
         type: 3}
