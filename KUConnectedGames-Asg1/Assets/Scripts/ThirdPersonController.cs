@@ -170,7 +170,7 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 
-            //if(phView.IsMine)
+            //if (phView.IsMine)
             //{
             //    Move();
             //}

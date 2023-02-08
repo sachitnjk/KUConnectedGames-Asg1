@@ -10,22 +10,17 @@ public class PlayerStaminaBar : MonoBehaviour
     public float maxStam = 100;
 	public float currentStam;
 
+    private bool isSprinting;
+
     [SerializeField] private float stamDecay;
     [SerializeField] private float stamRegen;
 
     public StaminaBarScript stamBarScript;
-    private PlayerInput playerInput;
-    //private ThirdPersonController tpController;
-
-    InputAction sprintEnabled;
 
     void Start()
     {
-		playerInput = gameObject.GetComponent<PlayerInput>();
-        //tpController = gameObject.GetComponent<ThirdPersonController>();
         currentStam = maxStam;
-        sprintEnabled = playerInput.actions["Sprint"];
-        stamBarScript.SetMaxStamina(maxStam);
+        stamBarScript?.SetMaxStamina(maxStam);
 
 	}
 
@@ -37,32 +32,38 @@ public class PlayerStaminaBar : MonoBehaviour
     void StaminaExecute()
     {
 
-        if(sprintEnabled.IsPressed() && currentStam > 0)
+        if (isSprinting && currentStam > 0)
         {
             SprintStamDepletion(stamDecay);
-            //Debug.Log("Toooob");
         }
-        else if(!sprintEnabled.IsPressed() && currentStam < maxStam)
+        else if (!isSprinting && currentStam < maxStam)
         {
-            //tpController._speed = tpController.MoveSpeed;
             SprintStamRegen(stamRegen);
-            //Debug.Log("Hedfones");
         }
+    }
+
+    private void OnAim(InputValue value)
+    {
+
+        Debug.Log("I am aiming now");
+
+    }
+
+    public void OnSprint(InputValue value)
+    {
+       isSprinting = value.isPressed;
     }
 
     void SprintStamRegen(float stamRegen)
     {
         currentStam += stamRegen * Time.deltaTime;
-        stamBarScript.SetStamina(currentStam);
+        stamBarScript?.SetStamina(currentStam);
     }
 
     void SprintStamDepletion(float stamDecay)
     {
-
         currentStam -= stamDecay * Time.deltaTime;
-		stamBarScript.SetStamina(currentStam);
-        //Debug.Log(currentStam);
-
+		stamBarScript?.SetStamina(currentStam);
     }
 
 }

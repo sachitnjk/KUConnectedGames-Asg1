@@ -20,7 +20,7 @@ public class PlayerHealthBar : MonoBehaviour
 		playerInput = gameObject.GetComponent<PlayerInput>();
         damageTaken = playerInput.actions["DamageTaken"];
 		currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        healthBar?.SetMaxHealth(maxHealth);     //run if not null
     }
 
     void Update()
@@ -37,7 +37,6 @@ public class PlayerHealthBar : MonoBehaviour
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
+        healthBar?.SetHealth(currentHealth);
     }
-
 }
