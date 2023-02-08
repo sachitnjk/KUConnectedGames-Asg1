@@ -24,7 +24,9 @@ public class PlayerStaminaBar : MonoBehaviour
 		currentStam = maxStam;
         sprintEnabled = playerInput.actions["Sprint"];
         stamBarScript.SetMaxStamina(maxStam);
-    }
+
+		//currentStam = (int)Mathf.Clamp(currentStam, 0, maxStam);
+	}
 
     void Update()
     {
@@ -33,32 +35,31 @@ public class PlayerStaminaBar : MonoBehaviour
 
     void StaminaExecute()
     {
-        if(sprintEnabled.triggered)
+
+        if(sprintEnabled.IsPressed() && currentStam > 0)
         {
             SprintStamDepletion(stamDecay);
-            Debug.Log("sprint Decay");
-            Debug.Log(currentStam);
+            Debug.Log("Toooob");
         }
-        else
+        else if(!sprintEnabled.IsPressed() && currentStam < maxStam)
         {
             SprintStamRegen(stamRegen);
-			Debug.Log("sprint Regen");
-		}
+            Debug.Log("Hedfones");
+        }
     }
 
     void SprintStamRegen(int stamRegen)
     {
-        currentStam += stamRegen;
-        currentStam = (int)Mathf.Clamp(currentStam, 0, maxStam);
+        currentStam += stamRegen /** (int)Time.deltaTime*/;
         stamBarScript.SetStamina(currentStam);
     }
 
     void SprintStamDepletion(int stamDecay)
     {
 
-        currentStam -= stamDecay;
-		currentStam = (int)Mathf.Clamp(currentStam, 0, maxStam);
+        currentStam -= stamDecay /** (int)Time.deltaTime*/;
 		stamBarScript.SetStamina(currentStam);
+        Debug.Log(currentStam);
 
     }
 

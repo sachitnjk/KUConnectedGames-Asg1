@@ -2000,6 +2000,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -4
       objectReference: {fileID: 0}
+    - target: {fileID: 1153294328679365783, guid: de8b507764b14044f8ecbbef278cbb9b,
+        type: 3}
+      propertyPath: maxHealth
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153294328679365783, guid: de8b507764b14044f8ecbbef278cbb9b,
+        type: 3}
+      propertyPath: currentHealth
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 2731261305981502769, guid: de8b507764b14044f8ecbbef278cbb9b,
         type: 3}
       propertyPath: m_RootOrder
@@ -2117,13 +2127,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8105024763133557330, guid: de8b507764b14044f8ecbbef278cbb9b,
         type: 3}
+      propertyPath: maxStam
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8105024763133557330, guid: de8b507764b14044f8ecbbef278cbb9b,
+        type: 3}
       propertyPath: stamDecay
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8105024763133557330, guid: de8b507764b14044f8ecbbef278cbb9b,
         type: 3}
       propertyPath: stamRegen
-      value: 1000
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8105024763133557330, guid: de8b507764b14044f8ecbbef278cbb9b,
+        type: 3}
+      propertyPath: currentStam
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 8870643181897504611, guid: de8b507764b14044f8ecbbef278cbb9b,
         type: 3}
