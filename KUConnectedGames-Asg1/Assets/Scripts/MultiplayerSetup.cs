@@ -28,8 +28,5 @@ public class MultiplayerSetup : MonoBehaviourPunCallbacks
 				Destroy(itemsToDelete[i]);
 			}
 		}
-
 	}
-
-
 }
