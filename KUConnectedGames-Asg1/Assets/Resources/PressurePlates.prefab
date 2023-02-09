@@ -49,7 +49,7 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 3
+  Synchronization: 1
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
@@ -195,7 +195,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2de2ea4ac3a99da46ab959f71ea4e0ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggeredObject: {fileID: 0}
+  triggeredObject: {fileID: 8529607137436989217, guid: 08f00b6fd63868342b1703683ead9f70,
+    type: 3}
   ppOne: {fileID: 9036544623051969652}
   ppTwo: {fileID: 9036544621362559191}
 --- !u!1 &9036544623051970443
@@ -320,6 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2de2ea4ac3a99da46ab959f71ea4e0ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggeredObject: {fileID: 0}
+  triggeredObject: {fileID: 8529607137436989217, guid: 08f00b6fd63868342b1703683ead9f70,
+    type: 3}
   ppOne: {fileID: 9036544623051969652}
   ppTwo: {fileID: 9036544621362559191}
