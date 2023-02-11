@@ -55,7 +55,85 @@ public class AIController : MonoBehaviour
 
 	void Update()
 	{
+		EnviromentView();
 
+		if(!m_IsPatrol)
+		{
+			Chasing();
+		}
+		else
+		{
+			Patrolling();
+		}
+	}
+
+	private void Chasing()
+	{
+		m_PlayerNear = false;
+		playerLastPosition = Vector3.zero;
+
+		if(!m_CaughtPlayer)
+		{
+			Move(speedRun);
+			navMeshAgent.SetDestination(m_PlayerPosition);
+		}
+		if(navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+		{
+			if (m_WaitTime <= 0 && !m_CaughtPlayer && Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) >= 6f)
+			{
+				m_IsPatrol=true;
+				m_PlayerNear=false;
+				Move(speedWalk);
+				m_TimeToRotate = timeToRotate;
+				m_WaitTime = startWaitTime;
+				navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
+			}
+			else
+			{
+				if(Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) >= 2.5f)
+				{
+					Stop();
+					m_WaitTime -= Time.deltaTime;
+				}
+			}
+		}
+	}
+
+	private void Patrolling()
+	{
+		if(m_PlayerNear)
+		{
+			if(m_TimeToRotate <= 0)
+			{
+				Move(speedWalk);
+				LookingPlayer(playerLastPosition);
+			}
+			else
+			{
+				Stop();
+				m_TimeToRotate -= Time.deltaTime;
+			}
+		}
+		else
+		{
+			m_PlayerNear = false;
+			playerLastPosition = Vector3.zero;
+			navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
+			if(navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+			{
+				if(m_WaitTime <= 0)
+				{
+					NextPoint();
+					Move(speedWalk);
+					m_WaitTime = startWaitTime;
+				}
+				else
+				{
+					Stop();
+					m_WaitTime -= Time.deltaTime;
+				}
+			}
+		}
 	}
 
 	void Move(float speed)
