@@ -58,14 +58,18 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
 		foreach(RoomInfo room in list)
 		{
+			roomListPanel.SetActive(true);
 			RoomItemScript newRoom = Instantiate(roomItem, contentObject);
 			newRoom.SetRoomName(room.Name);
 			roomItemList.Add(newRoom);
 
 			if (room.PlayerCount == 0)
 			{
-				PhotonNetwork.Destroy(newRoom.gameObject);
 				roomItemList.Remove(newRoom);
+			}
+			if(roomItemList.Count < 1)
+			{
+				roomItemList.Clear();
 			}
 		}
 	}
@@ -78,11 +82,13 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 	public void OnClickLeaveRoom()
 	{
 		PhotonNetwork.LeaveRoom();
+		currentRoomName.text = "Room name: ";
 	}
 
 	public override void OnLeftRoom()
 	{
 		createRoomPanel.SetActive(true);
+		roomListPanel.SetActive(false);
 	}
 
 	public override void OnConnectedToMaster()
