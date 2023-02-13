@@ -13,6 +13,8 @@ public class PlayerItem : MonoBehaviour
     public GameObject leftArrowButton;
     public GameObject rightArrowButton;
 
+    //ExitGames.Client.Photon.Hashtable playerProperties = new ExitGames.Client.Photon.Hashtable();
+
     public void SetPlayerInfo(Player _player)
     {
         playerName.text = _player.NickName;
