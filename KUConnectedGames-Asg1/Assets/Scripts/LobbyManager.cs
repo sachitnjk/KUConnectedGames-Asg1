@@ -23,6 +23,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 	public PlayerItem playerItemPrefab;
 	public Transform playerItemParent;
 
+	public GameObject playButton;
+
 	private void Start()
 	{
 		PhotonNetwork.JoinLobby();
@@ -63,19 +65,14 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
 		foreach(RoomInfo room in list)
 		{
+			if (room.RemovedFromList)
+			{
+				return;
+			}
 			roomListPanel.SetActive(true);
 			RoomItemScript newRoom = Instantiate(roomItem, contentObject);
 			newRoom.SetRoomName(room.Name);
 			roomItemList.Add(newRoom);
-
-			if (room.PlayerCount == 0)
-			{
-				roomItemList.Remove(newRoom);
-			}
-			if(roomItemList.Count < 1)
-			{
-				roomItemList.Clear();
-			}
 		}
 	}
 
@@ -134,6 +131,22 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 	public override void OnPlayerLeftRoom(Player otherPlayer)
 	{
 		UpdatePlayerList();
-		playerItemsList.Clear();
+	}
+
+	private void Update()
+	{
+		if(PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount >= 1)
+		{
+			playButton.SetActive(true);
+		}
+		else
+		{
+			playButton.SetActive(false);
+		}
+	}
+
+	public void OnClickPlayButton()
+	{
+		PhotonNetwork.LoadLevel("MainScene");
 	}
 }
