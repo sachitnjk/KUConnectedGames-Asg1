@@ -26,27 +26,4 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 	{
 		SceneManager.LoadScene("LobbyScene");
 	}
-
-	//void Start()
-	//{
-
-	//	PhotonNetwork.ConnectUsingSettings();
-
-	//}
-
-
-	////any call inside this function is called when successfully connected to the server
-	//public override void OnConnectedToMaster()
-	//{
-	//	PhotonNetwork.JoinLobby();
-	//}
-
-
-	//public override void OnJoinedLobby()
-	//{
-	//	SceneManager.LoadScene("LobbyScene");
-
-
-	//}
-
 }
