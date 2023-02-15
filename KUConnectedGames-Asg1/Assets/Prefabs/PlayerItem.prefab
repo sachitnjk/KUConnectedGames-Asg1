@@ -471,14 +471,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: {fileID: 863341262437797278}
   backgroundImage: {fileID: 1906193790762738857}
-  highlightColor: {r: 0.29496258, g: 0.6886792, b: 0.6238318, a: 0.6745098}
+  highlightColor: {r: 0.69803923, g: 0.69803923, b: 0.69803923, a: 0.33333334}
   leftArrowButton: {fileID: 557874182523349647}
   rightArrowButton: {fileID: 7994561383830735158}
   playerAvatar: {fileID: 1906193790762738857}
   avatars:
-  - {fileID: 21300000, guid: ea7190fedd1c88641a00e8cf5f22f476, type: 3}
-  - {fileID: 21300000, guid: 06a090233d086cb47bb88d13441e012a, type: 3}
-  - {fileID: 21300000, guid: 4d8a525166bd97e448fdc9d73ff997d9, type: 3}
+  - {fileID: 21300000, guid: 23a3fec3db295b74cb07cbbccd5ec02d, type: 3}
+  - {fileID: 21300000, guid: f80f7ce1c053fda4f9fd890ad739db84, type: 3}
+  - {fileID: 21300000, guid: c9941c0604d413a4b9fa2da223f2e5b6, type: 3}
+  - {fileID: 21300000, guid: 14c98b82f902b2c44a75b07291727b54, type: 3}
 --- !u!1 &5163559859961309721
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,8 +515,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00018311, y: 27.0419}
-  m_SizeDelta: {x: 160, y: 232.7506}
+  m_AnchoredPosition: {x: -0.7832, y: -2.7252}
+  m_SizeDelta: {x: 189.7673, y: 292.2849}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2296584363513106383
 CanvasRenderer:
@@ -538,14 +539,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ea7190fedd1c88641a00e8cf5f22f476, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
