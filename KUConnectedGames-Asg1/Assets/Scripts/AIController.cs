@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
 public class AIController : MonoBehaviour
@@ -22,7 +23,7 @@ public class AIController : MonoBehaviour
     public Transform[] waypoints;
     int m_CurrentWaypointIndex;
 
-    Vector3 playerLastPosition = Vector3.zero; 
+    Vector3 playerLastPosition = Vector3.zero;
     Vector3 m_PlayerPosition;
 
     float m_WaitTime;
@@ -31,6 +32,9 @@ public class AIController : MonoBehaviour
     bool m_PlayerNear;
     bool m_IsPatrol;
     bool m_CaughtPlayer;
+
+    [SerializeField] private PlayerHealthBar playerHealthBar;
+    [SerializeField] private int damageDealt;
 
     void Start()
     {
@@ -52,7 +56,7 @@ public class AIController : MonoBehaviour
 
     private void Update()
     {
-            EnviromentView();                       //  Check whether or not the player is in the enemy's field of vision
+        EnviromentView();                       //  Check whether or not the player is in the enemy's field of vision
 
         if (!m_IsPatrol)
         {
@@ -62,12 +66,18 @@ public class AIController : MonoBehaviour
         {
             Patroling();
         }
+        
+    }
+
+    public void EnemyAttack(int damage)
+    {
+        playerHealthBar.TakeDamage(damage);
     }
 
     private void Chasing()
     {
         //  The enemy is chasing the player
-        m_PlayerNear = false;  
+        m_PlayerNear = false;
         playerLastPosition = Vector3.zero;
 
         if (!m_CaughtPlayer)
@@ -75,9 +85,14 @@ public class AIController : MonoBehaviour
             Move(speedRun);
             navMeshAgent.SetDestination(m_PlayerPosition);
         }
-        if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance) 
+		if (Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) <= 2f)
+		{
+			Debug.Log("attack is called");
+            EnemyAttack(damageDealt);
+		}
+		if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
         {
-                if (m_WaitTime <= 0 && !m_CaughtPlayer && Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) >= 6f)
+            if (m_WaitTime <= 0 && !m_CaughtPlayer && Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) >= 6f)
             {
                 m_IsPatrol = true;
                 m_PlayerNear = false;
@@ -86,11 +101,9 @@ public class AIController : MonoBehaviour
                 m_WaitTime = startWaitTime;
                 navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
             }
-            else
+			else
             {
-                if (Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) >= 2.5f)
-                    Stop();
-                m_WaitTime -= Time.deltaTime;
+				m_WaitTime -= Time.deltaTime;
             }
         }
     }
@@ -154,10 +167,10 @@ public class AIController : MonoBehaviour
         navMeshAgent.isStopped = false;
         navMeshAgent.speed = speed;
     }
-
     void CaughtPlayer()
     {
         m_CaughtPlayer = true;
+        Debug.Log("caught player called");
     }
 
     void LookingPlayer(Vector3 player)
@@ -183,7 +196,7 @@ public class AIController : MonoBehaviour
 
     void EnviromentView()
     {
-        Collider[] playerInRange = Physics.OverlapSphere(transform.position, viewRadius, playerMask);   
+        Collider[] playerInRange = Physics.OverlapSphere(transform.position, viewRadius, playerMask);
 
         for (int i = 0; i < playerInRange.Length; i++)
         {
@@ -191,11 +204,11 @@ public class AIController : MonoBehaviour
             Vector3 dirToPlayer = (player.position - transform.position).normalized;
             if (Vector3.Angle(transform.forward, dirToPlayer) < viewAngle / 2)
             {
-                float dstToPlayer = Vector3.Distance(transform.position, player.position);          
+                float dstToPlayer = Vector3.Distance(transform.position, player.position);
                 if (!Physics.Raycast(transform.position, dirToPlayer, dstToPlayer, obstacleMask))
                 {
-                    m_playerInRange = true;             
-                    m_IsPatrol = false;                 
+                    m_playerInRange = true;
+                    m_IsPatrol = false;
                 }
                 else
                 {
@@ -204,11 +217,12 @@ public class AIController : MonoBehaviour
             }
             if (Vector3.Distance(transform.position, player.position) > viewRadius)
             {
-                m_playerInRange = false;                
+                m_playerInRange = false;
             }
             if (m_playerInRange)
             {
-                m_PlayerPosition = player.transform.position;       
+                m_PlayerPosition = player.transform.position;
+            }
         }
     }
 }
