@@ -1043,9 +1043,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 275223465}
   startWaitTime: 4
-  timeToRotate: 2
-  speedWalk: 6
-  speedRun: 9
+  timeToRotate: 1
+  speedWalk: 3
+  speedRun: 4
   viewRadius: 15
   viewAngle: 90
   playerMask:
@@ -1062,6 +1062,7 @@ MonoBehaviour:
   - {fileID: 1379730970}
   - {fileID: 939999005}
   damageDealt: 10
+  gapBetweenDamage: 1
 --- !u!1 &357961701
 GameObject:
   m_ObjectHideFlags: 0

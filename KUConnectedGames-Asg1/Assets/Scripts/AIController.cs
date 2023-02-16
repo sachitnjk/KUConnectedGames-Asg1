@@ -32,12 +32,16 @@ public class AIController : MonoBehaviour
     bool m_PlayerNear;
     bool m_IsPatrol;
     bool m_CaughtPlayer;
+    bool ai_CanDamage;
 
-    [SerializeField] private PlayerHealthBar playerHealthBar;
+    private PlayerHealthBar playerHealthBar;
     [SerializeField] private int damageDealt;
+    [SerializeField] float gapBetweenDamage = 1f; 
 
     void Start()
     {
+        ai_CanDamage = true;
+
         m_PlayerPosition = Vector3.zero;
         m_IsPatrol = true;
         m_CaughtPlayer = false;
@@ -52,7 +56,9 @@ public class AIController : MonoBehaviour
         navMeshAgent.isStopped = false;
         navMeshAgent.speed = speedWalk;             //  Set the navemesh speed with the normal speed of the enemy
         navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);    //  Set the destination to the first waypoint
-    }
+
+		//playerHealthBar = GetComponent<PlayerHealthBar>();
+	}
 
     private void Update()
     {
@@ -71,7 +77,19 @@ public class AIController : MonoBehaviour
 
     public void EnemyAttack(int damage)
     {
-        playerHealthBar.TakeDamage(damage);
+        if(ai_CanDamage)
+        {
+			playerHealthBar.TakeDamage(damage);
+            StartCoroutine(AiAttacked());
+		}
+
+    }
+
+    private IEnumerator AiAttacked ()
+    {
+        ai_CanDamage = false;
+        yield return new WaitForSeconds(gapBetweenDamage);
+        ai_CanDamage = true;
     }
 
     private void Chasing()
@@ -222,6 +240,7 @@ public class AIController : MonoBehaviour
             if (m_playerInRange)
             {
                 m_PlayerPosition = player.transform.position;
+                playerHealthBar = player.GetComponent<PlayerHealthBar>();
             }
         }
     }
