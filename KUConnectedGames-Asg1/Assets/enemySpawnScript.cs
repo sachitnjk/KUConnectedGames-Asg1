@@ -5,14 +5,14 @@ using Photon.Pun;
 
 public class enemySpawnScript : MonoBehaviourPunCallbacks
 {
-	[SerializeField] private GameObject[] enemyPrefab;
+	[SerializeField] private GameObject enemyPrefab;
 	[SerializeField] private Transform[] enemySpawnPoints;
 
 	private void Start()
 	{
 		int randomNumber = Random.Range(0, enemySpawnPoints.Length);
 		Transform enemySpawnPoint = enemySpawnPoints[randomNumber];
-		GameObject enemyToSpawn = enemyPrefab[(int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]];
-		PhotonNetwork.Instantiate(enemyToSpawn.name, enemySpawnPoint.position, Quaternion.identity);
+		//GameObject enemyToSpawn = enemyPrefab[(int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]];
+		PhotonNetwork.Instantiate(enemyPrefab.name, enemySpawnPoint.position, Quaternion.identity);
 	}
 }
