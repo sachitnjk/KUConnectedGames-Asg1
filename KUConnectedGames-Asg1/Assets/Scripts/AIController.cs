@@ -57,7 +57,6 @@ public class AIController : MonoBehaviour
         navMeshAgent.speed = speedWalk;             //  Set the navemesh speed with the normal speed of the enemy
         navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);    //  Set the destination to the first waypoint
 
-		//playerHealthBar = GetComponent<PlayerHealthBar>();
 	}
 
     private void Update()
