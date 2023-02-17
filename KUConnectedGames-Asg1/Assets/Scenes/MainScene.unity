@@ -5013,10 +5013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab:
-  - {fileID: 5831528157756910272, guid: 16bcbc5c7f8fcf5489eb333ca679a50d, type: 3}
-  - {fileID: 5831528157756910272, guid: 16bcbc5c7f8fcf5489eb333ca679a50d, type: 3}
-  - {fileID: 5831528157756910272, guid: 16bcbc5c7f8fcf5489eb333ca679a50d, type: 3}
-  - {fileID: 5831528157756910272, guid: 16bcbc5c7f8fcf5489eb333ca679a50d, type: 3}
+  - {fileID: 229317152690442599, guid: 0826fb7639302ce4f8a2e4494821a630, type: 3}
   enemySpawnPoints:
   - {fileID: 1430405468}
   - {fileID: 593164390}
