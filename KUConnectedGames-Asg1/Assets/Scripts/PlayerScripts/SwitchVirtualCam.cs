@@ -23,7 +23,7 @@ public class SwitchVirtualCam : MonoBehaviour
 
 	private void OnEnable()
 	{
-		aimInput.performed += _ => StartAim();                //+= mean you are subscribing to the event, => mean you are piping it to a function
+		aimInput.performed += _ => StartAim();
 		aimInput.canceled += _ => EndAim();
 	}
 
