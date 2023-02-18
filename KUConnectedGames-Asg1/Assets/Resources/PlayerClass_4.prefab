@@ -1312,6 +1312,7 @@ MonoBehaviour:
   BottomClamp: -30
   CameraAngleOverride: 0
   LockCameraPosition: 0
+  targetSpeed: 0
   _speed: 0
 --- !u!114 &4777435591535474043
 MonoBehaviour:
@@ -1550,8 +1551,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1958e28a13664408bcd5bca9fec5e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
+  maxHealth: 150
+  currentHealth: 150
   healthBar: {fileID: 4938280552918583279}
 --- !u!114 &8105024763133557330
 MonoBehaviour:
@@ -1565,11 +1566,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d8f7228eeed8f1499964a81c71efe69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStam: 100
-  currentStam: 100
+  maxStam: 85
+  currentStam: 85
   stamDecay: 20
   stamRegen: 15
   stamBarScript: {fileID: 3079493921623841978}
+  tpController: {fileID: 0}
 --- !u!1 &3431887501438043480
 GameObject:
   m_ObjectHideFlags: 0

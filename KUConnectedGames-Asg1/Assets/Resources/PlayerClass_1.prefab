@@ -1312,6 +1312,7 @@ MonoBehaviour:
   BottomClamp: -30
   CameraAngleOverride: 0
   LockCameraPosition: 0
+  targetSpeed: 0
   _speed: 0
 --- !u!114 &4777435591535474043
 MonoBehaviour:
@@ -1570,6 +1571,7 @@ MonoBehaviour:
   stamDecay: 20
   stamRegen: 15
   stamBarScript: {fileID: 3079493921623841978}
+  tpController: {fileID: 3363259848303861632}
 --- !u!1 &3431887501438043480
 GameObject:
   m_ObjectHideFlags: 0
