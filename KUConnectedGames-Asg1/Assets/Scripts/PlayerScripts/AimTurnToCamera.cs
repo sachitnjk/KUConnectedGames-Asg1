@@ -28,6 +28,7 @@ public class AimTurnToCamera : MonoBehaviour
 
 			// Apply the rotation to the character
 			transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
+			Debug.Log(transform.rotation);
 		}
 	}
 }

@@ -84,7 +84,7 @@ namespace StarterAssets
         private float _cinemachineTargetPitch;
 
         // player
-        private float targetSpeed;
+        public float targetSpeed;
         public float _speed;
         private float _animationBlend;
         private float _targetRotation = 0.0f;
@@ -103,6 +103,7 @@ namespace StarterAssets
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
 
+
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
         private PlayerInput _playerInput;
 #endif
@@ -110,6 +111,7 @@ namespace StarterAssets
         private CharacterController _controller;
         private StarterAssetsInputs _input;
         private GameObject _mainCamera;
+
 
         private PlayerStaminaBar playerStaminaBar;
 
@@ -406,5 +408,5 @@ namespace StarterAssets
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
         }
-    }
+	}
 }

@@ -16,12 +16,14 @@ public class PlayerStaminaBar : MonoBehaviour
     [SerializeField] private float stamRegen;
 
     public StaminaBarScript stamBarScript;
+    public ThirdPersonController tpController;
 
     void Start()
     {
         currentStam = maxStam;
         stamBarScript?.SetMaxStamina(maxStam);
 
+        tpController = GetComponent<ThirdPersonController>();
 	}
 
     void Update()
@@ -32,7 +34,7 @@ public class PlayerStaminaBar : MonoBehaviour
     void StaminaExecute()
     {
 
-        if (isSprinting && currentStam > 0)
+        if (isSprinting && tpController.targetSpeed > 0 && currentStam > 0)
         {
             SprintStamDepletion(stamDecay);
         }
@@ -41,6 +43,7 @@ public class PlayerStaminaBar : MonoBehaviour
             SprintStamRegen(stamRegen);
         }
     }
+
     public void OnSprint(InputValue value)
     {
        isSprinting = value.isPressed;
