@@ -42,24 +42,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "DamageTaken",
-                    "type": "Button",
-                    "id": "437c0c60-2576-4373-9c24-45496101de4e",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "HealRecieved",
-                    "type": "Button",
-                    "id": "a4060f59-1e3d-4d18-b776-27d75230cce5",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Aim",
                     "type": "Button",
                     "id": "6de67a10-c1b6-4261-aa3d-e3ef5e0dad15",
@@ -252,28 +234,6 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Sprint",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "525d0ef5-b29f-42a7-bf3f-f32e373725e2",
-                    "path": "<Keyboard>/p",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "DamageTaken",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "991467a3-6385-4115-b955-93f792e3cf23",
-                    "path": "<Keyboard>/o",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "HealRecieved",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

@@ -6,32 +6,17 @@ using UnityEngine.InputSystem;
 
 public class PlayerHealthBar : MonoBehaviour
 {
-    private PlayerInput playerInput;
 
     public int maxHealth= 100;
     public int currentHealth;
 
     public HealthBarScript healthBar;
 
-    InputAction damageTaken;
 
     void Start()
     {
-		playerInput = gameObject.GetComponent<PlayerInput>();
-        damageTaken = playerInput.actions["DamageTaken"];
 		currentHealth = maxHealth;
         healthBar?.SetMaxHealth(maxHealth);     //run if not null
-    }
-
-    void Update()
-    {
-        
-        if(damageTaken.triggered)
-        {
-            TakeDamage(20);
-            Debug.Log(currentHealth);
-        }
-
     }
 
     public void TakeDamage(int damage)

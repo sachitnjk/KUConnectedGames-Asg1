@@ -1,3 +1,5 @@
+using Cinemachine;
+using Photon.Pun.Demo.Asteroids;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,47 +7,44 @@ using UnityEngine.InputSystem;
 
 public class PlayerShoot : MonoBehaviour
 {
-    [SerializeField] private Transform camTransform;
-    [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private Transform barrelTransform;
-    [SerializeField] private Transform bulletParent;
-    [SerializeField] private float bulletHitMissDistance = 25f;
+	[SerializeField] private GameObject bulletPrefab;
+	[SerializeField] private Transform firePoint;
 
-	private CharacterController charController;
-	private PlayerInput playerInput;
-    private InputAction shootAction;
+	PlayerInput playerInput;
+	InputAction shoot;
 
-    private void Awake()
-    {
-        charController = GetComponent<CharacterController>();
-        playerInput = GetComponent<PlayerInput>();
-        shootAction = playerInput.actions["Shoot"];
-    }
+	public float bulletSpeed = 20f;
+	public float fireRate = 0.5f;
+	private float nextFireTime = 0f;
 
-    private void OnEnable()
-    {
-        shootAction.performed += _ => ShootGun();
-    }
+	private CinemachineVirtualCamera virtualCamera;
 
-    private void OnDisable()
-    {
-		shootAction.performed -= _ => ShootGun();
+	private void Start()
+	{
+		virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
+
+		playerInput = GetComponent<PlayerInput>();
+		shoot = playerInput.actions["Shoot"];
+
+	}
+	void Update()
+	{
+		if (shoot.triggered && Time.time >= nextFireTime)
+		{
+			nextFireTime = Time.time + 0f / fireRate;
+			Shoot();
+		}
 	}
 
-    private void ShootGun()
-    {
-        RaycastHit hit;
-		GameObject bullet = GameObject.Instantiate(bulletPrefab, barrelTransform.position, Quaternion.identity, bulletParent);
+	void Shoot()
+	{
+		Vector3 cameraForward = virtualCamera.transform.forward;
+		GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+		bullet.GetComponent<Rigidbody>().velocity = cameraForward * bulletSpeed;
 		BulletController bulletController = bullet.GetComponent<BulletController>();
-		if (Physics.Raycast(camTransform.position, camTransform.forward, out hit, Mathf.Infinity))
-        {
-            bulletController.target = hit.point;
-            bulletController.hit = true;
-        }
-        else
-        {
-            bulletController.target = camTransform.position + camTransform.forward * bulletHitMissDistance;
-            bulletController.hit = false;
-        }
-    }
+		if (bulletController != null)
+		{
+			bulletController.speed = bulletSpeed;
+		}
+	}
 }
