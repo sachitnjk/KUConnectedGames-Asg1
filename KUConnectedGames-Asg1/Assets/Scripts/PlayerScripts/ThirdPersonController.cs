@@ -114,6 +114,7 @@ namespace StarterAssets
 
 
         private PlayerStaminaBar playerStaminaBar;
+   
 
         private const float _threshold = 0.01f;
 
@@ -171,12 +172,6 @@ namespace StarterAssets
 
 			JumpAndGravity();
 			GroundedCheck();
-
-            //if (phView.IsMine)
-            //{
-            //    Move();
-            //}
-
             Move();
 
         }
@@ -273,7 +268,7 @@ namespace StarterAssets
 
             // note: Vector2's != operator uses approximation so is not floating point error prone, and is cheaper than magnitude
             // if there is a move input rotate player when the player is moving
-            if (_input.move != Vector2.zero)
+            if (_input.move != Vector2.zero || _input.isAiming)
             {
                 _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg +
                                   _mainCamera.transform.eulerAngles.y;
@@ -281,9 +276,8 @@ namespace StarterAssets
                     RotationSmoothTime);
 
                 // rotate to face input direction relative to camera position
-					transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+                transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
             }
-
 
             Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
 
