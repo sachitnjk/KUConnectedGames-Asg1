@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal.Internal;
 #endif
 //using Photon.Pun;
 
@@ -76,9 +77,6 @@ namespace StarterAssets
         [Tooltip("For locking the camera position on all axis")]
         public bool LockCameraPosition = false;
 
-        //[Header("Photon view")]
-        //PhotonView phView;
-
         // cinemachine
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
@@ -147,7 +145,6 @@ namespace StarterAssets
         {
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
 
-            //phView = GetComponent<PhotonView>();
             playerStaminaBar = GetComponent<PlayerStaminaBar>();
             
             _hasAnimator = TryGetComponent(out _animator);

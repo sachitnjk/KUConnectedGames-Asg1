@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
+using WebSocketSharp;
+
 public class AIController : MonoBehaviour
 {
     public NavMeshAgent navMeshAgent;
@@ -141,7 +144,7 @@ public class AIController : MonoBehaviour
         }
         else
         {
-            m_PlayerNear = false;
+			m_PlayerNear = false;
             playerLastPosition = Vector3.zero;
             navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
             if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
@@ -168,7 +171,7 @@ public class AIController : MonoBehaviour
 
     public void NextPoint()
     {
-        m_CurrentWaypointIndex = (m_CurrentWaypointIndex + 1) % waypoints.Length;
+		m_CurrentWaypointIndex = (m_CurrentWaypointIndex + 1) % waypoints.Length;
         navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
     }
 
@@ -180,6 +183,7 @@ public class AIController : MonoBehaviour
 
     void Move(float speed)
     {
+        //Debug.Log("Move being called");
         navMeshAgent.isStopped = false;
         navMeshAgent.speed = speed;
     }
@@ -193,7 +197,7 @@ public class AIController : MonoBehaviour
         navMeshAgent.SetDestination(player);
         if (Vector3.Distance(transform.position, player) <= 0.3)
         {
-            if (m_WaitTime <= 0)
+			if (m_WaitTime <= 0)
             {
                 m_PlayerNear = false;
                 Move(speedWalk);

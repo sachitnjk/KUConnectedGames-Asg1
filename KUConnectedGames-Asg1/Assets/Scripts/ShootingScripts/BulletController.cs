@@ -12,7 +12,6 @@ public class BulletController : MonoBehaviour
 
 	void Update()
 	{
-		// Move the bullet forward
 		transform.position += transform.forward * speed * Time.deltaTime;
 
 		// Destroy the bullet after a certain amount of time
@@ -29,7 +28,6 @@ public class BulletController : MonoBehaviour
 		EnemyHpController e_HealthPoints = other.GetComponent<EnemyHpController>();
 		if (e_HealthPoints != null)
 		{
-			// Apply damage to the enemy and destroy the bullet
 			e_HealthPoints.EnemyDamageTake(damage);
 			Destroy(gameObject);
 		}

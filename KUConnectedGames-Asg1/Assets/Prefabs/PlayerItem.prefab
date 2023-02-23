@@ -470,7 +470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: {fileID: 863341262437797278}
   backgroundImage: {fileID: 1906193790762738857}
-  highlightColor: {r: 0.67551655, g: 1, b: 0.4660377, a: 1}
+  highlightColor: {r: 1, g: 1, b: 1, a: 1}
   leftArrowButton: {fileID: 557874182523349647}
   rightArrowButton: {fileID: 7994561383830735158}
   playerAvatar: {fileID: 1906193790762738857}

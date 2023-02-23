@@ -84,7 +84,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 	public void OnClickLeaveRoom()
 	{
 		PhotonNetwork.LeaveRoom();
-		currentRoomName.text = "Room name: ";
+		currentRoomName.text = "Current room name: ";
 	}
 
 	public override void OnLeftRoom()
