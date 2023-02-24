@@ -1282,8 +1282,8 @@ GameObject:
   - component: {fileID: 2498799666543781285}
   - component: {fileID: 1153294328679365783}
   - component: {fileID: 8105024763133557330}
-  - component: {fileID: 40496560690659148}
-  - component: {fileID: 398766957103743496}
+  - component: {fileID: 6336435756885815348}
+  - component: {fileID: 286372833273224834}
   m_Layer: 10
   m_Name: PlayerClass_2
   m_TagString: Player
@@ -1448,6 +1448,8 @@ MonoBehaviour:
   look: {x: 0, y: 0}
   jump: 0
   sprint: 0
+  isAiming: 0
+  shoot: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
@@ -1565,7 +1567,7 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 3
+  Synchronization: 2
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
@@ -1673,24 +1675,7 @@ MonoBehaviour:
   stamRegen: 20
   stamBarScript: {fileID: 3079493921623841978}
   tpController: {fileID: 0}
---- !u!114 &40496560690659148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3363259848303861643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3825fa2c6c175a44d8ba4561412fdeca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8136179568425649134, guid: 9424f18a5a435b04b83b2ac77e01a120,
-    type: 3}
-  firePoint: {fileID: 5160345024849324107}
-  bulletSpeed: 20
-  fireRate: 0.5
---- !u!114 &398766957103743496
+--- !u!114 &6336435756885815348
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1699,10 +1684,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 3363259848303861643}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 336b3edc9403239468c8fd25fcd58884, type: 3}
+  m_Script: {fileID: 11500000, guid: 3825fa2c6c175a44d8ba4561412fdeca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 5270201522767506456}
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  bulletSpeed: 20
+  fireRate: 0.5
+--- !u!114 &286372833273224834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3363259848303861643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53fa4472629936a4e958d8c2832d98ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gun_RateOfFire: 0
+  gun_NextTimeToFire: 0
+  gun_ReloadSpeed: 0
+  gun_MagazineSize: 0
+  gun_CamToShootAlong: {fileID: 8052448301568605080}
+  gun_MaxAmmo: 0
+  gun_CurrentAmmo: 0
+  Automatic: 0
+  semiAutomatic: 0
+  bullet_Prefab: {fileID: 8136179568425649134, guid: 9424f18a5a435b04b83b2ac77e01a120,
+    type: 3}
+  bullet_Impact: {fileID: 4948808643176473708, guid: b9c1431969fcd1a42af11ae87fa966f7,
+    type: 3}
+  bullet_Damage: 0
+  bullet_Spread: 0
+  bullet_Range: 0
 --- !u!1 &3431887501438043480
 GameObject:
   m_ObjectHideFlags: 0
@@ -4132,17 +4148,17 @@ PrefabInstance:
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 4.5511856
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.665
+      value: 1.6650009
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4
+      value: -1.84132
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
@@ -4191,6 +4207,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
+--- !u!20 &8052448301568605080 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8944336655422409496, guid: f6d148d888ffbf54b9afe9936dfaec1f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1432322654257606784}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8052448301568605082 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8944336655422409498, guid: f6d148d888ffbf54b9afe9936dfaec1f,

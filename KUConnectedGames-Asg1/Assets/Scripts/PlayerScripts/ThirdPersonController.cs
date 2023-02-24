@@ -112,7 +112,7 @@ namespace StarterAssets
 
 
         private PlayerStaminaBar playerStaminaBar;
-   
+
 
         private const float _threshold = 0.01f;
 
@@ -146,7 +146,7 @@ namespace StarterAssets
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
 
             playerStaminaBar = GetComponent<PlayerStaminaBar>();
-            
+
             _hasAnimator = TryGetComponent(out _animator);
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
@@ -165,10 +165,10 @@ namespace StarterAssets
 
         private void Update()
         {
-			_hasAnimator = TryGetComponent(out _animator);
+            _hasAnimator = TryGetComponent(out _animator);
 
-			JumpAndGravity();
-			GroundedCheck();
+            JumpAndGravity();
+            GroundedCheck();
             Move();
 
         }

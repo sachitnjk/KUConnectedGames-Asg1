@@ -36,7 +36,7 @@ public class PlayerShoot : MonoBehaviour
 		}
 	}
 
-	void Shoot()
+	public void Shoot()
 	{
 		Vector3 cameraForward = virtualCamera.transform.forward;
 		GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
