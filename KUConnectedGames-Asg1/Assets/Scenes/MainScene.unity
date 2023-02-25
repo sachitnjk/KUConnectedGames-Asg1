@@ -5751,8 +5751,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 286372833273224834, guid: 938db13b0896ee5489253a42313e534e,
         type: 3}
+      propertyPath: gun_RateOfFire
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 286372833273224834, guid: 938db13b0896ee5489253a42313e534e,
+        type: 3}
       propertyPath: gun_CurrentAmmo
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 286372833273224834, guid: 938db13b0896ee5489253a42313e534e,
+        type: 3}
+      propertyPath: gun_NextTimeToFire
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1107259243895933502, guid: 938db13b0896ee5489253a42313e534e,
         type: 3}

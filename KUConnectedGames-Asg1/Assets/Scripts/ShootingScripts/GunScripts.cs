@@ -18,6 +18,7 @@ public class GunScripts : MonoBehaviour
 	[SerializeField] private float gun_MagazineSize;
 	[SerializeField] private CinemachineVirtualCamera gun_PlayerVirtualCam;
 	[SerializeField] private Camera gun_PlayerMainCam;
+	[SerializeField] private GameObject gun_ShootPoint;
 
 	private bool isReloading;
 
@@ -56,7 +57,7 @@ public class GunScripts : MonoBehaviour
 		{
 			/*gun_NextTimeToFire = Time.time + 2f / gun_RateOfFire*/;
 			Debug.Log("shoot is being called");
-			//Shoot();
+			Shoot();
 			_input.shoot = false;
 		}
 
@@ -89,11 +90,11 @@ public class GunScripts : MonoBehaviour
 		ray_PlayerZAxis.y = 0;
 		ray_PlayerZAxis.Normalize();
 
-		Vector3 ray_Origin = gun_PlayerVirtualCam.transform.position;
+		Vector3 ray_Origin = gun_ShootPoint.transform.position;
 
 		Ray ray = new Ray(ray_Origin, ray_PlayerZAxis);
 
-		if(Physics.Raycast(ray, out RaycastHit ray_hit))
+		if (Physics.Raycast(ray, out RaycastHit ray_hit))
 		{
 			Debug.Log(ray_hit.collider.gameObject.name);
 		}

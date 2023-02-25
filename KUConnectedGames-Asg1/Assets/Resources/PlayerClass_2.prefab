@@ -1709,6 +1709,7 @@ MonoBehaviour:
   gun_MagazineSize: 0
   gun_PlayerVirtualCam: {fileID: 1107259243895933503}
   gun_PlayerMainCam: {fileID: 8052448301568605080}
+  gun_ShootPoint: {fileID: 3741649262085059040}
   gun_MaxAmmo: 0
   gun_CurrentAmmo: 0
   Automatic: 0
@@ -4150,17 +4151,17 @@ PrefabInstance:
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.5511856
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.6650009
+      value: 1.665
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.84132
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
