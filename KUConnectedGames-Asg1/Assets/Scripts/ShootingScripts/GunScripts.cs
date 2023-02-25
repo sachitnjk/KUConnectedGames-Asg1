@@ -1,3 +1,5 @@
+using Cinemachine;
+using ClipperLib;
 using Photon.Pun.Demo.Asteroids;
 using StarterAssets;
 using System.Collections;
@@ -9,22 +11,13 @@ using static UnityEngine.Rendering.DebugUI.Table;
 
 public class GunScripts : MonoBehaviour
 {
-	//	Bullet prefab
-	//RoF
-	//Magazine size
-	//Bullet damage
-	//Bullet speed
-	//Reload speed
-	//bullet spread  -> will need to look more into this
-	//bullet range   -> delete after this range
-	//bullet impact
-
 	[Header("All gun realated attributes")]
 	[SerializeField] private float gun_RateOfFire;
 	[SerializeField] private float gun_NextTimeToFire;
 	[SerializeField] private float gun_ReloadTime;
 	[SerializeField] private float gun_MagazineSize;
-	[SerializeField] private Camera gun_CamToShootAlong;
+	[SerializeField] private CinemachineVirtualCamera gun_PlayerVirtualCam;
+	[SerializeField] private Camera gun_PlayerMainCam;
 
 	private bool isReloading;
 
@@ -43,31 +36,39 @@ public class GunScripts : MonoBehaviour
 	[SerializeField] private GameObject bullet_Impact;
 	[SerializeField] private float bullet_Damage;
 	[SerializeField] private float bullet_Spread;
-	[SerializeField] private float bullet_Range;
+
+	[SerializeField] private float ray_Range;
+
+	[SerializeField] private GameObject screenCenter_GO;
+	private Vector3 screenCenter_Vector;
 
 	private void Start()
 	{
 		//gun_CurrentAmmo = gun_MaxAmmo;
 		_input = GetComponent<StarterAssetsInputs>();
+		screenCenter_Vector = gun_PlayerMainCam.ScreenToWorldPoint(screenCenter_GO.transform.position);
 
 	}
 
 	private void Update()
 	{
-		if(isReloading)
+		if (_input.shoot/*&& Time.time >= gun_NextTimeToFire*/)
+		{
+			/*gun_NextTimeToFire = Time.time + 2f / gun_RateOfFire*/;
+			Debug.Log("shoot is being called");
+			//Shoot();
+			_input.shoot = false;
+		}
+
+		if (isReloading)
 		{
 			return;
 		}
+
 		if(gun_CurrentAmmo <= 1)
 		{
 			StartCoroutine(Reload());
 			return;
-		}
-		if(_input.shoot && Time.time >= gun_NextTimeToFire)
-		{
-			gun_NextTimeToFire = Time.time + 1f / gun_RateOfFire;
-			Debug.Log("shoot is being called");
-			//Shoot();
 		}
 		
 	}
@@ -84,6 +85,18 @@ public class GunScripts : MonoBehaviour
 
 	private void Shoot()
 	{
+		Vector3 ray_PlayerZAxis = gun_PlayerVirtualCam.Follow.position - gun_PlayerVirtualCam.transform.position;
+		ray_PlayerZAxis.y = 0;
+		ray_PlayerZAxis.Normalize();
+
+		Vector3 ray_Origin = gun_PlayerVirtualCam.transform.position;
+
+		Ray ray = new Ray(ray_Origin, ray_PlayerZAxis);
+
+		if(Physics.Raycast(ray, out RaycastHit ray_hit))
+		{
+			Debug.Log(ray_hit.collider.gameObject.name);
+		}
 	}
 
 }
