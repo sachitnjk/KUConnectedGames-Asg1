@@ -76,7 +76,6 @@ GameObject:
   - component: {fileID: 828396320733494291}
   - component: {fileID: 3189676571945278063}
   - component: {fileID: 4094777651859361401}
-  - component: {fileID: 4723930388567770004}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -150,19 +149,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4723930388567770004
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 235372136977932948}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &245694025329914045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1710,6 +1696,9 @@ MonoBehaviour:
   gun_PlayerVirtualCam: {fileID: 1107259243895933503}
   gun_PlayerMainCam: {fileID: 8052448301568605080}
   gun_ShootPoint: {fileID: 3741649262085059040}
+  ray_RaycastMask:
+    serializedVersion: 2
+    m_Bits: 2943
   gun_MaxAmmo: 0
   gun_CurrentAmmo: 0
   Automatic: 0
@@ -4151,17 +4140,17 @@ PrefabInstance:
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 4.5511856
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.665
+      value: 1.6650009
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4
+      value: -1.84132
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}

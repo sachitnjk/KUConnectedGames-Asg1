@@ -5746,6 +5746,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 286372833273224834, guid: 938db13b0896ee5489253a42313e534e,
         type: 3}
+      propertyPath: ray_Range
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 286372833273224834, guid: 938db13b0896ee5489253a42313e534e,
+        type: 3}
       propertyPath: gun_MaxAmmo
       value: 20
       objectReference: {fileID: 0}

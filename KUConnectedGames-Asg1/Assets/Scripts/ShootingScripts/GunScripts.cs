@@ -1,13 +1,9 @@
 using Cinemachine;
-using ClipperLib;
-using Photon.Pun.Demo.Asteroids;
 using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI.Table;
+using UnityEngine.InputSystem;
 
 public class GunScripts : MonoBehaviour
 {
@@ -19,6 +15,8 @@ public class GunScripts : MonoBehaviour
 	[SerializeField] private CinemachineVirtualCamera gun_PlayerVirtualCam;
 	[SerializeField] private Camera gun_PlayerMainCam;
 	[SerializeField] private GameObject gun_ShootPoint;
+
+	[SerializeField] private LayerMask ray_RaycastMask;
 
 	private bool isReloading;
 
@@ -47,7 +45,6 @@ public class GunScripts : MonoBehaviour
 	{
 		//gun_CurrentAmmo = gun_MaxAmmo;
 		_input = GetComponent<StarterAssetsInputs>();
-		screenCenter_Vector = gun_PlayerMainCam.ScreenToWorldPoint(screenCenter_GO.transform.position);
 
 	}
 
@@ -86,18 +83,29 @@ public class GunScripts : MonoBehaviour
 
 	private void Shoot()
 	{
-		Vector3 ray_PlayerZAxis = gun_PlayerVirtualCam.Follow.position - gun_PlayerVirtualCam.transform.position;
-		ray_PlayerZAxis.y = 0;
+		screenCenter_Vector = gun_PlayerMainCam.ScreenToWorldPoint(new Vector2(Screen.width / 2, Screen.height / 2));
+
+		Debug.Log(screenCenter_Vector);
+
+		Vector3 ray_PlayerZAxis = screenCenter_Vector - gun_ShootPoint.transform.position;
 		ray_PlayerZAxis.Normalize();
 
 		Vector3 ray_Origin = gun_ShootPoint.transform.position;
 
-		Ray ray = new Ray(ray_Origin, ray_PlayerZAxis);
+		Ray ray = new Ray(ray_Origin, -ray_PlayerZAxis);
 
-		if (Physics.Raycast(ray, out RaycastHit ray_hit))
+		if (Physics.Raycast(ray, out RaycastHit ray_hit, ray_Range, ray_RaycastMask))
 		{
-			Debug.Log(ray_hit.collider.gameObject.name);
+			Debug.Log(ray_hit.collider.gameObject.name, ray_hit.collider.gameObject);
+			Debug.DrawLine(ray_Origin, ray_hit.point, Color.red, 5f);
+
 		}
+	}
+
+	private void OnDrawGizmos()
+	{
+		Gizmos.color = Color.black;
+		Gizmos.DrawSphere(screenCenter_Vector, 0.5f);
 	}
 
 }
