@@ -37,16 +37,19 @@ public class GunScripts : MonoBehaviour
 	[SerializeField] private int bullet_Damage;
 	[SerializeField] private float bullet_Spread;
 
-	[SerializeField] private Vector3 bullet_Target;
+	private Vector3 bullet_Target;
 
 	[SerializeField] private float ray_Range;
 
 	[SerializeField] private GameObject screenCenter_GO;
 	private Vector3 screenCenter_Vector;
 
+	[SerializeField] EnemyHpController e_HPController;
+
 	private void Start()
 	{
 		gun_CurrentAmmo = gun_MaxAmmo;
+		//e_HPController.e_CurrentHealth = 100;
 
 	}
 
@@ -70,6 +73,8 @@ public class GunScripts : MonoBehaviour
 			StartCoroutine(Reload());
 			return;
 		}
+
+		//Debug.Log(e_HPController.e_CurrentHealth);
 		
 	}
 
@@ -91,6 +96,13 @@ public class GunScripts : MonoBehaviour
 		{
 			bullet_Target = hitResult.point;
 			Debug.Log(hitResult.collider.gameObject.name);
+
+			if (hitResult.collider.gameObject.CompareTag("Enemy"))
+			{
+				e_HPController.EnemyDamageTake(bullet_Damage);
+				Debug.Log(e_HPController.e_CurrentHealth);
+			}
+
 		}
 		else
 		{

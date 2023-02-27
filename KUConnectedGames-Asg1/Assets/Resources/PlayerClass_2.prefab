@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53fa4472629936a4e958d8c2832d98ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun_RateOfFire: 0
+  gun_RateOfFire: 20
   gun_ReloadTime: 0
   gun_MagazineSize: 0
   gun_PlayerVirtualCam: {fileID: 1107259243895933503}
@@ -179,11 +179,13 @@ MonoBehaviour:
   bullet_Prefab: {fileID: 8136179568425649134, guid: 9424f18a5a435b04b83b2ac77e01a120,
     type: 3}
   bullet_Impact: {fileID: 0}
-  bullet_Damage: 0
+  bullet_Damage: 20
   bullet_Spread: 0
   bullet_Target: {x: 0, y: 0, z: 0}
   ray_Range: 0
   screenCenter_GO: {fileID: 2736341847947826760}
+  e_HPController: {fileID: 5515684558555358049, guid: ef077e2c712e19d428e65514d3f74054,
+    type: 3}
 --- !u!1 &245694025329914045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1303,7 +1305,6 @@ GameObject:
   - component: {fileID: 2498799666543781285}
   - component: {fileID: 1153294328679365783}
   - component: {fileID: 8105024763133557330}
-  - component: {fileID: 286372833273224834}
   m_Layer: 10
   m_Name: PlayerClass_2
   m_TagString: Player
@@ -1696,41 +1697,6 @@ MonoBehaviour:
   stamRegen: 20
   stamBarScript: {fileID: 3079493921623841978}
   tpController: {fileID: 0}
---- !u!114 &286372833273224834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3363259848303861643}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53fa4472629936a4e958d8c2832d98ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gun_RateOfFire: 0
-  gun_ReloadTime: 0
-  gun_MagazineSize: 0
-  gun_PlayerVirtualCam: {fileID: 1107259243895933503}
-  gun_PlayerMainCam: {fileID: 8052448301568605080}
-  gun_ShootPoint: {fileID: 3741649262085059040}
-  ray_RaycastMask:
-    serializedVersion: 2
-    m_Bits: 2943
-  _input: {fileID: 0}
-  gun_MaxAmmo: 0
-  gun_CurrentAmmo: 0
-  Automatic: 0
-  semiAutomatic: 0
-  bullet_Prefab: {fileID: 8136179568425649134, guid: 9424f18a5a435b04b83b2ac77e01a120,
-    type: 3}
-  bullet_Impact: {fileID: 4948808643176473708, guid: b9c1431969fcd1a42af11ae87fa966f7,
-    type: 3}
-  bullet_Damage: 0
-  bullet_Spread: 0
-  bullet_Target: {x: 0, y: 0, z: 0}
-  ray_Range: 0
-  screenCenter_GO: {fileID: 2736341847947826760}
 --- !u!1 &3431887501438043480
 GameObject:
   m_ObjectHideFlags: 0
@@ -4160,17 +4126,17 @@ PrefabInstance:
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.808011
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.664999
+      value: 1.665
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.1216803
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}

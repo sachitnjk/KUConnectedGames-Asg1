@@ -17,19 +17,9 @@ public class EnemyHpController : MonoBehaviour
 		enemyHp?.SetMaxHealth(e_MaxHealth);
 	}
 
-	private void OnCollisionEnter(Collision collision)
+	public void Update()
 	{
-		if(collision.gameObject.tag == "Bullet")
-		{
-			EnemyDamageTake(collision.gameObject.GetComponent<BulletController>().damage);
-
-			Destroy(collision.gameObject);
-
-			if (e_CurrentHealth < 0)
-			{
-				E_Die();
-			}
-		}
+		E_Die();
 	}
 
 	public void EnemyDamageTake(int damage)
@@ -40,7 +30,11 @@ public class EnemyHpController : MonoBehaviour
 
 	public void E_Die()
 	{
-		Destroy(enemyGameObject);
+		if(e_CurrentHealth <= 0)
+		{
+			Destroy(enemyGameObject);
+		}
 	}
+
 
 }
