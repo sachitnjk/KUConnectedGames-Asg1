@@ -33,8 +33,10 @@ public class GunScripts : MonoBehaviour
 	[Header("All bullet attributes")]
 	[SerializeField] private GameObject bullet_Prefab;
 	[SerializeField] private GameObject bullet_Impact;
-	[SerializeField] private float bullet_Damage;
+	[SerializeField] private int bullet_Damage;
 	[SerializeField] private float bullet_Spread;
+
+	[SerializeField] private Vector3 bullet_Target;
 
 	[SerializeField] private float ray_Range;
 
@@ -83,22 +85,17 @@ public class GunScripts : MonoBehaviour
 
 	private void Shoot()
 	{
-		screenCenter_Vector = gun_PlayerMainCam.ScreenToWorldPoint(new Vector2(Screen.width / 2, Screen.height / 2));
 
-		Debug.Log(screenCenter_Vector);
-
-		Vector3 ray_PlayerZAxis = screenCenter_Vector - gun_ShootPoint.transform.position;
-		ray_PlayerZAxis.Normalize();
-
-		Vector3 ray_Origin = gun_ShootPoint.transform.position;
-
-		Ray ray = new Ray(ray_Origin, -ray_PlayerZAxis);
-
-		if (Physics.Raycast(ray, out RaycastHit ray_hit, ray_Range, ray_RaycastMask))
+		Ray ray = gun_PlayerMainCam.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
+		RaycastHit hitResult;
+		if (Physics.Raycast(ray, out hitResult, 1000.0f))
 		{
-			Debug.Log(ray_hit.collider.gameObject.name, ray_hit.collider.gameObject);
-			Debug.DrawLine(ray_Origin, ray_hit.point, Color.red, 5f);
-
+			bullet_Target = hitResult.point;
+			Debug.Log(hitResult.collider.gameObject.name);
+		}
+		else
+		{
+			bullet_Target = gun_PlayerMainCam.transform.position + (ray.direction * 1000.0f);
 		}
 	}
 

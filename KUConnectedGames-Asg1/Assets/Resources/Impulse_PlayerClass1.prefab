@@ -1185,7 +1185,7 @@ GameObject:
   - component: {fileID: 1153294328679365783}
   - component: {fileID: 8105024763133557330}
   m_Layer: 10
-  m_Name: PlayerClass_1
+  m_Name: Impulse_PlayerClass1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
