@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 828396320733494291}
   - component: {fileID: 3189676571945278063}
   - component: {fileID: 4094777651859361401}
+  - component: {fileID: 1016373173949573913}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -149,6 +150,40 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1016373173949573913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235372136977932948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53fa4472629936a4e958d8c2832d98ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gun_RateOfFire: 0
+  gun_ReloadTime: 0
+  gun_MagazineSize: 0
+  gun_PlayerVirtualCam: {fileID: 1107259243895933503}
+  gun_PlayerMainCam: {fileID: 8052448301568605080}
+  gun_ShootPoint: {fileID: 3741649262085059040}
+  ray_RaycastMask:
+    serializedVersion: 2
+    m_Bits: 2943
+  _input: {fileID: 1297859331578561527}
+  gun_MaxAmmo: 20
+  gun_CurrentAmmo: 20
+  Automatic: 0
+  semiAutomatic: 0
+  bullet_Prefab: {fileID: 8136179568425649134, guid: 9424f18a5a435b04b83b2ac77e01a120,
+    type: 3}
+  bullet_Impact: {fileID: 0}
+  bullet_Damage: 0
+  bullet_Spread: 0
+  bullet_Target: {x: 0, y: 0, z: 0}
+  ray_Range: 0
+  screenCenter_GO: {fileID: 2736341847947826760}
 --- !u!1 &245694025329914045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1268,7 +1303,6 @@ GameObject:
   - component: {fileID: 2498799666543781285}
   - component: {fileID: 1153294328679365783}
   - component: {fileID: 8105024763133557330}
-  - component: {fileID: 6336435756885815348}
   - component: {fileID: 286372833273224834}
   m_Layer: 10
   m_Name: PlayerClass_2
@@ -1436,6 +1470,7 @@ MonoBehaviour:
   sprint: 0
   isAiming: 0
   shoot: 0
+  ImpulseUse: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
@@ -1661,7 +1696,7 @@ MonoBehaviour:
   stamRegen: 20
   stamBarScript: {fileID: 3079493921623841978}
   tpController: {fileID: 0}
---- !u!114 &6336435756885815348
+--- !u!114 &286372833273224834
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1670,27 +1705,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3363259848303861643}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3825fa2c6c175a44d8ba4561412fdeca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 0}
-  firePoint: {fileID: 0}
-  bulletSpeed: 20
-  fireRate: 0.5
---- !u!114 &286372833273224834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3363259848303861643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53fa4472629936a4e958d8c2832d98ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gun_RateOfFire: 0
-  gun_NextTimeToFire: 0
   gun_ReloadTime: 0
   gun_MagazineSize: 0
   gun_PlayerVirtualCam: {fileID: 1107259243895933503}
@@ -1699,6 +1717,7 @@ MonoBehaviour:
   ray_RaycastMask:
     serializedVersion: 2
     m_Bits: 2943
+  _input: {fileID: 0}
   gun_MaxAmmo: 0
   gun_CurrentAmmo: 0
   Automatic: 0
@@ -1709,6 +1728,7 @@ MonoBehaviour:
     type: 3}
   bullet_Damage: 0
   bullet_Spread: 0
+  bullet_Target: {x: 0, y: 0, z: 0}
   ray_Range: 0
   screenCenter_GO: {fileID: 2736341847947826760}
 --- !u!1 &3431887501438043480
@@ -4140,17 +4160,17 @@ PrefabInstance:
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.5511856
+      value: 6.808011
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.6650009
+      value: 1.664999
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.84132
+      value: -5.1216803
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}

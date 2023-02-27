@@ -9,7 +9,6 @@ public class GunScripts : MonoBehaviour
 {
 	[Header("All gun realated attributes")]
 	[SerializeField] private float gun_RateOfFire;
-	[SerializeField] private float gun_NextTimeToFire;
 	[SerializeField] private float gun_ReloadTime;
 	[SerializeField] private float gun_MagazineSize;
 	[SerializeField] private CinemachineVirtualCamera gun_PlayerVirtualCam;
@@ -18,9 +17,11 @@ public class GunScripts : MonoBehaviour
 
 	[SerializeField] private LayerMask ray_RaycastMask;
 
+	private float gun_NextTimeToFire = 0f;
+
 	private bool isReloading;
 
-	StarterAssetsInputs _input;
+	[SerializeField] StarterAssetsInputs _input;
 
 	[Header("Ammo control")]
 	[SerializeField] private int gun_MaxAmmo;
@@ -45,16 +46,15 @@ public class GunScripts : MonoBehaviour
 
 	private void Start()
 	{
-		//gun_CurrentAmmo = gun_MaxAmmo;
-		_input = GetComponent<StarterAssetsInputs>();
+		gun_CurrentAmmo = gun_MaxAmmo;
 
 	}
 
 	private void Update()
 	{
-		if (_input.shoot/*&& Time.time >= gun_NextTimeToFire*/)
+		if (_input.shoot && Time.time >= gun_NextTimeToFire)
 		{
-			/*gun_NextTimeToFire = Time.time + 2f / gun_RateOfFire*/;
+			gun_NextTimeToFire = Time.time + 2f / gun_RateOfFire;
 			Debug.Log("shoot is being called");
 			Shoot();
 			_input.shoot = false;
@@ -85,7 +85,6 @@ public class GunScripts : MonoBehaviour
 
 	private void Shoot()
 	{
-
 		Ray ray = gun_PlayerMainCam.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
 		RaycastHit hitResult;
 		if (Physics.Raycast(ray, out hitResult, 1000.0f))
@@ -98,11 +97,4 @@ public class GunScripts : MonoBehaviour
 			bullet_Target = gun_PlayerMainCam.transform.position + (ray.direction * 1000.0f);
 		}
 	}
-
-	private void OnDrawGizmos()
-	{
-		Gizmos.color = Color.black;
-		Gizmos.DrawSphere(screenCenter_Vector, 0.5f);
-	}
-
 }
