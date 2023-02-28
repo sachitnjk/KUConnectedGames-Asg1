@@ -385,7 +385,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce2dfe4828fc52438d98049cd16ddd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyGameObject: {fileID: 4089566404295193581}
   e_MaxHealth: 100
   e_CurrentHealth: 100
   enemyHp: {fileID: 1145194646969427258}

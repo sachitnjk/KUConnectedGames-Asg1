@@ -181,11 +181,8 @@ MonoBehaviour:
   bullet_Impact: {fileID: 0}
   bullet_Damage: 20
   bullet_Spread: 0
-  bullet_Target: {x: 0, y: 0, z: 0}
   ray_Range: 0
   screenCenter_GO: {fileID: 2736341847947826760}
-  e_HPController: {fileID: 5515684558555358049, guid: ef077e2c712e19d428e65514d3f74054,
-    type: 3}
 --- !u!1 &245694025329914045
 GameObject:
   m_ObjectHideFlags: 0
