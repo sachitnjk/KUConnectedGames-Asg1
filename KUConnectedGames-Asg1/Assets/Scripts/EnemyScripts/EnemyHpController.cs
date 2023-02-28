@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyHpController : MonoBehaviour
 {
-	[SerializeField] private GameObject enemyGameObject;
+	//[SerializeField] private GameObject enemyGameObject;
 
 	public int e_MaxHealth = 100;
 	public int e_CurrentHealth;
@@ -26,13 +26,15 @@ public class EnemyHpController : MonoBehaviour
 	{
 		e_CurrentHealth -= damage;
 		enemyHp?.SetHealth(e_CurrentHealth);
+
+		e_CurrentHealth = (int)Mathf.Clamp(e_CurrentHealth, 0f, e_MaxHealth);
 	}
 
 	public void E_Die()
 	{
 		if(e_CurrentHealth <= 0)
 		{
-			Destroy(enemyGameObject);
+			Destroy(this.gameObject);
 		}
 	}
 

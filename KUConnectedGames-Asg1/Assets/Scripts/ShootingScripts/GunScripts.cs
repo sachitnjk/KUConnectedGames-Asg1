@@ -44,7 +44,7 @@ public class GunScripts : MonoBehaviour
 	[SerializeField] private GameObject screenCenter_GO;
 	private Vector3 screenCenter_Vector;
 
-	[SerializeField] EnemyHpController e_HPController;
+	//[SerializeField] EnemyHpController e_HPController;
 
 	private void Start()
 	{
@@ -94,13 +94,18 @@ public class GunScripts : MonoBehaviour
 		RaycastHit hitResult;
 		if (Physics.Raycast(ray, out hitResult, 1000.0f))
 		{
+			GameObject hitObject = hitResult.collider.gameObject;
 			bullet_Target = hitResult.point;
-			Debug.Log(hitResult.collider.gameObject.name);
+			Debug.Log(hitObject.name);
 
-			if (hitResult.collider.gameObject.CompareTag("Enemy"))
+			if (hitObject.CompareTag("Enemy"))
 			{
-				e_HPController.EnemyDamageTake(bullet_Damage);
-				Debug.Log(e_HPController.e_CurrentHealth);
+				EnemyHpController e_HPController = hitObject.GetComponent<EnemyHpController>();
+				if(e_HPController != null)
+				{
+					e_HPController.EnemyDamageTake(bullet_Damage);
+					Debug.Log(e_HPController.e_CurrentHealth);
+				}
 			}
 
 		}
