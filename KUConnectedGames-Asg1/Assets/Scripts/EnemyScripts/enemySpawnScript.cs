@@ -12,7 +12,6 @@ public class enemySpawnScript : MonoBehaviourPunCallbacks
 	{
 		int randomNumber = Random.Range(0, enemySpawnPoints.Length);
 		Transform enemySpawnPoint = enemySpawnPoints[randomNumber];
-		//GameObject enemyToSpawn = enemyPrefab[(int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]];
 		PhotonNetwork.Instantiate(enemyPrefab.name, enemySpawnPoint.position, Quaternion.identity);
 	}
 }

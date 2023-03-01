@@ -1,12 +1,9 @@
+using Photon.Pun;
 using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
-using WebSocketSharp;
 
-public class AIController : MonoBehaviour
+public class AIController : MonoBehaviourPunCallbacks
 {
     public NavMeshAgent navMeshAgent;
     public float startWaitTime = 4;
@@ -39,10 +36,14 @@ public class AIController : MonoBehaviour
 
     private PlayerHealthBar playerHealthBar;
     [SerializeField] private int damageDealt;
-    [SerializeField] float gapBetweenDamage = 1f; 
+    [SerializeField] float gapBetweenDamage = 1f;
 
-    void Start()
+    PhotonView phView;
+
+    public void Start()
     {
+        PhotonView phView = GetComponent<PhotonView>();
+
         ai_CanDamage = true;
 
         m_PlayerPosition = Vector3.zero;
@@ -64,20 +65,48 @@ public class AIController : MonoBehaviour
 
     private void Update()
     {
-        EnviromentView();                       //  Check whether or not the player is in the enemy's field of vision
 
-        if (!m_IsPatrol)
+        if(phView.IsMine)
         {
-            Chasing();
-        }
-        else
-        {
-            Patroling();
-        }
-        
+			Vector3 newPosition = CalculateNewPosition();
+			SetPosition(newPosition);
+
+			EnviromentView();                       //  Check whether or not the player is in the enemy's field of vision
+
+			if (!m_IsPatrol)
+			{
+				Chasing();
+			}
+			else
+			{
+				Patroling();
+			}
+		}
     }
 
-    public void EnemyAttack(int damage)
+    [Photon.Pun.PunRPC]
+    void SetPosition(Vector3 newPosition)
+    {
+        transform.position = newPosition;
+    }
+
+	private Vector3 CalculateNewPosition()
+	{
+		if (m_IsPatrol)
+		{
+			if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+			{
+				NextPoint();
+			}
+			return waypoints[m_CurrentWaypointIndex].position;
+		}
+		else
+		{
+			return m_PlayerPosition;
+		}
+	}
+
+	public void EnemyAttack(int damage)
     {
         if(ai_CanDamage)
         {

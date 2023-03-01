@@ -190,7 +190,6 @@ GameObject:
   - component: {fileID: 4002507940143115465}
   - component: {fileID: 2796518905105885274}
   - component: {fileID: 5515684558555358049}
-  - component: {fileID: 4089566404295193573}
   m_Layer: 0
   m_Name: lightEnemy1
   m_TagString: Enemy
@@ -332,7 +331,7 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 3
+  Synchronization: 2
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
@@ -388,38 +387,6 @@ MonoBehaviour:
   e_MaxHealth: 100
   e_CurrentHealth: 100
   enemyHp: {fileID: 1145194646969427258}
---- !u!114 &4089566404295193573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4089566404295193581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd457b16c44ae5e47a4c86015985895b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 4089566404295193570}
-  startWaitTime: 4
-  timeToRotate: 1
-  speedWalk: 2
-  speedRun: 4
-  viewRadius: 5
-  viewAngle: 90
-  playerMask:
-    serializedVersion: 2
-    m_Bits: 1024
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 2048
-  meshResolution: 1
-  edgeIterations: 4
-  edgeDistance: 0.5
-  waypoints:
-  - {fileID: 4089566404295193580}
-  damageDealt: 10
-  gapBetweenDamage: 1
 --- !u!1 &4257191319410226120
 GameObject:
   m_ObjectHideFlags: 0
