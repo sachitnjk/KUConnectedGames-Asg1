@@ -190,6 +190,7 @@ GameObject:
   - component: {fileID: 4002507940143115465}
   - component: {fileID: 2796518905105885274}
   - component: {fileID: 5515684558555358049}
+  - component: {fileID: 1899461238876518865}
   m_Layer: 0
   m_Name: lightEnemy1
   m_TagString: Enemy
@@ -387,6 +388,37 @@ MonoBehaviour:
   e_MaxHealth: 100
   e_CurrentHealth: 100
   enemyHp: {fileID: 1145194646969427258}
+--- !u!114 &1899461238876518865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4089566404295193581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05971f449b64b484a84f980a8c3dee6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navMeshAgent: {fileID: 4089566404295193570}
+  startWaitTime: 4
+  timeToRotate: 2
+  speedWalk: 3
+  speedRun: 4
+  viewRadius: 15
+  viewAngle: 90
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  meshResolution: 1
+  edgeIterations: 4
+  edgeDistance: 0.5
+  waypoints: []
+  damageDealt: 20
+  gapBetweenDamage: 1
 --- !u!1 &4257191319410226120
 GameObject:
   m_ObjectHideFlags: 0
