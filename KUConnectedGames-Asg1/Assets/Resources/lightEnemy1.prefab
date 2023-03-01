@@ -403,8 +403,8 @@ MonoBehaviour:
   navMeshAgent: {fileID: 4089566404295193570}
   startWaitTime: 4
   timeToRotate: 2
-  speedWalk: 3
-  speedRun: 4
+  speedWalk: 2
+  speedRun: 3
   viewRadius: 15
   viewAngle: 90
   playerMask:
@@ -416,7 +416,8 @@ MonoBehaviour:
   meshResolution: 1
   edgeIterations: 4
   edgeDistance: 0.5
-  waypointsScript: {fileID: 0}
+  waypointsScript: {fileID: 9172181529142494532, guid: fbbee8b7acdee1149aed9354a0a45ef7,
+    type: 3}
   damageDealt: 20
   gapBetweenDamage: 1
 --- !u!1 &4257191319410226120
