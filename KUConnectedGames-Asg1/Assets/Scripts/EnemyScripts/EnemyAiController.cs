@@ -19,8 +19,8 @@ public class EnemyAiController : MonoBehaviourPunCallbacks
 	public int edgeIterations = 4;
 	public float edgeDistance = 0.5f;
 
-
-	public Transform[] waypoints;
+	public EnemyWaypointsScript waypointsScript;
+	private Transform[] waypoints;
 	int m_CurrentWaypointIndex;
 
 	Vector3 playerLastPosition = Vector3.zero;
@@ -53,6 +53,8 @@ public class EnemyAiController : MonoBehaviourPunCallbacks
 		m_PlayerNear = false;
 		m_WaitTime = startWaitTime;                 //  Set the wait time variable that will change
 		m_TimeToRotate = timeToRotate;
+
+		waypoints = waypointsScript.waypoints;
 
 		m_CurrentWaypointIndex = 0;                 //  Set the initial waypoint
 		navMeshAgent = GetComponent<NavMeshAgent>();

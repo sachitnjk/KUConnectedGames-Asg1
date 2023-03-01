@@ -416,7 +416,7 @@ MonoBehaviour:
   meshResolution: 1
   edgeIterations: 4
   edgeDistance: 0.5
-  waypoints: []
+  waypointsScript: {fileID: 0}
   damageDealt: 20
   gapBetweenDamage: 1
 --- !u!1 &4257191319410226120
