@@ -1185,7 +1185,7 @@ GameObject:
   - component: {fileID: 1153294328679365783}
   - component: {fileID: 8105024763133557330}
   m_Layer: 10
-  m_Name: PlayerClass_4
+  m_Name: 1Impulse_PlayerClass1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1347,6 +1347,9 @@ MonoBehaviour:
   look: {x: 0, y: 0}
   jump: 0
   sprint: 0
+  isAiming: 0
+  shoot: 0
+  ImpulseUse: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
@@ -1551,8 +1554,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1958e28a13664408bcd5bca9fec5e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 150
-  currentHealth: 150
+  maxHealth: 100
+  currentHealth: 100
   healthBar: {fileID: 4938280552918583279}
 --- !u!114 &8105024763133557330
 MonoBehaviour:
@@ -1566,12 +1569,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d8f7228eeed8f1499964a81c71efe69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStam: 85
-  currentStam: 85
+  maxStam: 100
+  currentStam: 100
   stamDecay: 20
   stamRegen: 15
   stamBarScript: {fileID: 3079493921623841978}
-  tpController: {fileID: 0}
+  tpController: {fileID: 3363259848303861632}
 --- !u!1 &3431887501438043480
 GameObject:
   m_ObjectHideFlags: 0
@@ -4163,7 +4166,7 @@ MonoBehaviour:
   m_PivotOffset: {x: 0, y: 0, z: 0}
   m_AmplitudeGain: 0.2
   m_FrequencyGain: 0.2
-  mNoiseOffsets: {x: 0, y: 0, z: 0}
+  mNoiseOffsets: {x: 237.20633, y: 94.78772, z: -942.3115}
 --- !u!4 &1107259243895933502 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8,
@@ -4308,7 +4311,7 @@ MonoBehaviour:
   m_PivotOffset: {x: 0, y: 0, z: 0}
   m_AmplitudeGain: 0.25
   m_FrequencyGain: 0.25
-  mNoiseOffsets: {x: 0, y: 0, z: 0}
+  mNoiseOffsets: {x: -973.7189, y: -465.72363, z: -867.6665}
 --- !u!4 &5270201522767506456 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8,

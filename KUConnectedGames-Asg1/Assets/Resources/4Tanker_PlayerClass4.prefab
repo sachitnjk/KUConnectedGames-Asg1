@@ -1185,7 +1185,7 @@ GameObject:
   - component: {fileID: 1153294328679365783}
   - component: {fileID: 8105024763133557330}
   m_Layer: 10
-  m_Name: PlayerClass_3
+  m_Name: 4Tanker_PlayerClass4
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1347,9 +1347,6 @@ MonoBehaviour:
   look: {x: 0, y: 0}
   jump: 0
   sprint: 0
-  isAiming: 0
-  shoot: 0
-  ImpulseUse: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
@@ -1554,8 +1551,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1958e28a13664408bcd5bca9fec5e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 80
-  currentHealth: 80
+  maxHealth: 150
+  currentHealth: 150
   healthBar: {fileID: 4938280552918583279}
 --- !u!114 &8105024763133557330
 MonoBehaviour:
@@ -1569,10 +1566,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d8f7228eeed8f1499964a81c71efe69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStam: 150
-  currentStam: 150
-  stamDecay: 19
-  stamRegen: 13
+  maxStam: 85
+  currentStam: 85
+  stamDecay: 20
+  stamRegen: 15
   stamBarScript: {fileID: 3079493921623841978}
   tpController: {fileID: 0}
 --- !u!1 &3431887501438043480
@@ -4125,11 +4122,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Lens.m_SensorSize.x
       value: 1.7777778
-      objectReference: {fileID: 0}
-    - target: {fileID: 2070925442191277752, guid: a1a802ecaf6775746bb2a929fb554ad8,
-        type: 3}
-      propertyPath: Damping.y
-      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 2070925442191277752, guid: a1a802ecaf6775746bb2a929fb554ad8,
         type: 3}
