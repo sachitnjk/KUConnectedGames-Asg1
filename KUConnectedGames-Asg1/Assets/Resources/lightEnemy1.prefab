@@ -387,8 +387,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   e_MaxHealth: 100
   e_CurrentHealth: 100
-  player_KillCounterScript: {fileID: 4660894024569683754, guid: 938db13b0896ee5489253a42313e534e,
-    type: 3}
   enemyHp: {fileID: 1145194646969427258}
 --- !u!114 &1899461238876518865
 MonoBehaviour:
