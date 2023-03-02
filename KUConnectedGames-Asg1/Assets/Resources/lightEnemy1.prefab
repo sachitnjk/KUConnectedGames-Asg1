@@ -420,6 +420,7 @@ MonoBehaviour:
     type: 3}
   damageDealt: 20
   gapBetweenDamage: 1
+  phView: {fileID: 4002507940143115465}
 --- !u!1 &4257191319410226120
 GameObject:
   m_ObjectHideFlags: 0

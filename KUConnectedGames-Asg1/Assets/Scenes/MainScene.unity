@@ -5320,6 +5320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2107209666}
   - component: {fileID: 2107209665}
+  - component: {fileID: 2107209667}
   m_Layer: 0
   m_Name: SpawnEnemies
   m_TagString: Untagged
@@ -5339,7 +5340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab44c6cadb18cf94097a39df7da343f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 3231352014311000125, guid: 398584329649f0e4ebafecbfb92a4007,
+  enemyPrefab: {fileID: 4089566404295193581, guid: ef077e2c712e19d428e65514d3f74054,
     type: 3}
   enemySpawnPoints:
   - {fileID: 1430405468}
@@ -5347,6 +5348,7 @@ MonoBehaviour:
   - {fileID: 1981937391}
   waypointsScript: {fileID: 9172181529142494532, guid: fbbee8b7acdee1149aed9354a0a45ef7,
     type: 3}
+  phView: {fileID: 2107209667}
 --- !u!4 &2107209666
 Transform:
   m_ObjectHideFlags: 0
@@ -5365,3 +5367,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2107209667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107209664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0

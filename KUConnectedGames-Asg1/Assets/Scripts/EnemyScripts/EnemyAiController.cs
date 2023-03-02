@@ -38,7 +38,7 @@ public class EnemyAiController : MonoBehaviourPunCallbacks
 	[SerializeField] private int damageDealt;
 	[SerializeField] float gapBetweenDamage = 1f;
 
-	PhotonView phView;
+	[SerializeField] PhotonView phView;
 
 	public void Start()
 	{
@@ -68,34 +68,34 @@ public class EnemyAiController : MonoBehaviourPunCallbacks
 	private void Update()
 	{
 
-		//if (phView.IsMine)
-		//{
+		if (phView.IsMine)
+		{
 		//	Vector3 newPosition = CalculateNewPosition();
 		//	SetPosition(newPosition);
 
-		//	EnviromentView();                       //  Check whether or not the player is in the enemy's field of vision
+			EnviromentView();                       //  Check whether or not the player is in the enemy's field of vision
 
-		//	if (!m_IsPatrol)
-		//	{
-		//		Chasing();
-		//	}
-		//	else
-		//	{
-		//		Patroling();
-		//	}
+			if (!m_IsPatrol)
+			{
+				Chasing();
+			}
+			else
+			{
+				Patroling();
+			}
+		}
+
+
+		//EnviromentView();                       //  Check whether or not the player is in the enemy's field of vision
+
+		//if (!m_IsPatrol)
+		//{
+		//	Chasing();
 		//}
-
-
-		EnviromentView();                       //  Check whether or not the player is in the enemy's field of vision
-
-		if (!m_IsPatrol)
-		{
-			Chasing();
-		}
-		else
-		{
-			Patroling();
-		}
+		//else
+		//{
+		//	Patroling();
+		//}
 	}
 
 	//[Photon.Pun.PunRPC]
