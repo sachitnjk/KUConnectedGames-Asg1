@@ -1302,6 +1302,7 @@ GameObject:
   - component: {fileID: 2498799666543781285}
   - component: {fileID: 1153294328679365783}
   - component: {fileID: 8105024763133557330}
+  - component: {fileID: 4660894024569683754}
   m_Layer: 10
   m_Name: 2Medic_PlayerClass2
   m_TagString: Player
@@ -1694,6 +1695,18 @@ MonoBehaviour:
   stamRegen: 20
   stamBarScript: {fileID: 3079493921623841978}
   tpController: {fileID: 0}
+--- !u!114 &4660894024569683754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3363259848303861643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4929612d748aa147a822403bcbb61a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3431887501438043480
 GameObject:
   m_ObjectHideFlags: 0

@@ -44,12 +44,9 @@ public class GunScripts : MonoBehaviour
 	[SerializeField] private GameObject screenCenter_GO;
 	private Vector3 screenCenter_Vector;
 
-	//[SerializeField] EnemyHpController e_HPController;
-
 	private void Start()
 	{
 		gun_CurrentAmmo = gun_MaxAmmo;
-		//e_HPController.e_CurrentHealth = 100;
 
 	}
 
@@ -58,7 +55,6 @@ public class GunScripts : MonoBehaviour
 		if (_input.shoot && Time.time >= gun_NextTimeToFire)
 		{
 			gun_NextTimeToFire = Time.time + 2f / gun_RateOfFire;
-			Debug.Log("shoot is being called");
 			Shoot();
 			_input.shoot = false;
 		}
@@ -73,9 +69,6 @@ public class GunScripts : MonoBehaviour
 			StartCoroutine(Reload());
 			return;
 		}
-
-		//Debug.Log(e_HPController.e_CurrentHealth);
-		
 	}
 
 	IEnumerator Reload()
@@ -104,7 +97,6 @@ public class GunScripts : MonoBehaviour
 				if(e_HPController != null)
 				{
 					e_HPController.EnemyDamageTake(bullet_Damage);
-					Debug.Log(e_HPController.e_CurrentHealth);
 				}
 			}
 

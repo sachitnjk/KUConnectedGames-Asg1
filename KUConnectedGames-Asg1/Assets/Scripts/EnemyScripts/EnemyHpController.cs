@@ -4,22 +4,21 @@ using UnityEngine;
 
 public class EnemyHpController : MonoBehaviour
 {
-	//[SerializeField] private GameObject enemyGameObject;
-
 	public int e_MaxHealth = 100;
 	public int e_CurrentHealth;
 
+	PlayerKillCounter player_KillCounterScript;
 	public EnemyHp enemyHp;
-
 	private void Start()
 	{
+		GameObject playerGameObject = GameObject.FindGameObjectWithTag("Player");
+		player_KillCounterScript = playerGameObject.GetComponent<PlayerKillCounter>();
+		player_KillCounterScript.KillCounterReset();
+
 		e_CurrentHealth = e_MaxHealth;
 		enemyHp?.SetMaxHealth(e_MaxHealth);
-	}
 
-	public void Update()
-	{
-		E_Die();
+		e_CurrentHealth = (int)Mathf.Clamp(e_CurrentHealth, 0f, e_MaxHealth);
 	}
 
 	public void EnemyDamageTake(int damage)
@@ -27,16 +26,12 @@ public class EnemyHpController : MonoBehaviour
 		e_CurrentHealth -= damage;
 		enemyHp?.SetHealth(e_CurrentHealth);
 
-		e_CurrentHealth = (int)Mathf.Clamp(e_CurrentHealth, 0f, e_MaxHealth);
-	}
-
-	public void E_Die()
-	{
-		if(e_CurrentHealth <= 0)
+		if (e_CurrentHealth <= 0)
 		{
 			Destroy(this.gameObject);
+
+			player_KillCounterScript.KillCounterIncrease();
 		}
 	}
-
 
 }
