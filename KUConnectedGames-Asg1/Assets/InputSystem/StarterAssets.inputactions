@@ -324,7 +324,7 @@
                 {
                     "name": "",
                     "id": "ca591576-f503-404c-ac7d-03de122c5505",
-                    "path": "<Keyboard>/escape",
+                    "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",

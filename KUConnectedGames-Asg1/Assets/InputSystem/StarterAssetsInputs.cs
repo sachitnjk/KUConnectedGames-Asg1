@@ -15,6 +15,7 @@ namespace StarterAssets
 		public bool isAiming;
 		public bool shoot;
 		public bool ImpulseUse;
+		public bool pause;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -60,6 +61,11 @@ namespace StarterAssets
 		public void OnShoot(InputValue value)
 		{
 			shoot = value.isPressed;
+		}
+
+		public void OnPause(InputValue inputValue)
+		{
+			pause = inputValue.isPressed;
 		}
 #endif
 
