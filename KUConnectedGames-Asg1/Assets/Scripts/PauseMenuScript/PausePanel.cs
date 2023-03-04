@@ -17,6 +17,8 @@ public class PausePanel : MonoBehaviour
 	{
 		if(_input != null && _input.pause && !isPaused)
 		{
+			Debug.Log("pause is pressed");
+
 			pausePanel.SetActive(true);
 
 			Cursor.visible = true;
@@ -24,17 +26,13 @@ public class PausePanel : MonoBehaviour
 
 			isPaused = true;
 		}
-		else if(_input != null && !_input.pause && isPaused)
-		{
-			pausePanel.SetActive(false);
-			Cursor.visible=false;
-		}
 	}
 
 	public void OnResumeButtonClicked()
 	{
-		isPaused = false;
-		Debug.Log(isPaused);
+		pausePanel.SetActive(false);
+		Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Locked;
 	}
 
 	public void OnExitButtonClick()
