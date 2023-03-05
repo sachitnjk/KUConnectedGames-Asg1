@@ -1,11 +1,10 @@
 using StarterAssets;
-using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Photon.Pun;
 
-public class PausePanel : MonoBehaviour
+public class PausePanel : MonoBehaviourPunCallbacks
 {
-	//StarterAssetsInputs _input;
 	PlayerInput _input;
 	ThirdPersonController player_ThirdPersonController;
 
@@ -20,30 +19,49 @@ public class PausePanel : MonoBehaviour
 
 		player_ThirdPersonController = player.GetComponent<ThirdPersonController>();
 
+		if (photonView.IsMine)
+		{
+			player_ThirdPersonController.enabled = true;
+
+			pausePanel.SetActive(false);
+
+			Cursor.visible = false;
+			Cursor.lockState = CursorLockMode.Confined;
+		}
 	}
 	private void Update()
 	{
-		Pause();
+		PauseGame();
 	}
 
-	public void Pause()
+	public void PauseGame()
 	{
 		InputAction pauseAction = _input.actions["Pause"];
 		if (pauseAction.triggered && isPaused == false)
 		{
-			Debug.Log("pause is pressed");
-
-			pausePanel.SetActive(true);
-			player_ThirdPersonController.enabled = false;
-
-			Cursor.visible = true;
-			Cursor.lockState = CursorLockMode.None;
+			photonView.RPC("PauseGame_RPC", RpcTarget.All);
 
 			isPaused = true;
 		}
 	}
 
+	[PunRPC]
+	public void PauseGame_RPC()
+	{
+		pausePanel.SetActive(true);
+		player_ThirdPersonController.enabled = false;
+
+		Cursor.visible = true;
+		Cursor.lockState = CursorLockMode.None;
+	}
+
 	public void OnResumeButtonClicked()
+	{
+		photonView.RPC("OnResumeButtonClicked_RPC", RpcTarget.All);
+	}
+
+	[PunRPC]
+	public void OnResumeButtonClicked_RPC()
 	{
 		isPaused = false;
 		pausePanel.SetActive(false);
@@ -54,6 +72,12 @@ public class PausePanel : MonoBehaviour
 	}
 
 	public void OnExitButtonClick()
+	{
+		photonView.RPC("OnExitButtonClick_RPC", RpcTarget.All);
+	}
+
+	[PunRPC]
+	public void OnExitButtonClick_RPC()
 	{
 		Debug.Log("Exit is called");
 		Application.Quit();

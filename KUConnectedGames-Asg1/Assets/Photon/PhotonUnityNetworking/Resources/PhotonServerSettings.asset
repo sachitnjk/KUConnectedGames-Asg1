@@ -40,6 +40,9 @@ MonoBehaviour:
   - Fire
   - RespawnSpaceship
   - SetPosition
+  - PauseGame_RPC
+  - OnResumeButtonClicked_RPC
+  - OnExitButtonClick_RPC
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
