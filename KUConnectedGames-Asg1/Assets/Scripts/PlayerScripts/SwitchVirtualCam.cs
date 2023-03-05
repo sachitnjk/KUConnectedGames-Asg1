@@ -23,13 +23,13 @@ public class SwitchVirtualCam : MonoBehaviour
 
 	private void OnEnable()
 	{
-		aimInput.performed += _ => StartAim();
+		aimInput.started += _ => StartAim();
 		aimInput.canceled += _ => EndAim();
 	}
 
 	private void OnDisable()
 	{
-		aimInput.performed -= _ => StartAim();
+		aimInput.started -= _ => StartAim();
 		aimInput.canceled -= _ => EndAim();
 	}
 

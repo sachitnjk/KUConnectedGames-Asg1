@@ -38,6 +38,8 @@ public class EnemyAiController : MonoBehaviourPunCallbacks
 	[SerializeField] private int damageDealt;
 	[SerializeField] float gapBetweenDamage = 1f;
 
+	private Transform playerTransform;
+
 	[SerializeField] PhotonView phView;
 
 	public void Start()
@@ -148,13 +150,13 @@ public class EnemyAiController : MonoBehaviourPunCallbacks
 			Move(speedRun);
 			navMeshAgent.SetDestination(m_PlayerPosition);
 		}
-		if (Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) <= 2f)
+		if (Vector3.Distance(transform.position, playerTransform.position) <= 2f)
 		{
 			EnemyAttack(damageDealt);
 		}
 		if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
 		{
-			if (m_WaitTime <= 0 && !m_CaughtPlayer && Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) >= 6f)
+			if (m_WaitTime <= 0 && !m_CaughtPlayer && Vector3.Distance(transform.position, playerTransform.position) >= 6f)
 			{
 				m_IsPatrol = true;
 				m_PlayerNear = false;
@@ -283,6 +285,8 @@ public class EnemyAiController : MonoBehaviourPunCallbacks
 			}
 			if (m_playerInRange)
 			{
+				playerTransform = player.transform;
+
 				m_PlayerPosition = player.transform.position;
 				playerHealthBar = player.GetComponent<PlayerHealthBar>();
 			}

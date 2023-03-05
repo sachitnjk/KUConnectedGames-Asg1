@@ -56,7 +56,6 @@ public class GunScripts : MonoBehaviour
 		{
 			gun_NextTimeToFire = Time.time + 2f / gun_RateOfFire;
 			Shoot();
-			_input.shoot = false;
 		}
 
 		if (isReloading)

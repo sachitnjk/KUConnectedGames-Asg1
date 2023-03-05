@@ -10,10 +10,21 @@ public class MultiplayerSetup : MonoBehaviourPunCallbacks
 
 	[SerializeField] List<GameObject> itemsToDelete;
 
+	PhotonView phView;
+
+	private void Awake()
+	{
+		phView = GetComponent<PhotonView>();
+
+		if (!phView.IsMine)
+		{
+			gameObject.tag = "Untagged";
+		}
+
+	}
+
 	private void Start()
 	{
-
-		PhotonView phView = GetComponent<PhotonView>();
 		if(!phView.IsMine)
 		{
 			PlayerInput playerInput = GetComponent<PlayerInput>();

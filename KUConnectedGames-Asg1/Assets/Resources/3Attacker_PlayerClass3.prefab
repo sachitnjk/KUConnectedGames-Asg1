@@ -1351,6 +1351,7 @@ MonoBehaviour:
   isAiming: 0
   shoot: 0
   ImpulseUse: 0
+  pause: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1

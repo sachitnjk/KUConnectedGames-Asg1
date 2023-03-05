@@ -1184,7 +1184,6 @@ GameObject:
   - component: {fileID: 3349081328092082929}
   - component: {fileID: 1153294328679365783}
   - component: {fileID: 8105024763133557330}
-  - component: {fileID: 4528825958339037329}
   m_Layer: 10
   m_Name: 1Impulse_PlayerClass1
   m_TagString: Player
@@ -1396,6 +1395,7 @@ MonoBehaviour:
   isAiming: 0
   shoot: 0
   ImpulseUse: 0
+  pause: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
@@ -1577,21 +1577,6 @@ MonoBehaviour:
   stamRegen: 15
   stamBarScript: {fileID: 3079493921623841978}
   tpController: {fileID: 3363259848303861632}
---- !u!114 &4528825958339037329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3363259848303861643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4929612d748aa147a822403bcbb61a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  e_CurrentKillCounter: 0
-  e_KillCounterMax: 3
-  e_KillCountIncrement: 1
 --- !u!1 &3431887501438043480
 GameObject:
   m_ObjectHideFlags: 0

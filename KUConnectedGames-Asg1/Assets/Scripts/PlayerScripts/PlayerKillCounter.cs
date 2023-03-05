@@ -1,13 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerKillCounter : MonoBehaviour
 {
+	public static PlayerKillCounter Instance;
+
 	public int e_CurrentKillCounter;
 	[SerializeField] private int e_KillCounterMax = 3;
 	[SerializeField] private int e_KillCountIncrement = 1;
 	bool player_AbilityUse = false;
+
+	private void Awake()
+	{
+		if(Instance == null)
+		{
+			Instance = this;
+		}
+		else
+		{
+			Debug.Log("Singleton coming up againm");
+			Destroy(this);
+		}
+	}
 
 	private void Start()
 	{
