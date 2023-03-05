@@ -5,50 +5,52 @@ using UnityEngine.InputSystem;
 
 public class PausePanel : MonoBehaviour
 {
-	StarterAssetsInputs _input;
+	//StarterAssetsInputs _input;
+	PlayerInput _input;
+	ThirdPersonController player_ThirdPersonController;
 
 	[SerializeField] GameObject pausePanel;
-	public bool isPaused;
-	public bool resumeButtomClicked = false;
+	GameObject player;
+	private bool isPaused;
 
 	private void Start()
 	{
-		GameObject player = GameObject.FindGameObjectWithTag("Player");
-		_input = player.GetComponent<StarterAssetsInputs>();
+		player = GameObject.FindGameObjectWithTag("Player");
+		_input = player.GetComponent<PlayerInput>();
+
+		player_ThirdPersonController = player.GetComponent<ThirdPersonController>();
 
 	}
 	private void Update()
 	{
-		if (_input.pause && isPaused == false)
+		Pause();
+	}
+
+	public void Pause()
+	{
+		InputAction pauseAction = _input.actions["Pause"];
+		if (pauseAction.triggered && isPaused == false)
 		{
 			Debug.Log("pause is pressed");
 
 			pausePanel.SetActive(true);
+			player_ThirdPersonController.enabled = false;
 
 			Cursor.visible = true;
 			Cursor.lockState = CursorLockMode.None;
 
 			isPaused = true;
 		}
-		if(resumeButtomClicked)
-		{
-			Debug.Log("your mom");
-			pausePanel.SetActive(false);
-			resumeButtomClicked = false;
-		}
-		if(_input.pause)
-		{
-			Debug.Log("input for pause is still active");
-		}
 	}
 
 	public void OnResumeButtonClicked()
 	{
 		isPaused = false;
+		pausePanel.SetActive(false);
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Confined;
-		resumeButtomClicked = true;
-		Debug.Log(isPaused);
+
+		player_ThirdPersonController.enabled = true;
 	}
 
 	public void OnExitButtonClick()
