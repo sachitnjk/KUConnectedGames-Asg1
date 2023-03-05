@@ -4746,6 +4746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 1592988084}
+  isPaused: 0
 --- !u!1 &1430405467
 GameObject:
   m_ObjectHideFlags: 0

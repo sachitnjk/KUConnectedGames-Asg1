@@ -89,7 +89,6 @@ public class GunScripts : MonoBehaviour
 		{
 			GameObject hitObject = hitResult.collider.gameObject;
 			bullet_Target = hitResult.point;
-			Debug.Log(hitObject.name);
 
 			if (hitObject.CompareTag("Enemy"))
 			{

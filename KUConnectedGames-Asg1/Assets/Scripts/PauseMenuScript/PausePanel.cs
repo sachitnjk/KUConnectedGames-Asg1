@@ -1,21 +1,25 @@
 using StarterAssets;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PausePanel : MonoBehaviour
 {
 	StarterAssetsInputs _input;
+
 	[SerializeField] GameObject pausePanel;
-	private bool isPaused;
+	public bool isPaused;
+	public bool resumeButtomClicked = false;
 
 	private void Start()
 	{
 		GameObject player = GameObject.FindGameObjectWithTag("Player");
 		_input = player.GetComponent<StarterAssetsInputs>();
+
 	}
 	private void Update()
 	{
-		if(_input != null && _input.pause && !isPaused)
+		if (_input.pause && isPaused == false)
 		{
 			Debug.Log("pause is pressed");
 
@@ -26,13 +30,25 @@ public class PausePanel : MonoBehaviour
 
 			isPaused = true;
 		}
+		if(resumeButtomClicked)
+		{
+			Debug.Log("your mom");
+			pausePanel.SetActive(false);
+			resumeButtomClicked = false;
+		}
+		if(_input.pause)
+		{
+			Debug.Log("input for pause is still active");
+		}
 	}
 
 	public void OnResumeButtonClicked()
 	{
-		pausePanel.SetActive(false);
+		isPaused = false;
 		Cursor.visible = false;
-		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.lockState = CursorLockMode.Confined;
+		resumeButtomClicked = true;
+		Debug.Log(isPaused);
 	}
 
 	public void OnExitButtonClick()
