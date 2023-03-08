@@ -1528,6 +1528,7 @@ MonoBehaviour:
   LockCameraPosition: 0
   targetSpeed: 0
   _speed: 0
+  targetDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &3349081328092082929
 MonoBehaviour:
   m_ObjectHideFlags: 0

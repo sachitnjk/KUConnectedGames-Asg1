@@ -113,8 +113,11 @@ namespace StarterAssets
 
         private PlayerStaminaBar playerStaminaBar;
 
+        public Vector3 targetDirection;
 
-        private const float _threshold = 0.01f;
+
+
+		private const float _threshold = 0.01f;
 
         private bool _hasAnimator;
 
@@ -290,7 +293,7 @@ namespace StarterAssets
                 //Debug.Log(_input.shoot);
             //}
 
-            Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
+            targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
 
             // move the player
             _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +

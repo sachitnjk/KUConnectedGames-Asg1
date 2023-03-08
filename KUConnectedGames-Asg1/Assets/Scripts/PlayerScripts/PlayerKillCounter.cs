@@ -17,7 +17,6 @@ public class PlayerKillCounter : MonoBehaviour
 		}
 		else
 		{
-			Debug.Log("Singleton coming up againm");
 			Destroy(this);
 		}
 	}
