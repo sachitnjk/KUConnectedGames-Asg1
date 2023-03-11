@@ -21,6 +21,7 @@ public class PlayerHealthBar : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        Debug.Log("player taking damage");
         currentHealth -= damage;
         healthBar?.SetHealth(currentHealth);
     }

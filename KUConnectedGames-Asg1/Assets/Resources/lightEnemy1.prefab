@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 4002507940143115465}
   - component: {fileID: 2796518905105885274}
   - component: {fileID: 5515684558555358049}
-  - component: {fileID: 1899461238876518865}
+  - component: {fileID: 2942193039112983123}
   m_Layer: 0
   m_Name: lightEnemy1
   m_TagString: Enemy
@@ -388,7 +388,7 @@ MonoBehaviour:
   e_MaxHealth: 100
   e_CurrentHealth: 100
   enemyHp: {fileID: 1145194646969427258}
---- !u!114 &1899461238876518865
+--- !u!114 &2942193039112983123
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -397,30 +397,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 4089566404295193581}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05971f449b64b484a84f980a8c3dee6d, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a779d87453ceb24c92461f89fb9422d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 4089566404295193570}
-  startWaitTime: 4
-  timeToRotate: 2
-  speedWalk: 2
-  speedRun: 3
-  viewRadius: 15
-  viewAngle: 90
+  enemy_Target: {fileID: 2731261305981502769, guid: de8b507764b14044f8ecbbef278cbb9b,
+    type: 3}
   playerMask:
     serializedVersion: 2
     m_Bits: 1024
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 2048
-  meshResolution: 1
-  edgeIterations: 4
-  edgeDistance: 0.5
+    m_Bits: 2943
+  enemy_SpeedWalk: 2
+  enemy_SpeedRun: 3
+  enemy_DetactionRange: 10
+  enemy_StartWaitTime: 2
+  enemy_TimeToRotate: 5
+  enemy_AttackRange: 2
+  enemy_Damage: 10
+  enemy_ViewRadius: 5
+  enemy_GapBetweenDamage: 1
+  navMeshAgent: {fileID: 4089566404295193570}
   waypointsScript: {fileID: 9172181529142494532, guid: fbbee8b7acdee1149aed9354a0a45ef7,
     type: 3}
-  damageDealt: 20
-  gapBetweenDamage: 1
-  phView: {fileID: 4002507940143115465}
 --- !u!1 &4257191319410226120
 GameObject:
   m_ObjectHideFlags: 0
