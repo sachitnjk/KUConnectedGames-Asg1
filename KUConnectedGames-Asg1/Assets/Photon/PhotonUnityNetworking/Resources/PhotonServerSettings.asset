@@ -43,6 +43,8 @@ MonoBehaviour:
   - PauseGame_RPC
   - OnResumeButtonClicked_RPC
   - OnExitButtonClick_RPC
+  - UpdateEnemyHealth
+  - EnemyDamageTake
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

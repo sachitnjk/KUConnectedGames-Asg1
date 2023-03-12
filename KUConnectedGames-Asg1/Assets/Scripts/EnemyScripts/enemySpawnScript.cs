@@ -18,6 +18,9 @@ public class enemySpawnScript : MonoBehaviourPunCallbacks
 			int randomNumber = Random.Range(0, enemySpawnPoints.Length);
 			Transform enemySpawnPoint = enemySpawnPoints[randomNumber];
 			GameObject e_Instance = PhotonNetwork.Instantiate(enemyPrefab.name, enemySpawnPoint.position, Quaternion.identity);
+
+			e_Instance.GetComponent<EnemyHpController>().SetEnemyID(phView.ViewID);     //Setting view ID for spawned enemy for ownership transfer
+
 			NavMeshAgent e_NavMeshAgent = e_Instance.GetComponent<NavMeshAgent>();
 			e_NavMeshAgent.SetDestination(waypointsScript.waypoints[0].position);
 		}

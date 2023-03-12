@@ -1,11 +1,10 @@
 using Cinemachine;
 using StarterAssets;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using Photon.Pun;
 
-public class GunScripts : MonoBehaviour
+public class GunScripts : MonoBehaviourPunCallbacks
 {
 	[Header("All gun realated attributes")]
 	[SerializeField] private float gun_RateOfFire;
@@ -93,11 +92,19 @@ public class GunScripts : MonoBehaviour
 
 			if (hitObject.CompareTag("Enemy"))
 			{
-				EnemyHpController e_HPController = hitObject.GetComponent<EnemyHpController>();
-				if(e_HPController != null)
+
+				PhotonView enemyPhotonView = hitObject.GetComponent<PhotonView>();
+				if(enemyPhotonView != null)
 				{
-					e_HPController.EnemyDamageTake(bullet_Damage);
+					Debug.Log("This weird photon call through gun script");
+					enemyPhotonView.RPC("EnemyDamageTake", RpcTarget.AllBuffered, bullet_Damage);
 				}
+
+				//EnemyHpController e_HPController = hitObject.GetComponent<EnemyHpController>();
+				//if(e_HPController != null)
+				//{
+				//	e_HPController.EnemyDamageTake(bullet_Damage);
+				//}
 			}
 
 		}
