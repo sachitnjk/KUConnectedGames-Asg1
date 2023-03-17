@@ -8,21 +8,25 @@ public class enemySpawnScript : MonoBehaviourPunCallbacks
 {
 	[SerializeField] private GameObject enemyPrefab;
 	[SerializeField] private Transform[] enemySpawnPoints;
-	public EnemyWaypointsScript waypointsScript;
 	[SerializeField] PhotonView phView;
+	[SerializeField] int enemyNumberToSpawn;
+	public EnemyWaypointsScript waypointsScript;
 
 	private void Start()
 	{
-		if(phView.IsMine)
+		for(int i = 0; i < enemyNumberToSpawn; i++)
 		{
-			int randomNumber = Random.Range(0, enemySpawnPoints.Length);
-			Transform enemySpawnPoint = enemySpawnPoints[randomNumber];
-			GameObject e_Instance = PhotonNetwork.Instantiate(enemyPrefab.name, enemySpawnPoint.position, Quaternion.identity);
+			if(phView.IsMine)
+			{
+				int randomNumber = Random.Range(0, enemySpawnPoints.Length);
+				Transform enemySpawnPoint = enemySpawnPoints[randomNumber];
+				GameObject e_Instance = PhotonNetwork.Instantiate(enemyPrefab.name, enemySpawnPoint.position, Quaternion.identity);
 
-			e_Instance.GetComponent<EnemyHpController>().SetEnemyID(phView.ViewID);     //Setting view ID for spawned enemy for ownership transfer
+				e_Instance.GetComponent<EnemyHpController>().SetEnemyID(phView.ViewID);     //Setting view ID for spawned enemy for ownership transfer
 
-			NavMeshAgent e_NavMeshAgent = e_Instance.GetComponent<NavMeshAgent>();
-			e_NavMeshAgent.SetDestination(waypointsScript.waypoints[0].position);
+				NavMeshAgent e_NavMeshAgent = e_Instance.GetComponent<NavMeshAgent>();
+				e_NavMeshAgent.SetDestination(waypointsScript.waypoints[0].position);
+			}
 		}
 	}
 }

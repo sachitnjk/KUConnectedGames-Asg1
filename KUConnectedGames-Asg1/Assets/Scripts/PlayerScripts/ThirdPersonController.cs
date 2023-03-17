@@ -28,8 +28,9 @@ namespace StarterAssets
 
         [Tooltip("Acceleration and deceleration")]
         public float SpeedChangeRate = 10.0f;
+		public float Sensitivity = 1f;
 
-        public AudioClip LandingAudioClip;
+		public AudioClip LandingAudioClip;
         public AudioClip[] FootstepAudioClips;
         [Range(0, 1)] public float FootstepAudioVolume = 0.5f;
 
@@ -108,6 +109,7 @@ namespace StarterAssets
         private CharacterController _controller;
         private StarterAssetsInputs _input;
         private GameObject _mainCamera;
+        private bool _rotateOnMove = true;
 
 
         private PlayerStaminaBar playerStaminaBar;
@@ -212,8 +214,8 @@ namespace StarterAssets
                 //Don't multiply mouse input by Time.deltaTime;
                 float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
 
-                _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier;
-                _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier;
+                _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier * Sensitivity;
+                _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier * Sensitivity;
             }
 
             // clamp our rotations so our values are limited 360 degrees
@@ -227,71 +229,74 @@ namespace StarterAssets
 
         private void Move()
         {
-            // set target speed based on move speed, sprint speed and if sprint is pressed
-            targetSpeed = _input.sprint && playerStaminaBar.currentStam > 0 ? SprintSpeed : MoveSpeed;
+			// set target speed based on move speed, sprint speed and if sprint is pressed
+			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 
-            // a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
+			// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
-            // note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
-            // if there is no input, set the target speed to 0
-            if (_input.move == Vector2.zero) targetSpeed = 0.0f;
+			// note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
+			// if there is no input, set the target speed to 0
+			if (_input.move == Vector2.zero) targetSpeed = 0.0f;
 
-            // a reference to the players current horizontal velocity
-            float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
+			// a reference to the players current horizontal velocity
+			float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
 
-            float speedOffset = 0.1f;
-            float inputMagnitude = _input.analogMovement ? _input.move.magnitude : 1f;
+			float speedOffset = 0.1f;
+			float inputMagnitude = _input.analogMovement ? _input.move.magnitude : 1f;
 
-            // accelerate or decelerate to target speed
-            if (currentHorizontalSpeed < targetSpeed - speedOffset ||
-                currentHorizontalSpeed > targetSpeed + speedOffset)
-            {
-                // creates curved result rather than a linear one giving a more organic speed change
-                // note T in Lerp is clamped, so we don't need to clamp our speed
-                _speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude,
-                    Time.deltaTime * SpeedChangeRate);
+			// accelerate or decelerate to target speed
+			if (currentHorizontalSpeed < targetSpeed - speedOffset ||
+				currentHorizontalSpeed > targetSpeed + speedOffset)
+			{
+				// creates curved result rather than a linear one giving a more organic speed change
+				// note T in Lerp is clamped, so we don't need to clamp our speed
+				_speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude,
+					Time.deltaTime * SpeedChangeRate);
 
-                // round speed to 3 decimal places
-                _speed = Mathf.Round(_speed * 1000f) / 1000f;
-            }
-            else
-            {
-                _speed = targetSpeed;
-            }
+				// round speed to 3 decimal places
+				_speed = Mathf.Round(_speed * 1000f) / 1000f;
+			}
+			else
+			{
+				_speed = targetSpeed;
+			}
 
-            _animationBlend = Mathf.Lerp(_animationBlend, targetSpeed, Time.deltaTime * SpeedChangeRate);
-            if (_animationBlend < 0.01f) _animationBlend = 0f;
+			_animationBlend = Mathf.Lerp(_animationBlend, targetSpeed, Time.deltaTime * SpeedChangeRate);
+			if (_animationBlend < 0.01f) _animationBlend = 0f;
 
-            // normalise input direction
-            Vector3 inputDirection = new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
+			// normalise input direction
+			Vector3 inputDirection = new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
 
-            // note: Vector2's != operator uses approximation so is not floating point error prone, and is cheaper than magnitude
-            // if there is a move input rotate player when the player is moving
-            //if (_input.move != Vector2.zero _input.isAiming || _input.shoot)
-            //{
-                _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg +
-                                  _mainCamera.transform.eulerAngles.y;
+			// note: Vector2's != operator uses approximation so is not floating point error prone, and is cheaper than magnitude
+			// if there is a move input rotate player when the player is moving
+			if (_input.move != Vector2.zero)
+			{
+				_targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg +
+								  _mainCamera.transform.eulerAngles.y;
+				float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity,
+					RotationSmoothTime);
 
-				 float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity,
-				        RotationSmoothTime);
+				// rotate to face input direction relative to camera position
+				if (_rotateOnMove)
+				{
+					transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+				}
+			}
 
-            // rotate to face input direction relative to camera position
-            transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
-            //}
 
-            targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
+			Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
 
-            // move the player
-            _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +
-                             new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+			// move the player
+			_controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +
+							 new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
 
-            // update animator if using character
-            if (_hasAnimator)
-            {
-                _animator.SetFloat(_animIDSpeed, _animationBlend);
-                _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
-            }
-        }
+			// update animator if using character
+			if (_hasAnimator)
+			{
+				_animator.SetFloat(_animIDSpeed, _animationBlend);
+				_animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
+			}
+		}
 
         private void JumpAndGravity()
         {
@@ -383,7 +388,17 @@ namespace StarterAssets
                 GroundedRadius);
         }
 
-        private void OnFootstep(AnimationEvent animationEvent)
+        public void SetRotateOnMove(bool newRotateBool)
+        {
+            _rotateOnMove = newRotateBool;
+        }
+
+		public void SetSensitivity(float newSensitivity)
+		{
+			Sensitivity = newSensitivity;
+		}
+
+		private void OnFootstep(AnimationEvent animationEvent)
         {
             if (animationEvent.animatorClipInfo.weight > 0.5f)
             {

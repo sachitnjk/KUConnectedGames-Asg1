@@ -1184,6 +1184,7 @@ GameObject:
   - component: {fileID: 3349081328092082929}
   - component: {fileID: 1153294328679365783}
   - component: {fileID: 8105024763133557330}
+  - component: {fileID: 455281735667569706}
   m_Layer: 10
   m_Name: 1Impulse_PlayerClass1
   m_TagString: Player
@@ -1498,6 +1499,7 @@ MonoBehaviour:
   SprintSpeed: 6
   RotationSmoothTime: 0.12
   SpeedChangeRate: 10
+  Sensitivity: 1
   LandingAudioClip: {fileID: 8300000, guid: ff697d3070687ce4583faa0561a145a2, type: 3}
   FootstepAudioClips:
   - {fileID: 8300000, guid: 72f526a6a9890f643a88e85a61c86c8a, type: 3}
@@ -1578,6 +1580,24 @@ MonoBehaviour:
   stamRegen: 15
   stamBarScript: {fileID: 3079493921623841978}
   tpController: {fileID: 3363259848303861632}
+--- !u!114 &455281735667569706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3363259848303861643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eaa962eb5dacdf4684c0b531b968efe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cm_AimVirtualCamera: {fileID: 5270201522767506457}
+  aimColliderLayerMask:
+    serializedVersion: 2
+    m_Bits: 2687
+  aimSensitivity: 0.5
+  normalSensitivity: 1
 --- !u!1 &3431887501438043480
 GameObject:
   m_ObjectHideFlags: 0
@@ -4480,6 +4500,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6169619138887951200}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5270201522767506457 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2070925441746177913, guid: a1a802ecaf6775746bb2a929fb554ad8,
+    type: 3}
+  m_PrefabInstance: {fileID: 6169619138887951200}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5270201522767506919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5270201522767506919 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2070925441746177671, guid: a1a802ecaf6775746bb2a929fb554ad8,
