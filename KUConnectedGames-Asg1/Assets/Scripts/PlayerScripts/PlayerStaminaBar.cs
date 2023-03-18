@@ -10,13 +10,14 @@ public class PlayerStaminaBar : MonoBehaviour
     public float maxStam = 100;
 	public float currentStam;
 
-    private bool isSprinting;
+    //private bool isSprinting;
 
     [SerializeField] private float stamDecay;
     [SerializeField] private float stamRegen;
 
     public StaminaBarScript stamBarScript;
     public ThirdPersonController tpController;
+    private StarterAssetsInputs _input;
 
     void Start()
     {
@@ -24,29 +25,26 @@ public class PlayerStaminaBar : MonoBehaviour
         stamBarScript?.SetMaxStamina(maxStam);
 
         tpController = GetComponent<ThirdPersonController>();
+        _input = GetComponent<StarterAssetsInputs>();
+        //isSprinting = false;
 	}
 
     void Update()
     {
         StaminaExecute();
+        Debug.Log(tpController.targetSpeed);
     }
 
     void StaminaExecute()
     {
-
-        if (isSprinting && tpController.targetSpeed > 0 && currentStam > 0)
+        if (_input.sprint && tpController.targetSpeed > 0 && currentStam > 0)
         {
             SprintStamDepletion(stamDecay);
         }
-        else if (!isSprinting && currentStam < maxStam)
+        else if (!_input.sprint && currentStam < maxStam)
         {
             SprintStamRegen(stamRegen);
         }
-    }
-
-    public void OnSprint(InputValue value)
-    {
-       isSprinting = value.isPressed;
     }
 
     void SprintStamRegen(float stamRegen)
