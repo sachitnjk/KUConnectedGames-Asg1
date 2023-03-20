@@ -32,7 +32,6 @@ public class PlayerStaminaBar : MonoBehaviour
     void Update()
     {
         StaminaExecute();
-        Debug.Log(tpController.targetSpeed);
     }
 
     void StaminaExecute()

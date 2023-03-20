@@ -99,12 +99,6 @@ public class GunScripts : MonoBehaviourPunCallbacks
 					Debug.Log("This weird photon call through gun script");
 					enemyPhotonView.RPC("EnemyDamageTake", RpcTarget.AllBuffered, bullet_Damage);
 				}
-
-				//EnemyHpController e_HPController = hitObject.GetComponent<EnemyHpController>();
-				//if(e_HPController != null)
-				//{
-				//	e_HPController.EnemyDamageTake(bullet_Damage);
-				//}
 			}
 
 		}

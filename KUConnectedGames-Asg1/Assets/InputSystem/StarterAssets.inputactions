@@ -60,12 +60,12 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ImpulseUse",
+                    "name": "Ability",
                     "type": "Button",
                     "id": "238ab27a-07bd-4880-9cff-fa9f763403f5",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press(behavior=2)",
+                    "interactions": "",
                     "initialStateCheck": false
                 },
                 {
@@ -306,7 +306,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ImpulseUse",
+                    "action": "Ability",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -317,7 +317,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ImpulseUse",
+                    "action": "Ability",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

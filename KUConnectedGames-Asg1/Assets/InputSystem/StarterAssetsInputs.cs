@@ -14,7 +14,7 @@ namespace StarterAssets
 		public bool sprint;
 		public bool isAiming;
 		public bool shoot;
-		public bool ImpulseUse;
+		public bool ability;
 		public bool pause;
 
 		[Header("Movement Settings")]
@@ -53,9 +53,9 @@ namespace StarterAssets
 			isAiming = value.isPressed;
 		}
 
-		public void ImpluseUseInput(InputValue value)
+		public void OnAbility(InputValue value)
 		{
-			ImpulseUse = value.isPressed;
+			AbilityInput(value.isPressed);
 		}
 
 		public void OnShoot(InputValue value)
@@ -90,9 +90,9 @@ namespace StarterAssets
 			sprint = newSprintState;
 		}
 
-		public void ImpulseUseInput( bool newImpulseUseState)
+		public void AbilityInput( bool newAbilityState)
 		{
-			ImpulseUse = newImpulseUseState;
+			ability = newAbilityState;
 		}
 
 		//public void ShootInput(bool newShootState)
