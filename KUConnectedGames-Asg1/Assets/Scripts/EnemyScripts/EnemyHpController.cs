@@ -10,12 +10,9 @@ public class EnemyHpController : MonoBehaviourPunCallbacks
 
 	private int enemy_ID;
 
-	public EnemyHp enemyHp;
 	private void Start()
 	{
 		e_CurrentHealth = e_MaxHealth;
-		enemyHp?.SetMaxHealth(e_MaxHealth);
-
 		e_CurrentHealth = (int)Mathf.Clamp(e_CurrentHealth, 0f, e_MaxHealth);
 	}
 
@@ -35,13 +32,10 @@ public class EnemyHpController : MonoBehaviourPunCallbacks
 			// Transfer ownership to current player
 			photonView.TransferOwnership(PhotonNetwork.LocalPlayer.ActorNumber);
 		}
-
 		e_CurrentHealth -= damage;
-		enemyHp?.SetHealth(e_CurrentHealth);
 
 		if (e_CurrentHealth <= 0)
 		{
-
 			if(photonView.IsMine)
 			{
 				PlayerKillCounter.Instance.KillCounterIncrease();
@@ -55,15 +49,12 @@ public class EnemyHpController : MonoBehaviourPunCallbacks
 	{
 		e_CurrentHealth = newHealth;
 	}
-
 	public void SetEnemyID(int id)
 	{
 		enemy_ID = id;											//Setting an owner ID so that who ever kills enemy gets ownership
 	}
-
 	public int GetEnemyOwnerID()
 	{
 		return enemy_ID % 4;
 	}
-
 }
