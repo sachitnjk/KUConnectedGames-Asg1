@@ -4,9 +4,11 @@ public class PlayerKillCounter : MonoBehaviour
 {
 	public static PlayerKillCounter Instance;
 
+	KillCounterScript killCounterSlider;
+
 	[HideInInspector] public int e_CurrentKillCounter;
 	[SerializeField] private int e_KillCounterMax = 3;
-	[SerializeField] private int e_KillCountIncrement = 1;
+	private int e_KillCountIncrement = 1;
 	public bool player_AbilityUse = false;
 
 	private void Awake()
@@ -30,6 +32,7 @@ public class PlayerKillCounter : MonoBehaviour
 	{
 		e_CurrentKillCounter = 0;
 		player_AbilityUse = false;
+		killCounterSlider?.SetSliderCounter(e_CurrentKillCounter);
 	}
 
 	public void KillCounterIncrease()
@@ -37,6 +40,7 @@ public class PlayerKillCounter : MonoBehaviour
 		if (e_CurrentKillCounter < e_KillCounterMax)
 		{
 			e_CurrentKillCounter += e_KillCountIncrement;
+			killCounterSlider?.SetSliderCounter(e_CurrentKillCounter);
 			Debug.Log(e_CurrentKillCounter);
 		}
 
@@ -45,6 +49,18 @@ public class PlayerKillCounter : MonoBehaviour
 			player_AbilityUse = true;
 		}
 
+	}
+
+	public int GetKills()
+	{
+		return e_CurrentKillCounter;
+	}
+
+	public void SetKillCounterSlider(KillCounterScript slider)
+	{
+		killCounterSlider = slider;
+		killCounterSlider.SetMaxSliderCounter(e_KillCounterMax);
+		killCounterSlider.SetSliderCounter(e_CurrentKillCounter);
 	}
 
 	private void Update()

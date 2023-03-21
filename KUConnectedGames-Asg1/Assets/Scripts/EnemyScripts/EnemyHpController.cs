@@ -41,10 +41,10 @@ public class EnemyHpController : MonoBehaviourPunCallbacks
 
 		if (e_CurrentHealth <= 0)
 		{
-			PlayerKillCounter.Instance.KillCounterIncrease();
 
 			if(photonView.IsMine)
 			{
+				PlayerKillCounter.Instance.KillCounterIncrease();
 				PhotonNetwork.Destroy(this.gameObject);  //Destroy enemy for all over the network
 			}
 		}

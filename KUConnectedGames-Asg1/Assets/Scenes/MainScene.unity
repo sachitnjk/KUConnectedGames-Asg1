@@ -1703,6 +1703,53 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1343942482}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1401273659
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1401273661}
+  - component: {fileID: 1401273660}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1401273660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401273659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4929612d748aa147a822403bcbb61a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  e_CurrentKillCounter: 0
+  e_KillCounterMax: 3
+  player_AbilityUse: 0
+--- !u!4 &1401273661
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401273659}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.7006254, y: 1.065786, z: 1.6331791}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1423198207
 GameObject:
   m_ObjectHideFlags: 0
@@ -1833,7 +1880,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   e_CurrentKillCounter: 0
   e_KillCounterMax: 3
-  e_KillCountIncrement: 1
   player_AbilityUse: 0
 --- !u!1 &1430405467
 GameObject:
@@ -2560,7 +2606,7 @@ MonoBehaviour:
   - {fileID: 593164390}
   - {fileID: 1981937391}
   phView: {fileID: 2107209667}
-  enemyNumberToSpawn: 8
+  enemyNumberToSpawn: 4
   waypointsScript: {fileID: 9172181529142494532, guid: fbbee8b7acdee1149aed9354a0a45ef7,
     type: 3}
 --- !u!4 &2107209666

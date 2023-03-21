@@ -9,6 +9,7 @@ public class MultiplayerSetup : MonoBehaviourPunCallbacks
 {
 
 	[SerializeField] List<GameObject> itemsToDelete;
+	[SerializeField] KillCounterScript killCounterScript;
 
 	PhotonView phView;
 
@@ -38,6 +39,10 @@ public class MultiplayerSetup : MonoBehaviourPunCallbacks
 			{
 				Destroy(itemsToDelete[i]);
 			}
+		}
+		else
+		{
+			PlayerKillCounter.Instance.SetKillCounterSlider(killCounterScript);
 		}
 	}
 }

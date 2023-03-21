@@ -30,7 +30,5 @@ public class AbilityController : MonoBehaviour
         {
             abilityTriggered= false;
         }
-        Debug.Log(abilityTriggered);
-        Debug.Log(PlayerKillCounter.Instance.player_AbilityUse);
     }
 }
