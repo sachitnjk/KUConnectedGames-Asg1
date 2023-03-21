@@ -566,6 +566,16 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 16377666670059576, guid: 938db13b0896ee5489253a42313e534e,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 901969743140965434, guid: 938db13b0896ee5489253a42313e534e,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2320575184797539048, guid: 938db13b0896ee5489253a42313e534e,
         type: 3}
       propertyPath: cm_AimVirtualCamera
@@ -758,6 +768,37 @@ Transform:
   m_Father: {fileID: 2114283753834967213}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1443913371 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4862312604714859534, guid: 938db13b0896ee5489253a42313e534e,
+    type: 3}
+  m_PrefabInstance: {fileID: 895302161}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1443913373 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3660986379469450092, guid: 938db13b0896ee5489253a42313e534e,
+    type: 3}
+  m_PrefabInstance: {fileID: 895302161}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443913371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1443913374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443913371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1557d930a028af4cbd628c3b9380dd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  killCounterSlider: {fileID: 1443913373}
 --- !u!1 &1764214107
 GameObject:
   m_ObjectHideFlags: 0

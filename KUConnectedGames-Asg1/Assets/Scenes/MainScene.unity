@@ -1834,6 +1834,7 @@ MonoBehaviour:
   e_CurrentKillCounter: 0
   e_KillCounterMax: 3
   e_KillCountIncrement: 1
+  player_AbilityUse: 0
 --- !u!1 &1430405467
 GameObject:
   m_ObjectHideFlags: 0
@@ -2559,7 +2560,7 @@ MonoBehaviour:
   - {fileID: 593164390}
   - {fileID: 1981937391}
   phView: {fileID: 2107209667}
-  enemyNumberToSpawn: 10
+  enemyNumberToSpawn: 8
   waypointsScript: {fileID: 9172181529142494532, guid: fbbee8b7acdee1149aed9354a0a45ef7,
     type: 3}
 --- !u!4 &2107209666

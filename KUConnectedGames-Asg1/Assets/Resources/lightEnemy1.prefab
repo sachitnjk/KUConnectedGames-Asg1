@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5538684254857353042}
   - component: {fileID: 1417819314796653021}
   - component: {fileID: 36244707700337627}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 4089566403549767607}
   - component: {fileID: 4089566403549767600}
   - component: {fileID: 4089566403549767601}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EnemyForward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 2796518905105885274}
   - component: {fileID: 5515684558555358049}
   - component: {fileID: 2942193039112983123}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: lightEnemy1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -407,7 +407,7 @@ MonoBehaviour:
     m_Bits: 1024
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 2943
+    m_Bits: 7039
   enemy_SpeedWalk: 2
   enemy_SpeedRun: 3
   enemy_DetactionRange: 10
@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 579235181242545518}
   - component: {fileID: 4797069277338901524}
   - component: {fileID: 4083704848472431634}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EnemyHud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -532,7 +532,7 @@ GameObject:
   - component: {fileID: 7629601540601887017}
   - component: {fileID: 2987108745694526334}
   - component: {fileID: 1145194646969427258}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EnemyHp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -664,7 +664,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7472389576653194276}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -703,7 +703,7 @@ GameObject:
   - component: {fileID: 4922097557521612527}
   - component: {fileID: 4618774313652144229}
   - component: {fileID: 7277426547466257749}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
