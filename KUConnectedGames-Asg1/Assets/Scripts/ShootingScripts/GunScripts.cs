@@ -3,6 +3,7 @@ using StarterAssets;
 using System.Collections;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.VFX;
 
 public class GunScripts : MonoBehaviourPunCallbacks
 {
@@ -36,17 +37,19 @@ public class GunScripts : MonoBehaviourPunCallbacks
 	[SerializeField] private int bullet_Damage;
 	[SerializeField] private float bullet_Spread;
 
+	private VisualEffect hitImpact_1;
+
 	private Vector3 bullet_Target;
 
 	[SerializeField] private float ray_Range;
 
 	[SerializeField] private GameObject screenCenter_GO;
-	private Vector3 screenCenter_Vector;
 
 	private void Start()
 	{
 		gun_CurrentAmmo = gun_MaxAmmo;
 
+		hitImpact_1 = ReferenceManager.instance.hitImpactVisualEffects;
 	}
 
 	private void Update()
@@ -87,6 +90,7 @@ public class GunScripts : MonoBehaviourPunCallbacks
 		{
 			GameObject hitObject = hitResult.collider.gameObject;
 			bullet_Target = hitResult.point;
+			Instantiate(hitImpact_1, bullet_Target, Quaternion.identity);
 
 			Debug.Log(hitResult.collider.gameObject.name);
 
