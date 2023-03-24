@@ -25,6 +25,8 @@ public class Enemy_AiBehaviour : MonoBehaviour
 	[SerializeField] private float enemy_ViewRadius = 5f;
 	[SerializeField] private float enemy_GapBetweenDamage;
 
+	[SerializeField] private Animator _animator;
+
 	public NavMeshAgent navMeshAgent;
 
 	private State enemy_CurrentState;
@@ -115,21 +117,24 @@ public class Enemy_AiBehaviour : MonoBehaviour
 
 	private void Patrol()
 	{
-			navMeshAgent.SetDestination(waypoints[enemy_CurrentWaypointIndex].position);
-			if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+		_animator.SetBool("isAttacking", false);
+		_animator.SetBool("isRunning", false);
+		_animator.SetBool("isWalking", true);
+		navMeshAgent.SetDestination(waypoints[enemy_CurrentWaypointIndex].position);
+		if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+		{
+			if (waitTime <= 0)
 			{
-				if (waitTime <= 0)
-				{
-					NextPoint();
-					Move(enemy_SpeedWalk);
-					waitTime = enemy_StartWaitTime;
-				}
-				else
-				{
-					Stop();
-					waitTime -= Time.deltaTime;
-				}
+				NextPoint();
+				Move(enemy_SpeedWalk);
+				waitTime = enemy_StartWaitTime;
 			}
+			else
+			{
+				Stop();
+				waitTime -= Time.deltaTime;
+			}
+		}
 
 		if(DetectPlayer())
 		{
@@ -137,8 +142,6 @@ public class Enemy_AiBehaviour : MonoBehaviour
 
 			enemy_CurrentState = State.Chase;
 		}
-
-		//make coroutine of this later
 	}
 
 	private bool DetectPlayer()
@@ -175,6 +178,10 @@ public class Enemy_AiBehaviour : MonoBehaviour
 
 	private void Chasing()
 	{
+		_animator.SetBool("isWalking", false);
+		_animator.SetBool("isAttacking", false);
+		_animator.SetBool("isRunning", true);
+
 		Vector3 targetPosition = enemy_Target.position;
 		var towardsPlayer = enemy_Target.position - transform.position;
 
@@ -198,6 +205,9 @@ public class Enemy_AiBehaviour : MonoBehaviour
 
 	private void Searching()
 	{
+		_animator.SetBool("isRunning", false);
+		_animator.SetBool("isWalking", true);
+
 		Debug.Log("going to player last pos");
 		navMeshAgent.SetDestination(player_LastKnownPos);
 
@@ -220,6 +230,10 @@ public class Enemy_AiBehaviour : MonoBehaviour
 
 	void EnemyAttack(int damage)
 	{
+		_animator.SetBool("isWalking", false);
+		_animator.SetBool("isRunning", false);
+		_animator.SetBool("isAttacking", true);
+
 		if (enemy_CanDamage)
 		{
 			Debug.Log("I am attacking");
