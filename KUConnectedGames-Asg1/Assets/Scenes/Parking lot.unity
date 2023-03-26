@@ -3203,13 +3203,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 261653211}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -76.30522, y: 43.091152, z: 52.874855}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -58.738213, y: 40.960335, z: 63.244247}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 1967671795}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &271661793
 PrefabInstance:
@@ -16669,7 +16669,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1848980736}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: b1bc5525d01d7ef4d917138ac8ec519d, type: 3}
+  m_Asset: {fileID: 0}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
@@ -17458,7 +17458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1967671795}
   m_Layer: 0
-  m_Name: MAIN PARENT OBJECT
+  m_Name: EnvironmentHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17478,8 +17478,9 @@ Transform:
   m_Children:
   - {fileID: 1642380690}
   - {fileID: 459801274}
+  - {fileID: 261653213}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1978904653
 PrefabInstance:
