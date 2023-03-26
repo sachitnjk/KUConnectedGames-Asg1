@@ -34,7 +34,6 @@ public class Enemy_AiBehaviour : MonoBehaviour
 	private GameObject player;
 	private EnemyHpController enemyHpController;
 
-	public EnemyWaypointsScript waypointsScript;
 	private Transform[] waypoints;
 	private	int enemy_CurrentWaypointIndex;
 
@@ -61,7 +60,7 @@ public class Enemy_AiBehaviour : MonoBehaviour
 
 		enemy_CanDamage = true;
 
-		waypoints = waypointsScript.waypoints;
+		waypoints = ReferenceManager.instance.enemyWaypoints.waypoints;
 
 		enemy_CurrentWaypointIndex = 0;
 		navMeshAgent = GetComponent<NavMeshAgent>();

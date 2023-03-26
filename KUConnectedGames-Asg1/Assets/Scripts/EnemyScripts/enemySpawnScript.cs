@@ -10,7 +10,6 @@ public class enemySpawnScript : MonoBehaviourPunCallbacks
 	[SerializeField] private Transform[] enemySpawnPoints;
 	[SerializeField] PhotonView phView;
 	[SerializeField] int enemyNumberToSpawn;
-	public EnemyWaypointsScript waypointsScript;
 
 	private void Start()
 	{
@@ -25,7 +24,7 @@ public class enemySpawnScript : MonoBehaviourPunCallbacks
 				e_Instance.GetComponent<EnemyHpController>().SetEnemyID(phView.ViewID);     //Setting view ID for spawned enemy for ownership transfer
 
 				NavMeshAgent e_NavMeshAgent = e_Instance.GetComponent<NavMeshAgent>();
-				e_NavMeshAgent.SetDestination(waypointsScript.waypoints[0].position);
+				e_NavMeshAgent.SetDestination(ReferenceManager.instance.enemyWaypoints.waypoints[0].position);
 			}
 		}
 	}

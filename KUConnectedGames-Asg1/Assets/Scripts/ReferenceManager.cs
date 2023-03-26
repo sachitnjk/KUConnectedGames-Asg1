@@ -6,6 +6,7 @@ public class ReferenceManager : MonoBehaviour
 	public static ReferenceManager instance;
 
 	[SerializeField] public VisualEffect hitImpactVisualEffects;
+	[SerializeField] public EnemyWaypointsScript enemyWaypoints;
 
 	private void Awake()
 	{

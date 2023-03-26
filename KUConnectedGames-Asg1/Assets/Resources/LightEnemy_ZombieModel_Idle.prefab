@@ -2170,8 +2170,6 @@ MonoBehaviour:
   enemy_GapBetweenDamage: 1
   _animator: {fileID: 6098064043857477087}
   navMeshAgent: {fileID: 7204967915358494398}
-  waypointsScript: {fileID: 9172181529142494532, guid: fbbee8b7acdee1149aed9354a0a45ef7,
-    type: 3}
 --- !u!1 &7651086685454472465
 GameObject:
   m_ObjectHideFlags: 0
