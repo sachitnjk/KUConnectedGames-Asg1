@@ -2161,7 +2161,7 @@ MonoBehaviour:
     m_Bits: 7039
   enemy_SpeedWalk: 2
   enemy_SpeedRun: 3
-  enemy_DetactionRange: 10
+  enemy_DetactionRange: 25
   enemy_StartWaitTime: 2
   enemy_TimeToRotate: 5
   enemy_AttackRange: 2

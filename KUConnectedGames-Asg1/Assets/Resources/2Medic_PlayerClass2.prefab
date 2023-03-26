@@ -4708,7 +4708,7 @@ PrefabInstance:
     - target: {fileID: 101393793845680707, guid: 37aec8f54888bf44985b5c26bdb0de0f,
         type: 3}
       propertyPath: ray_Range
-      value: 900
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 101393793845680707, guid: 37aec8f54888bf44985b5c26bdb0de0f,
         type: 3}

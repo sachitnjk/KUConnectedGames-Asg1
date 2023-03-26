@@ -120,6 +120,9 @@ public class Enemy_AiBehaviour : MonoBehaviour
 		_animator.SetBool("isRunning", false);
 		_animator.SetBool("isWalking", true);
 		navMeshAgent.SetDestination(waypoints[enemy_CurrentWaypointIndex].position);
+
+		//AvoidEnemy();
+
 		if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
 		{
 			if (waitTime <= 0)
@@ -135,7 +138,7 @@ public class Enemy_AiBehaviour : MonoBehaviour
 			}
 		}
 
-		if(DetectPlayer())
+		if(DetectEntity())
 		{
 			Debug.Log("changinmg to chase from patrol");
 
@@ -143,15 +146,15 @@ public class Enemy_AiBehaviour : MonoBehaviour
 		}
 	}
 
-	private bool DetectPlayer()
+	private bool DetectEntity()
 	{
-		Collider[] playerInRange = Physics.OverlapSphere(transform.position, enemy_ViewRadius, playerMask);
+		Collider[] entityInRange = Physics.OverlapSphere(transform.position, enemy_ViewRadius, playerMask);
 
-		if (playerInRange != null && playerInRange.Length > 0)
+		if (entityInRange != null && entityInRange.Length > 0)
 		{
-			foreach (Collider player in playerInRange)
+			foreach (Collider entity in entityInRange)
 			{
-				Vector3 targetPoint = player.transform.position;
+				Vector3 targetPoint = entity.transform.position;
 				targetPoint.y += 1;
 				Vector3 direction = targetPoint - transform.position;
 				float distance = direction.magnitude;
@@ -163,7 +166,7 @@ public class Enemy_AiBehaviour : MonoBehaviour
 				{
 					Debug.Log("Detecting player-raycast");
 
-					enemy_Target = player.transform;
+					enemy_Target = entity.transform;
 					return true;
 				}
 				else
@@ -174,6 +177,20 @@ public class Enemy_AiBehaviour : MonoBehaviour
 		}
 			return false;
 	}
+
+	//private void AvoidEnemy()
+	//{
+	//	RaycastHit hit;
+	//	if(Physics.Raycast(transform.position, transform.forward, out hit, 4))
+	//	{
+	//		if(hit.collider.CompareTag("Enemy"))
+	//		{
+	//			transform.Rotate(0, 180, 0);
+	//			Vector3 avoidPos = transform.position + (transform.forward * 2);
+	//			transform.position = Vector3.Lerp(transform.position, avoidPos, Time.deltaTime * 2);
+	//		}
+	//	}
+	//}
 
 	private void Chasing()
 	{
@@ -214,7 +231,7 @@ public class Enemy_AiBehaviour : MonoBehaviour
 
 		if (distanceToLastKnownPos <= navMeshAgent.stoppingDistance)
 		{
-			if (DetectPlayer())
+			if (DetectEntity())
 			{
 				Debug.Log("Searching -> chase");
 				enemy_CurrentState = State.Chase;
