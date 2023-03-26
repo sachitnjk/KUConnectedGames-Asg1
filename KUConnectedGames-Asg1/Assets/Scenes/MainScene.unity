@@ -553,7 +553,7 @@ MonoBehaviour:
   - {fileID: 330181072}
   - {fileID: 1883161509}
   phView: {fileID: 394038668}
-  enemyNumberToSpawn: 2
+  enemyNumberToSpawn: 5
 --- !u!114 &394038668
 MonoBehaviour:
   m_ObjectHideFlags: 0

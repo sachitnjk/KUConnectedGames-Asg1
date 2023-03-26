@@ -1270,6 +1270,7 @@ MonoBehaviour:
   - {fileID: 8052448301568605082}
   - {fileID: 1107259243895933889}
   - {fileID: 4747690891976016038}
+  killCounterScript: {fileID: 0}
 --- !u!114 &3363259848303861632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1353,7 +1354,7 @@ MonoBehaviour:
   sprint: 0
   isAiming: 0
   shoot: 0
-  ImpulseUse: 0
+  ability: 0
   pause: 0
   analogMovement: 0
   cursorLocked: 1
@@ -4388,6 +4389,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2731261305981502769}
     m_Modifications:
+    - target: {fileID: 101393793845680704, guid: 37aec8f54888bf44985b5c26bdb0de0f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 101393793845680705, guid: 37aec8f54888bf44985b5c26bdb0de0f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 101393793845680707, guid: 37aec8f54888bf44985b5c26bdb0de0f,
         type: 3}
       propertyPath: _input
