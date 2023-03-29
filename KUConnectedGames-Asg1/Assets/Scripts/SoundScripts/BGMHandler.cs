@@ -8,7 +8,7 @@ public class BGMHandler : MonoBehaviour
 {
 	public static BGMHandler instance;
 
-	int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+	//int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 	[SerializeField] public AudioSource bgMenusLobby; 
 	private void Awake()
 	{
