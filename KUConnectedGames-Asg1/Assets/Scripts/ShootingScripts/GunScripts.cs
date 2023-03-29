@@ -114,7 +114,7 @@ public class GunScripts : MonoBehaviourPunCallbacks
 	}
 	IEnumerator DestroyHitImpact(VisualEffect hitImpactObject)
 	{
-		yield return new WaitForSeconds(1.0f); // Wait for 2 seconds before destroying the hitImpactObject
+		yield return new WaitForSeconds(1.0f);
 		hitImpactObject.Stop();
 		Destroy(hitImpactObject);
 	}
