@@ -90,7 +90,7 @@ public class GunScripts : MonoBehaviourPunCallbacks
 		{
 			GameObject hitObject = hitResult.collider.gameObject;
 			bullet_Target = hitResult.point;
-			Instantiate(hitImpact_1, bullet_Target, Quaternion.identity);
+			VisualEffect hitImpact_basic =  Instantiate(hitImpact_1, bullet_Target, Quaternion.identity);
 
 			Debug.Log(hitResult.collider.gameObject.name);
 
@@ -104,11 +104,18 @@ public class GunScripts : MonoBehaviourPunCallbacks
 					enemyPhotonView.RPC("EnemyDamageTake", RpcTarget.AllBuffered, bullet_Damage);
 				}
 			}
+			StartCoroutine(DestroyHitImpact(hitImpact_basic));
 
 		}
 		else
 		{
 			bullet_Target = gun_PlayerMainCam.transform.position + (ray.direction * 1000.0f);
 		}
+	}
+	IEnumerator DestroyHitImpact(VisualEffect hitImpactObject)
+	{
+		yield return new WaitForSeconds(1.0f); // Wait for 2 seconds before destroying the hitImpactObject
+		hitImpactObject.Stop();
+		Destroy(hitImpactObject);
 	}
 }
