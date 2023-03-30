@@ -39,8 +39,15 @@ public class EnemyHpController : MonoBehaviourPunCallbacks
 			if(photonView.IsMine)
 			{
 				PlayerKillCounter.Instance.KillCounterIncrease();
-				PhotonNetwork.Destroy(this.gameObject);  //Destroy enemy for all over the network
+				//PhotonNetwork.Destroy(this.gameObject);  //Destroy enemy for all over the network
+				StartCoroutine(DestroyEnemyObject());
 			}
+		}
+
+		IEnumerator DestroyEnemyObject()
+		{
+			yield return new WaitForSeconds(3f);
+			PhotonNetwork.Destroy(this.gameObject);
 		}
 	}
 

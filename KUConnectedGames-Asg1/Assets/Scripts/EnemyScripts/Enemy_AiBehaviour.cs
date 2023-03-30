@@ -53,6 +53,8 @@ public class Enemy_AiBehaviour : MonoBehaviour
 
 	private void Start()
 	{
+		enemyHpController = GetComponent<EnemyHpController>();
+
 		GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 		if(players.Length > 0)
 		{
@@ -76,6 +78,11 @@ public class Enemy_AiBehaviour : MonoBehaviour
 
 	private void Update()
 	{
+		if(enemyHpController.e_CurrentHealth == 0)
+		{
+			enemy_CurrentState = State.Dead;
+		}
+
 		switch (enemy_CurrentState)
 			{
 			case State.Patrol:
@@ -94,7 +101,6 @@ public class Enemy_AiBehaviour : MonoBehaviour
 				EnemyDead();
 				break;
 		}
-
 	}
 
 	public void NextPoint()
@@ -271,12 +277,7 @@ public class Enemy_AiBehaviour : MonoBehaviour
 
 	private void EnemyDead()
 	{
-		//trigger dead animation here
-		if(enemyHpController.e_CurrentHealth <= 0)
-		{
-			enemy_CurrentState = State.Dead;
-			Debug.Log("EnemyDead");
-		}
+		_animator.SetBool("isDead", true);
 	}
 
 }
