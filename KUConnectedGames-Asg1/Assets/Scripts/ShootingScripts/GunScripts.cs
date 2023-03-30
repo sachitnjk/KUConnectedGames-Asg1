@@ -96,6 +96,11 @@ public class GunScripts : MonoBehaviourPunCallbacks
 
 			if (hitObject.CompareTag("Enemy"))
 			{
+				Enemy_AiBehaviour aiBehaviour = hitObject.GetComponent<Enemy_AiBehaviour>();
+				if (aiBehaviour != null)
+				{
+					aiBehaviour.TriggerHitAnimation();
+				}
 
 				PhotonView enemyPhotonView = hitObject.GetComponent<PhotonView>();
 				if(enemyPhotonView != null)

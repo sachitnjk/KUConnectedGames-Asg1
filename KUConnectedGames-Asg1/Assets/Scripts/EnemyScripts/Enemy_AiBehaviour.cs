@@ -114,6 +114,11 @@ public class Enemy_AiBehaviour : MonoBehaviour
 		navMeshAgent.speed = 0;
 	}
 
+	public void TriggerHitAnimation()
+	{
+		_animator.SetTrigger("isHit");
+	}
+
 	private void Patrol()
 	{
 		_animator.SetBool("isAttacking", false);
@@ -121,7 +126,6 @@ public class Enemy_AiBehaviour : MonoBehaviour
 		_animator.SetBool("isWalking", true);
 		navMeshAgent.SetDestination(waypoints[enemy_CurrentWaypointIndex].position);
 
-		//AvoidEnemy();
 
 		if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
 		{
@@ -177,20 +181,6 @@ public class Enemy_AiBehaviour : MonoBehaviour
 		}
 			return false;
 	}
-
-	//private void AvoidEnemy()
-	//{
-	//	RaycastHit hit;
-	//	if(Physics.Raycast(transform.position, transform.forward, out hit, 4))
-	//	{
-	//		if(hit.collider.CompareTag("Enemy"))
-	//		{
-	//			transform.Rotate(0, 180, 0);
-	//			Vector3 avoidPos = transform.position + (transform.forward * 2);
-	//			transform.position = Vector3.Lerp(transform.position, avoidPos, Time.deltaTime * 2);
-	//		}
-	//	}
-	//}
 
 	private void Chasing()
 	{
