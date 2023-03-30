@@ -118,23 +118,10 @@ public class Enemy_AiBehaviour : MonoBehaviour
 	public void TriggerHitAnimation()
 	{
 		_animator.SetTrigger("isHit");
-		//if (enemy_CurrentState == State.Patrol || enemy_CurrentState == State.Chase)
-		//{
-		//	Stop();
-		//}
-
 	}
 	private IEnumerator WaitForHitAnimation()
 	{
 		yield return new WaitForSeconds(hitAnimationDuration);
-		//if (enemy_CurrentState == State.Patrol)
-		//{
-		//	Move(enemy_SpeedWalk);
-		//}
-		//else if (enemy_CurrentState == State.Chase)
-		//{
-		//	Move(enemy_SpeedRun);
-		//}
 	}
 
 	private void Patrol()
