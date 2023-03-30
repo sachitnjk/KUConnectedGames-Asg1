@@ -40,6 +40,7 @@ public class Enemy_AiBehaviour : MonoBehaviour
 	private Vector3 player_LastKnownPos;
 
 	private bool enemy_CanDamage;
+	private float hitAnimationDuration = 1f;
 
 	private enum State
 	{
@@ -108,7 +109,7 @@ public class Enemy_AiBehaviour : MonoBehaviour
 		navMeshAgent.speed = speed;
 	}
 
-	void Stop()
+	public void Stop()
 	{
 		navMeshAgent.isStopped = true;
 		navMeshAgent.speed = 0;
@@ -117,6 +118,23 @@ public class Enemy_AiBehaviour : MonoBehaviour
 	public void TriggerHitAnimation()
 	{
 		_animator.SetTrigger("isHit");
+		//if (enemy_CurrentState == State.Patrol || enemy_CurrentState == State.Chase)
+		//{
+		//	Stop();
+		//}
+
+	}
+	private IEnumerator WaitForHitAnimation()
+	{
+		yield return new WaitForSeconds(hitAnimationDuration);
+		//if (enemy_CurrentState == State.Patrol)
+		//{
+		//	Move(enemy_SpeedWalk);
+		//}
+		//else if (enemy_CurrentState == State.Chase)
+		//{
+		//	Move(enemy_SpeedRun);
+		//}
 	}
 
 	private void Patrol()
