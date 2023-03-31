@@ -34,6 +34,7 @@ public class GunScripts : MonoBehaviourPunCallbacks
 	[Header("All bullet attributes")]
 	[SerializeField] private GameObject bullet_Prefab;
 	[SerializeField] private GameObject bullet_Impact;
+	[SerializeField] private float bullet_Speed;
 	[SerializeField] private int bullet_Damage;
 	[SerializeField] private float bullet_Spread;
 
@@ -49,7 +50,7 @@ public class GunScripts : MonoBehaviourPunCallbacks
 	{
 		gun_CurrentAmmo = gun_MaxAmmo;
 
-		hitImpact_1 = ReferenceManager.instance.hitImpactVisualEffects;
+		hitImpact_1 = bullet_Impact.GetComponent<VisualEffect>();
 	}
 
 	private void Update()
@@ -116,11 +117,19 @@ public class GunScripts : MonoBehaviourPunCallbacks
 		{
 			bullet_Target = gun_PlayerMainCam.transform.position + (ray.direction * 1000.0f);
 		}
+
+		GameObject bullet_Instance = Instantiate(bullet_Prefab, gun_ShootPoint.transform.position, gun_ShootPoint.transform.rotation);
+		Vector3 bullet_Direction = (bullet_Target - gun_ShootPoint.transform.position).normalized;
+		bullet_Instance.GetComponent<Rigidbody>().velocity = bullet_Direction * bullet_Speed;
+		Destroy(bullet_Instance, 1.5f);
 	}
 	IEnumerator DestroyHitImpact(VisualEffect hitImpactObject)
 	{
-		yield return new WaitForSeconds(1.0f);
-		hitImpactObject.Stop();
-		Destroy(hitImpactObject);
+		yield return new WaitForSeconds(.5f);
+		if(hitImpact_1 != null)
+		{
+			hitImpact_1.Stop();
+			Destroy(hitImpactObject.gameObject);
+		}
 	}
 }

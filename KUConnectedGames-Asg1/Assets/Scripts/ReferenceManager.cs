@@ -5,8 +5,10 @@ public class ReferenceManager : MonoBehaviour
 {
 	public static ReferenceManager instance;
 
-	[SerializeField] public VisualEffect hitImpactVisualEffects;
+	//[SerializeField] public GameObject hitImpact_Prefab;
 	[SerializeField] public EnemyWaypointsScript enemyWaypoints;
+
+	//public VisualEffect hitImpactVisualEffects { get; private set; }
 
 	private void Awake()
 	{
@@ -18,5 +20,7 @@ public class ReferenceManager : MonoBehaviour
 		{
 			Destroy(this);
 		}
+
+		//hitImpactVisualEffects = hitImpact_Prefab.GetComponent<VisualEffect>();
 	}
 }
