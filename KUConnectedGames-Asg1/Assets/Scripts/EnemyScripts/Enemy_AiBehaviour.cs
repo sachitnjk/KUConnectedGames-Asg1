@@ -278,6 +278,8 @@ public class Enemy_AiBehaviour : MonoBehaviour
 	private void EnemyDead()
 	{
 		_animator.SetBool("isDead", true);
+		Collider enemy_Collider = GetComponent<Collider>();
+		enemy_Collider.enabled = false;
 	}
 
 }
