@@ -2166,7 +2166,7 @@ MonoBehaviour:
   enemy_TimeToRotate: 5
   enemy_AttackRange: 2
   enemy_Damage: 10
-  enemy_ViewRadius: 5
+  enemy_ViewRadius: 20
   enemy_GapBetweenDamage: 1
   _animator: {fileID: 6098064043857477087}
   navMeshAgent: {fileID: 7204967915358494398}

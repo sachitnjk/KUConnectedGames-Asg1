@@ -22,7 +22,7 @@ public class Enemy_AiBehaviour : MonoBehaviour
 
 	[SerializeField] private float enemy_AttackRange;
 	[SerializeField] private int enemy_Damage;
-	[SerializeField] private float enemy_ViewRadius = 5f;
+	[SerializeField] private float enemy_ViewRadius;
 	[SerializeField] private float enemy_GapBetweenDamage;
 
 	[SerializeField] private Animator _animator;
@@ -40,7 +40,6 @@ public class Enemy_AiBehaviour : MonoBehaviour
 	private Vector3 player_LastKnownPos;
 
 	private bool enemy_CanDamage;
-	private float hitAnimationDuration = 1f;
 
 	private enum State
 	{
@@ -124,10 +123,6 @@ public class Enemy_AiBehaviour : MonoBehaviour
 	public void TriggerHitAnimation()
 	{
 		_animator.SetTrigger("isHit");
-	}
-	private IEnumerator WaitForHitAnimation()
-	{
-		yield return new WaitForSeconds(hitAnimationDuration);
 	}
 
 	private void Patrol()
@@ -277,6 +272,7 @@ public class Enemy_AiBehaviour : MonoBehaviour
 
 	private void EnemyDead()
 	{
+		Stop();
 		_animator.SetBool("isDead", true);
 		Collider enemy_Collider = GetComponent<Collider>();
 		enemy_Collider.enabled = false;
