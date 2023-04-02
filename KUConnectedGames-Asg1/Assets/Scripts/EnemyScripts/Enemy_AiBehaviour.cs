@@ -195,7 +195,7 @@ public class Enemy_AiBehaviour : MonoBehaviour
 		_animator.SetBool("isRunning", true);
 
 		Vector3 targetPosition = enemy_Target.position;
-		var towardsPlayer = enemy_Target.position - transform.position;
+		var towardsPlayer = targetPosition - transform.position;
 
 		transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(towardsPlayer), Time.deltaTime * enemy_TimeToRotate);
 
@@ -203,7 +203,6 @@ public class Enemy_AiBehaviour : MonoBehaviour
 		navMeshAgent.SetDestination(targetPosition);
 		if (Vector3.Distance(transform.position, targetPosition) <= enemy_AttackRange)
 		{
-			//enemy_CanDamage = true;
 			enemy_CurrentState = State.Attack;
 		}
 		else if (Vector3.Distance(transform.position, targetPosition) > enemy_DetactionRange)
