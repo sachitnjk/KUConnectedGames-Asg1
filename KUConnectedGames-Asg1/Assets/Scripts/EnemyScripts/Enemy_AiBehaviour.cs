@@ -80,7 +80,7 @@ public class Enemy_AiBehaviour : MonoBehaviour
 		if(enemy_CurrentState != State.Dead && enemyHpController.e_CurrentHealth == 0)
 		{
 			EnemyDead();
-			enemy_CurrentState = State.Dead;
+			enemy_CurrentState = State.Dead;	
 		}
 
 		switch (enemy_CurrentState)
