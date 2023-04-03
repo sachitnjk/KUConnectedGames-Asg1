@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Photon.Pun;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal.Internal;
@@ -13,7 +14,7 @@ namespace StarterAssets
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
     [RequireComponent(typeof(PlayerInput))]
 #endif
-    public class ThirdPersonController : MonoBehaviour
+    public class ThirdPersonController : MonoBehaviourPunCallbacks
     {
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
@@ -277,10 +278,13 @@ namespace StarterAssets
 					RotationSmoothTime);
 
 				// rotate to face input direction relative to camera position
-				if (_rotateOnMove)
-				{
-					transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
-				}
+                if(photonView.IsMine)
+                {
+				    if (_rotateOnMove)
+				    {
+					    transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
+				    }
+                }
 			}
 
 
