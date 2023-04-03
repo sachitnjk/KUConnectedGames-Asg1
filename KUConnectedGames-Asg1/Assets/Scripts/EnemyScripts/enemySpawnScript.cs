@@ -41,6 +41,8 @@ public class enemySpawnScript : MonoBehaviourPunCallbacks
 		enemiesOnSceneCheckInterval += 10f;
 	}
 
+	//make enmies on scene a static go and try
+
 	private void EnemyCountCheck()
 	{
 		currentEnemiesOnScene = GameObject.FindGameObjectsWithTag("Enemy").Length;
