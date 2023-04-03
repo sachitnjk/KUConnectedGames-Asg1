@@ -1,10 +1,9 @@
 using Cinemachine;
 using StarterAssets;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class ThirdPersonShooter : MonoBehaviour
+public class ThirdPersonShooter : MonoBehaviourPunCallbacks
 {
 	[SerializeField] CinemachineVirtualCamera cm_AimVirtualCamera;
 	StarterAssetsInputs _input;
@@ -25,45 +24,48 @@ public class ThirdPersonShooter : MonoBehaviour
 
 	private void Update()
 	{
-		Vector3 mouseWorldPosition = Vector3.zero;
-
-		Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
-		Ray ray = Camera.main.ScreenPointToRay(screenCenterPoint);
-		if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f, aimColliderLayerMask))
+		if(photonView.IsMine)
 		{
-			mouseWorldPosition = raycastHit.point;
-		}
+			Vector3 mouseWorldPosition = Vector3.zero;
 
-		if (_input.isAiming)
-		{
-			cm_AimVirtualCamera.gameObject.SetActive(true);
-			_TPController.SetSensitivity(aimSensitivity);
-			_TPController.SetRotateOnMove(false);
-			_animator.SetLayerWeight(1, Mathf.Lerp(_animator.GetLayerWeight(1), 1f, Time.deltaTime * 10f));
+			Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
+			Ray ray = Camera.main.ScreenPointToRay(screenCenterPoint);
+			if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f, aimColliderLayerMask))
+			{
+				mouseWorldPosition = raycastHit.point;
+			}
 
-			Vector3 worldAimTarget = mouseWorldPosition;
-			worldAimTarget.y = transform.position.y;
-			Vector3 aimDirection = (worldAimTarget - transform.position).normalized;
+			if (_input.isAiming)
+			{
+				cm_AimVirtualCamera.gameObject.SetActive(true);
+				_TPController.SetSensitivity(aimSensitivity);
+				_TPController.SetRotateOnMove(false);
+				_animator.SetLayerWeight(1, Mathf.Lerp(_animator.GetLayerWeight(1), 1f, Time.deltaTime * 10f));
 
-			transform.forward = Vector3.Lerp(transform.forward, aimDirection, Time.deltaTime * 20f);
-		}
-		else
-		{
-			cm_AimVirtualCamera.gameObject.SetActive(false);
-			_TPController.SetSensitivity(normalSensitivity);
-			_TPController.SetRotateOnMove(true);
-			_animator.SetLayerWeight(1, Mathf.Lerp(_animator.GetLayerWeight(1), 0f, Time.deltaTime * 10f));
-		}
+				Vector3 worldAimTarget = mouseWorldPosition;
+				worldAimTarget.y = transform.position.y;
+				Vector3 aimDirection = (worldAimTarget - transform.position).normalized;
 
-		if(_input.shoot)
-		{
-			_TPController.SetRotateOnMove(false);
+				transform.forward = Vector3.Lerp(transform.forward, aimDirection, Time.deltaTime * 20f);
+			}
+			else
+			{
+				cm_AimVirtualCamera.gameObject.SetActive(false);
+				_TPController.SetSensitivity(normalSensitivity);
+				_TPController.SetRotateOnMove(true);
+				_animator.SetLayerWeight(1, Mathf.Lerp(_animator.GetLayerWeight(1), 0f, Time.deltaTime * 10f));
+			}
 
-			Vector3 worldAimTarget = mouseWorldPosition;
-			worldAimTarget.y = transform.position.y;
-			Vector3 aimDirection = (worldAimTarget - transform.position).normalized;
+			if(_input.shoot)
+			{
+				_TPController.SetRotateOnMove(false);
 
-			transform.forward = Vector3.Lerp(transform.forward, aimDirection, Time.deltaTime * 20f);
+				Vector3 worldAimTarget = mouseWorldPosition;
+				worldAimTarget.y = transform.position.y;
+				Vector3 aimDirection = (worldAimTarget - transform.position).normalized;
+
+				transform.forward = Vector3.Lerp(transform.forward, aimDirection, Time.deltaTime * 20f);
+			}
 		}
 	}
 

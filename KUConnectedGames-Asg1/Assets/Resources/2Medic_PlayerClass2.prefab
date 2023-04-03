@@ -1699,7 +1699,7 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0
-  - SynchronizeType: 1
+  - SynchronizeType: 2
     LayerIndex: 1
 --- !u!114 &1153294328679365783
 MonoBehaviour:
