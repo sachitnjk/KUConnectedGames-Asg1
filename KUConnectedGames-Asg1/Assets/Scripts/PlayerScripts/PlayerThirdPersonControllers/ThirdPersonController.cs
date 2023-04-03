@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Photon.Pun;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal.Internal;
@@ -14,7 +13,7 @@ namespace StarterAssets
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
     [RequireComponent(typeof(PlayerInput))]
 #endif
-    public class ThirdPersonController : MonoBehaviourPunCallbacks
+    public class ThirdPersonController : MonoBehaviour
     {
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
@@ -171,12 +170,10 @@ namespace StarterAssets
         private void Update()
         {
             _hasAnimator = TryGetComponent(out _animator);
-            if(photonView.IsMine)
-            {
-                JumpAndGravity();
-                GroundedCheck();
-                Move();
-            }
+            JumpAndGravity();
+            GroundedCheck();
+            Move();
+
 
         }
 
