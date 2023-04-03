@@ -229,12 +229,10 @@ public class Enemy_AiBehaviour : MonoBehaviour
 		{
 			if (DetectEntity())
 			{
-				Debug.Log("Searching -> chase");
 				enemy_CurrentState = State.Chase;
 			}
 			else
 			{
-				Debug.Log("Searching -> patrol");
 				enemy_CurrentState = State.Patrol;
 			}
 		}
