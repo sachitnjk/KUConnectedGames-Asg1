@@ -1,10 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
 using UnityEngine;
 using UnityEngine.AI;
+using Photon.Pun;
 
-public class Enemy_AiBehaviour : MonoBehaviour
+public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 {
 	[SerializeField] Transform enemy_Target;
 	[SerializeField] LayerMask playerMask;
@@ -118,6 +117,7 @@ public class Enemy_AiBehaviour : MonoBehaviour
 		navMeshAgent.speed = 0;
 	}
 
+	[PunRPC]
 	public void TriggerHitAnimation()
 	{
 		if(enemyHpController.e_CurrentHealth > 0)

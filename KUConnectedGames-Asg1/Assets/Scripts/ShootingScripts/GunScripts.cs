@@ -4,6 +4,7 @@ using System.Collections;
 using UnityEngine;
 using Photon.Pun;
 using UnityEngine.VFX;
+using UnityEngine.Rendering;
 
 public class GunScripts : MonoBehaviourPunCallbacks
 {
@@ -83,6 +84,12 @@ public class GunScripts : MonoBehaviourPunCallbacks
 
 	}
 
+	[PunRPC]
+	private void HitImpactStart()
+	{
+		VisualEffect hitImpact_basic = Instantiate(hitImpact_1, bullet_Target, Quaternion.identity);
+	}
+
 	private void Shoot()
 	{
 		Ray ray = gun_PlayerMainCam.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
@@ -91,19 +98,19 @@ public class GunScripts : MonoBehaviourPunCallbacks
 		{
 			GameObject hitObject = hitResult.collider.gameObject;
 			bullet_Target = hitResult.point;
-			VisualEffect hitImpact_basic =  Instantiate(hitImpact_1, bullet_Target, Quaternion.identity);
-
-			Debug.Log(hitResult.collider.gameObject.name);
+			VisualEffect hitImpact_basic = Instantiate(hitImpact_1, bullet_Target, Quaternion.identity);
+			HitImpactStart();
 
 			if (hitObject.CompareTag("Enemy"))
 			{
 				Enemy_AiBehaviour aiBehaviour = hitObject.GetComponent<Enemy_AiBehaviour>();
+				PhotonView enemyPhotonView = hitObject.GetComponent<PhotonView>();
 				if (aiBehaviour != null)
 				{
-					aiBehaviour.TriggerHitAnimation();
+					//aiBehaviour.TriggerHitAnimation();
+					enemyPhotonView.RPC("TriggerHitAnimation", RpcTarget.All);
 				}
 
-				PhotonView enemyPhotonView = hitObject.GetComponent<PhotonView>();
 				if(enemyPhotonView != null)
 				{
 					Debug.Log("This weird photon call through gun script");
