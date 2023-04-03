@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using System.Runtime.CompilerServices;
 
 public class EnemyHpController : MonoBehaviourPunCallbacks
 {
@@ -40,13 +41,15 @@ public class EnemyHpController : MonoBehaviourPunCallbacks
 			{
 				PlayerKillCounter.Instance.KillCounterIncrease();
 				//PhotonNetwork.Destroy(this.gameObject);  //Destroy enemy for all over the network
-				StartCoroutine(DestroyEnemyObject());
 			}
 		}
+	}
 
-		IEnumerator DestroyEnemyObject()
+	private void DestroyEnemyObject()
+	{
+		if(photonView.IsMine)
 		{
-			yield return new WaitForSeconds(3f);
+			Debug.Log("Enemy is dying");
 			PhotonNetwork.Destroy(this.gameObject);
 		}
 	}

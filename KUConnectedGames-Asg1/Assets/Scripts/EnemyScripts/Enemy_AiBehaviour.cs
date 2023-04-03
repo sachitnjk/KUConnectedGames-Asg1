@@ -77,8 +77,9 @@ public class Enemy_AiBehaviour : MonoBehaviour
 
 	private void Update()
 	{
-		if(enemyHpController.e_CurrentHealth == 0)
+		if(enemy_CurrentState != State.Dead && enemyHpController.e_CurrentHealth == 0)
 		{
+			EnemyDead();
 			enemy_CurrentState = State.Dead;
 		}
 
@@ -95,9 +96,6 @@ public class Enemy_AiBehaviour : MonoBehaviour
 				break;
 			case State.Attack:
 				EnemyAttack(enemy_Damage);
-				break;
-			case State.Dead:
-				EnemyDead();
 				break;
 		}
 	}
@@ -122,7 +120,10 @@ public class Enemy_AiBehaviour : MonoBehaviour
 
 	public void TriggerHitAnimation()
 	{
-		_animator.SetTrigger("isHit");
+		if(enemyHpController.e_CurrentHealth > 0)
+		{
+			_animator.SetTrigger("isHit");
+		}
 	}
 
 	private void Patrol()
@@ -273,6 +274,7 @@ public class Enemy_AiBehaviour : MonoBehaviour
 	{
 		Stop();
 		_animator.SetBool("isDead", true);
+		_animator.SetTrigger("isDeadTrigger");
 		Collider enemy_Collider = GetComponent<Collider>();
 		enemy_Collider.enabled = false;
 	}
