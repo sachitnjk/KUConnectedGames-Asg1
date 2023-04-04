@@ -1,3 +1,0 @@
-KUConnectedGames-Asg1/Assets/*.fbx filter=lfs diff=lfs merge=lfs -text
-KUConnectedGames-Asg1/Assets/ParkingLotComplete/*.fbx.meta filter=lfs diff=lfs merge=lfs -text
-KUConnectedGames-Asg1/*.assets.resS filter=lfs diff=lfs merge=lfs -text
