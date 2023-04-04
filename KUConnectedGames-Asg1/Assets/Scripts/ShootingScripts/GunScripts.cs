@@ -84,11 +84,11 @@ public class GunScripts : MonoBehaviourPunCallbacks
 
 	}
 
-	[PunRPC]
-	private void HitImpactStart()
-	{
-		VisualEffect hitImpact_basic = Instantiate(hitImpact_1, bullet_Target, Quaternion.identity);
-	}
+	//[PunRPC]
+	//private void HitImpactStart()
+	//{
+	//	VisualEffect hitImpact_basic = Instantiate(hitImpact_1, bullet_Target, Quaternion.identity);
+	//}
 
 	private void Shoot()
 	{
@@ -99,7 +99,7 @@ public class GunScripts : MonoBehaviourPunCallbacks
 			GameObject hitObject = hitResult.collider.gameObject;
 			bullet_Target = hitResult.point;
 			VisualEffect hitImpact_basic = Instantiate(hitImpact_1, bullet_Target, Quaternion.identity);
-			HitImpactStart();
+			//HitImpactStart();
 
 			if (hitObject.CompareTag("Enemy"))
 			{
@@ -115,6 +115,7 @@ public class GunScripts : MonoBehaviourPunCallbacks
 				{
 					Debug.Log("This weird photon call through gun script");
 					enemyPhotonView.RPC("EnemyDamageTake", RpcTarget.AllBuffered, bullet_Damage);
+					
 				}
 			}
 			StartCoroutine(DestroyHitImpact(hitImpact_basic));
