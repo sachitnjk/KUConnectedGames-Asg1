@@ -40,7 +40,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 101393793845680706}
-  - component: {fileID: 101393793845680710}
   - component: {fileID: 101393793845680707}
   m_Layer: 0
   m_Name: Gun1
@@ -65,14 +64,6 @@ Transform:
   m_Father: {fileID: 101393793942115146}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &101393793845680710
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 101393793845680717}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &101393793845680707
 MonoBehaviour:
   m_ObjectHideFlags: 0
