@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 99a84d5a987b6d84984e9d4f99c12c0e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 7839038688617219138}
   - component: {fileID: 1248716345837715114}
   - component: {fileID: 3365112633107833622}
+  - component: {fileID: 3920460201123526991}
   m_Layer: 0
   m_Name: Block
   m_TagString: Untagged
@@ -181,7 +182,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 3e538c4736b201140ac420a2db69e8d7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -203,6 +204,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3920460201123526991
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4185422121485264342}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.021473458, y: 0.019983847, z: 0.019983847}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4386141514357325384
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,6 +228,7 @@ GameObject:
   - component: {fileID: 2750984519553481267}
   - component: {fileID: 3969289160321771405}
   - component: {fileID: 683357733300610195}
+  - component: {fileID: 4243128835606658137}
   m_Layer: 0
   m_Name: Statue legs
   m_TagString: Untagged
@@ -264,7 +279,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7701905974671852998, guid: cbf4e7e906aa429458a84ce1b9164379, type: 3}
+  - {fileID: 2100000, guid: 3e538c4736b201140ac420a2db69e8d7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -286,6 +301,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4243128835606658137
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4386141514357325384}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.26793343, y: 0.41414076, z: 0.36279294}
+  m_Center: {x: 0.007636383, y: 0.017357353, z: 0.1719592}
 --- !u!1 &4534463714291854954
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,7 +375,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: f5a6f89856c4b584ab0700ffb14d74dc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -463,6 +491,7 @@ GameObject:
   - component: {fileID: 4488678897674266858}
   - component: {fileID: 9004054938374744234}
   - component: {fileID: 7025284243183083622}
+  - component: {fileID: 3213286891777855308}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -513,7 +542,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 3e538c4736b201140ac420a2db69e8d7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -535,3 +564,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3213286891777855308
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7903578434001528547}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.044726346, y: 0.04472634, z: 0.0070896368}
+  m_Center: {x: 0, y: 0, z: 0}

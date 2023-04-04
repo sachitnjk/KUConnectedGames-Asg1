@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1905283483588162596}
   - component: {fileID: 3305420774977829761}
   - component: {fileID: 737396164028993355}
+  - component: {fileID: 8535081372045611927}
   m_Layer: 0
   m_Name: Concrete_barrier
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1241653842244841118}
   m_LocalRotation: {x: -8.7157646e-33, y: 0.7071068, z: 0.7071068, w: 8.659561e-17}
   m_LocalPosition: {x: -11.088756, y: 0, z: -25.31041}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 103.378845, y: 100, z: 114.67657}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4705229911048649334, guid: e02b35e351c2f1f45a3738166dbd2740, type: 3}
+  - {fileID: 2100000, guid: 527c3ab53392db046b932834fc51532e, type: 2}
   - {fileID: 2695916852990488228, guid: e02b35e351c2f1f45a3738166dbd2740, type: 3}
   - {fileID: 3710572912457984090, guid: e02b35e351c2f1f45a3738166dbd2740, type: 3}
   - {fileID: -1754818811708567889, guid: e02b35e351c2f1f45a3738166dbd2740, type: 3}
@@ -86,3 +87,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8535081372045611927
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241653842244841118}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.03410373, y: 0.005931835, z: 0.016771805}
+  m_Center: {x: -0.00016222343, y: 0.0000124334965, z: 0.008348898}
