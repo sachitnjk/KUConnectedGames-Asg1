@@ -18,12 +18,14 @@ public class enemySpawnScript : MonoBehaviourPunCallbacks
 
 	private void Start()
 	{
-		SpawnEnemy();
+		StartCoroutine(SpawnEnemy());  //changed to coroutine to avoid enemies spawning in too quickly
 		InvokeRepeating("EnemyCountCheck", enemyCountCheckTime, enemiesOnSceneCheckInterval);
 	}
 
-	private void SpawnEnemy()
+	private IEnumerator SpawnEnemy()
 	{
+		yield return new WaitForSeconds(Random.Range(1f, 3f));
+
 		for (int i = 0; i < enemyNumberToSpawn; i++)
 			{
 				if (phView.IsMine)
@@ -41,14 +43,12 @@ public class enemySpawnScript : MonoBehaviourPunCallbacks
 		enemiesOnSceneCheckInterval += 10f;
 	}
 
-	//make enmies on scene a static go and try
-
 	private void EnemyCountCheck()
 	{
 		currentEnemiesOnScene = GameObject.FindGameObjectsWithTag("Enemy").Length;
 		if (currentEnemiesOnScene < minEnemiesOnScene)
 		{
-			SpawnEnemy();
+			StartCoroutine(SpawnEnemy());
 		}
 	}
 }
