@@ -44,6 +44,7 @@ public class EnemyHpController : MonoBehaviourPunCallbacks
 		}
 	}
 
+	//This function is being called as an animation event
 	private void DestroyEnemyObject()
 	{
 		if(photonView.IsMine)
