@@ -45,9 +45,12 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 		Patrol,
 		Chase,
 		Searching,
+		IsHit,
 		Attack,
 		Dead
 	}
+
+	private State previousState;
 
 	private void Start()
 	{
@@ -72,6 +75,8 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 
 
 		enemy_CurrentState = State.Patrol;
+
+		previousState = enemy_CurrentState;
 	}
 
 	private void Update()
@@ -92,6 +97,9 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 				break;
 			case State.Searching:
 				Searching();
+				break;
+			case State.IsHit:
+				IsHit();
 				break;
 			case State.Attack:
 				EnemyAttack(enemy_Damage);
@@ -122,8 +130,17 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 	{
 		if(enemyHpController.e_CurrentHealth > 0)
 		{
+			previousState = enemy_CurrentState;
+			enemy_CurrentState = State.IsHit;
 			_animator.SetTrigger("isHit");
 		}
+	}
+
+	[PunRPC]
+	public void EndHitAnimation()
+	{
+		enemy_CurrentState = previousState;
+		navMeshAgent.isStopped=false;
 	}
 
 	private void Patrol()
@@ -236,6 +253,12 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 				enemy_CurrentState = State.Patrol;
 			}
 		}
+	}
+
+	private void IsHit()
+	{
+		navMeshAgent.isStopped = true;
+
 	}
 
 	void EnemyAttack(int damage)
