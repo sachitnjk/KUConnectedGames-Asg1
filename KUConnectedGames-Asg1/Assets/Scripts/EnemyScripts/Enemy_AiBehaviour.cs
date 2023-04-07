@@ -139,7 +139,6 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 	[PunRPC]
 	public void EndHitAnimation()
 	{
-		enemy_CurrentState = previousState;
 		navMeshAgent.isStopped=false;
 	}
 
@@ -258,6 +257,7 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 	private void IsHit()
 	{
 		navMeshAgent.isStopped = true;
+		enemy_CurrentState = previousState;
 
 	}
 
