@@ -84,12 +84,6 @@ public class GunScripts : MonoBehaviourPunCallbacks
 
 	}
 
-	//[PunRPC]
-	//private void HitImpactStart()
-	//{
-	//	VisualEffect hitImpact_basic = Instantiate(hitImpact_1, bullet_Target, Quaternion.identity);
-	//}
-
 	private void Shoot()
 	{
 		Ray ray = gun_PlayerMainCam.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
@@ -99,7 +93,6 @@ public class GunScripts : MonoBehaviourPunCallbacks
 			GameObject hitObject = hitResult.collider.gameObject;
 			bullet_Target = hitResult.point;
 			VisualEffect hitImpact_basic = Instantiate(hitImpact_1, bullet_Target, Quaternion.identity);
-			//HitImpactStart();
 
 			if (hitObject.CompareTag("Enemy"))
 			{
@@ -107,7 +100,6 @@ public class GunScripts : MonoBehaviourPunCallbacks
 				PhotonView enemyPhotonView = hitObject.GetComponent<PhotonView>();
 				if (aiBehaviour != null)
 				{
-					//aiBehaviour.TriggerHitAnimation();
 					enemyPhotonView.RPC("TriggerHitAnimation", RpcTarget.All);
 				}
 

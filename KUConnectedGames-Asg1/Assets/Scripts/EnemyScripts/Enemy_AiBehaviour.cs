@@ -133,6 +133,7 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 			previousState = enemy_CurrentState;
 			enemy_CurrentState = State.IsHit;
 			_animator.SetTrigger("isHit");
+			navMeshAgent.isStopped = true;
 		}
 	}
 
@@ -140,6 +141,19 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 	public void EndHitAnimation()
 	{
 		navMeshAgent.isStopped=false;
+		photonView.RPC("SetPreviousState", RpcTarget.All);
+	}
+
+	[PunRPC]
+	public void SetPreviousState()
+	{
+		enemy_CurrentState = previousState;
+	}
+	private void IsHit()
+	{
+		navMeshAgent.isStopped = true;
+		enemy_CurrentState = previousState;
+
 	}
 
 	private void Patrol()
@@ -254,12 +268,6 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 		}
 	}
 
-	private void IsHit()
-	{
-		navMeshAgent.isStopped = true;
-		enemy_CurrentState = previousState;
-
-	}
 
 	void EnemyAttack(int damage)
 	{
