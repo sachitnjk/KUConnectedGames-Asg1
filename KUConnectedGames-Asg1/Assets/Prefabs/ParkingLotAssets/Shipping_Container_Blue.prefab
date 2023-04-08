@@ -626,6 +626,7 @@ GameObject:
   - component: {fileID: 241548655547241951}
   - component: {fileID: 7943863729501777648}
   - component: {fileID: 416656332114321838}
+  - component: {fileID: 6797903624376872624}
   m_Layer: 0
   m_Name: Hinge_R
   m_TagString: Untagged
@@ -699,6 +700,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6797903624376872624
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2335489871594314925}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6973293446124852468, guid: 1e4d7fb22d22150439e1bb569f045907, type: 3}
 --- !u!1 &2641236146788374270
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,6 +992,7 @@ GameObject:
   - component: {fileID: 2703619275518054157}
   - component: {fileID: 9149010503857045583}
   - component: {fileID: 7245238477060801376}
+  - component: {fileID: 2304116118679552029}
   m_Layer: 0
   m_Name: Hinge_L
   m_TagString: Untagged
@@ -1050,6 +1066,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2304116118679552029
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2937096303717470345}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6973293446124852468, guid: 1e4d7fb22d22150439e1bb569f045907, type: 3}
 --- !u!1 &3071688983355329034
 GameObject:
   m_ObjectHideFlags: 0
@@ -1432,6 +1462,7 @@ GameObject:
   - component: {fileID: 714553770060918815}
   - component: {fileID: 1839208521717945687}
   - component: {fileID: 8218883295059610936}
+  - component: {fileID: 2622525216180621001}
   m_Layer: 0
   m_Name: Rod_1_1
   m_TagString: Untagged
@@ -1507,6 +1538,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2622525216180621001
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4741324973440758456}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 370990736576651301, guid: 1e4d7fb22d22150439e1bb569f045907, type: 3}
 --- !u!1 &4766468716814282515
 GameObject:
   m_ObjectHideFlags: 0
