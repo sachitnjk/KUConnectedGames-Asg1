@@ -7,7 +7,7 @@ public class PlayerKillCounter : MonoBehaviour
 	KillCounterScript killCounterSlider;
 
 	[HideInInspector] public int e_CurrentKillCounter;
-	[SerializeField] private int e_KillCounterMax = 3;
+	[SerializeField] public int e_KillCounterMax = 3;
 	private int e_KillCountIncrement = 1;
 	public bool player_AbilityUse = false;
 
