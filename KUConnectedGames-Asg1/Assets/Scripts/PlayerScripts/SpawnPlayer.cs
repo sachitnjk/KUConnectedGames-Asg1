@@ -13,7 +13,11 @@ public class SpawnPlayer : MonoBehaviourPunCallbacks
 		int randomNumber = Random.Range(0, spawnPoints.Length);
 		Transform spawnPoint = spawnPoints[randomNumber];
 		GameObject playerToSpawn = playerPrefabs[(int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]];
-		PhotonNetwork.Instantiate(playerToSpawn.name, spawnPoint.position, Quaternion.identity);
+		GameObject spawnedPlayer = PhotonNetwork.Instantiate(playerToSpawn.name, spawnPoint.position, Quaternion.identity);
+
+		KillCounterScript killCounterScript = spawnedPlayer.GetComponentInChildren<KillCounterScript>();
+
+		PlayerKillCounter.Instance.SetKillCounterSlider(killCounterScript); // setting kill counter script on spawned player as reference in playerkIllCounter script
 	}
 
 }
