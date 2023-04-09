@@ -1299,6 +1299,7 @@ GameObject:
   - component: {fileID: 8105024763133557330}
   - component: {fileID: 7628719731266123823}
   - component: {fileID: 416998447084099867}
+  - component: {fileID: 8120166549012579789}
   m_Layer: 10
   m_Name: 4Tanker_PlayerClass4
   m_TagString: Player
@@ -1726,6 +1727,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityTriggered: 0
+--- !u!114 &8120166549012579789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3363259848303861643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6fc9a6eb76beca48bc814bc13d61e03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHasKey: 0
 --- !u!1 &3431887501438043480
 GameObject:
   m_ObjectHideFlags: 0
@@ -4575,7 +4589,7 @@ PrefabInstance:
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4
+      value: -3.9436684
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
@@ -4690,7 +4704,7 @@ PrefabInstance:
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4
+      value: -3.9436684
       objectReference: {fileID: 0}
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8,
         type: 3}

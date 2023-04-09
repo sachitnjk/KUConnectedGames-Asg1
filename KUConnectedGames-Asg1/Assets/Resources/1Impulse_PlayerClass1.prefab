@@ -1328,6 +1328,7 @@ GameObject:
   - component: {fileID: 8105024763133557330}
   - component: {fileID: 455281735667569706}
   - component: {fileID: 2142254117267395184}
+  - component: {fileID: 8088884789369369546}
   m_Layer: 10
   m_Name: 1Impulse_PlayerClass1
   m_TagString: Player
@@ -1757,6 +1758,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityTriggered: 0
+--- !u!114 &8088884789369369546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3363259848303861643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6fc9a6eb76beca48bc814bc13d61e03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHasKey: 0
 --- !u!1 &3431887501438043480
 GameObject:
   m_ObjectHideFlags: 0
