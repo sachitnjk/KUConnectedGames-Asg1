@@ -25,11 +25,6 @@ public class GateKey : MonoBehaviourPunCallbacks, IPunObservable
 
 	public void PickUp(PlayerKeyManager player)
 	{
-		if(!photonView.IsMine)
-		{
-			return;
-		}
-
 		keyIsPicked = true;
 
 		photonView.RPC("UpdateKeyState", RpcTarget.All, keyIsPicked);
