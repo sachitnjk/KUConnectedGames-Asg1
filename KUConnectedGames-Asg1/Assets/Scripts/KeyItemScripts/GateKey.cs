@@ -7,7 +7,6 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class GateKey : MonoBehaviourPunCallbacks, IPunObservable
 {
-	public event Action OnKeypickedUp;
 	private bool keyIsPicked = false;
 
 	private void OnTriggerEnter(Collider other)
@@ -34,8 +33,6 @@ public class GateKey : MonoBehaviourPunCallbacks, IPunObservable
 		Hashtable props = new Hashtable();
 		props.Add("playerHasKey", player.playerHasKey);
 		PhotonNetwork.LocalPlayer.SetCustomProperties(props);
-
-		OnKeypickedUp?.Invoke();
 	}
 
 	[PunRPC]

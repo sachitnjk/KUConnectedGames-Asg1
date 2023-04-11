@@ -98,7 +98,7 @@ public class GunScripts : MonoBehaviourPunCallbacks
 			{
 				Enemy_AiBehaviour aiBehaviour = hitObject.GetComponent<Enemy_AiBehaviour>();
 				PhotonView enemyPhotonView = hitObject.GetComponent<PhotonView>();
-				if (aiBehaviour != null)
+				if (aiBehaviour != null && aiBehaviour.GetCurrentState() != Enemy_AiBehaviour.State.IsHit)
 				{
 					enemyPhotonView.RPC("TriggerHitAnimation", RpcTarget.All);
 				}

@@ -40,7 +40,7 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 
 	private bool enemy_CanDamage;
 
-	private enum State
+	public enum State
 	{
 		Patrol,
 		Chase,
@@ -107,6 +107,10 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 		}
 	}
 
+	public State GetCurrentState()
+	{
+		return enemy_CurrentState;
+	}
 	public void NextPoint()
 	{
 		enemy_CurrentWaypointIndex = (enemy_CurrentWaypointIndex + 1) % waypoints.Length;
