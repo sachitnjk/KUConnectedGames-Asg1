@@ -3,32 +3,62 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public interface IAbilityController
+{
+	void AbilityUse(Vector3 playerPosition);
+}
+
 public class AbilityController : MonoBehaviour
 {
+	private IAbilityController activeAbility;
 
-    private PlayerInput _input;
+	private PlayerInput _input;
 
     private InputAction abilityAction;
 
     [HideInInspector] public bool abilityTriggered;
+	[SerializeField] AbilityType playerAbilityType;
+
+	private enum AbilityType
+	{
+		Impulse,
+		Attacker
+	}
 
     private void Start()
     {
         _input = GetComponent<PlayerInput>();
         abilityAction = _input.actions["Ability"];
-    }
-    void Update()
+
+		if (playerAbilityType == AbilityType.Impulse)
+		{
+			Ability_Impulse abilityImpulse = gameObject.AddComponent<Ability_Impulse>();
+			SetActiveAbility(abilityImpulse);
+		}
+		else if (playerAbilityType == AbilityType.Attacker)
+		{
+			Ability_AttackerDash attackerDash = gameObject.AddComponent<Ability_AttackerDash>();
+			SetActiveAbility(attackerDash);
+		}
+	}
+
+	public void SetActiveAbility(IAbilityController ability)
+	{
+		activeAbility = ability;
+	}
+	void Update()
     {
         abilityTriggered = false;
 
-        if(PlayerKillCounter.Instance.player_AbilityUse && abilityAction.WasPressedThisFrame())
+        if(abilityAction.WasPressedThisFrame())
         {
             abilityTriggered = true;
-            PlayerKillCounter.Instance.KillCounterReset();
-        }
-        else if(!PlayerKillCounter.Instance.player_AbilityUse && abilityAction.WasPressedThisFrame())
-        {
-            abilityTriggered= false;
-        }
+			Vector3 playerPosition = transform.position;
+			activeAbility.AbilityUse(playerPosition);
+		}
+		else
+		{
+			abilityTriggered = false;
+		}
     }
 }
