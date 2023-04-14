@@ -34,14 +34,6 @@ public class EnemyHpController : MonoBehaviourPunCallbacks
 			photonView.TransferOwnership(PhotonNetwork.LocalPlayer.ActorNumber);
 		}
 		e_CurrentHealth -= damage;
-
-		if (e_CurrentHealth <= 0)
-		{
-			if(photonView.IsMine)
-			{
-				PlayerKillCounter.Instance.KillCounterIncrease();
-			}
-		}
 	}
 
 	//This function is being called as an animation event

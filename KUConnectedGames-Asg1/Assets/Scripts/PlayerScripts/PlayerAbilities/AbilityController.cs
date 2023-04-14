@@ -63,9 +63,5 @@ public class AbilityController : MonoBehaviour
 				lastAbilityTriggeredTime = Time.time;
 			}
 		}
-		else
-		{
-			Debug.Log("Ability Cooldown");
-		}
     }
 }
