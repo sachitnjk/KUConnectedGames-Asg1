@@ -1272,7 +1272,6 @@ MonoBehaviour:
   - {fileID: 8052448301568605082}
   - {fileID: 1107259243895933889}
   - {fileID: 4747690891976016038}
-  killCounterScript: {fileID: 0}
 --- !u!114 &3363259848303861632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1614,6 +1613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityTriggered: 0
+  playerAbilityType: 0
 --- !u!114 &8120166549012579789
 MonoBehaviour:
   m_ObjectHideFlags: 0

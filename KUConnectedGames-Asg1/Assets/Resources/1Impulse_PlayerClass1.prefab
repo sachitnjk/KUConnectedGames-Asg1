@@ -1551,7 +1551,6 @@ MonoBehaviour:
   - {fileID: 8052448301568605082}
   - {fileID: 1107259243895933889}
   - {fileID: 4747690891976016038}
-  killCounterScript: {fileID: 0}
 --- !u!114 &1153294328679365783
 MonoBehaviour:
   m_ObjectHideFlags: 0
