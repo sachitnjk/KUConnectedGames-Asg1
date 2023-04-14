@@ -51,22 +51,6 @@ public class PlayerListUI : MonoBehaviourPunCallbacks
 					break;
 			}
 		}
-
-		for (int i = players.Length; i < 3; i++)
-		{
-			switch (i)
-			{
-				case 0:
-					player1Name.text = "";
-					break;
-				case 1:
-					player2Name.text = "";
-					break;
-				case 2:
-					player3Name.text = "";
-					break;
-			}
-		}
 	}
 
 	private void ClearPlayerName(Player player)
