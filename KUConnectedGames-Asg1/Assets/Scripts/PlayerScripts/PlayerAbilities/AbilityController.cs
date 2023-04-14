@@ -13,11 +13,13 @@ public class AbilityController : MonoBehaviour
 	private IAbilityController activeAbility;
 
 	private PlayerInput _input;
-
     private InputAction abilityAction;
 
     [HideInInspector] public bool abilityTriggered;
 	[SerializeField] AbilityType playerAbilityType;
+
+	private float lastAbilityTriggeredTime;
+	[SerializeField] float abilityCooldown;
 
 	private enum AbilityType
 	{
@@ -48,17 +50,22 @@ public class AbilityController : MonoBehaviour
 	}
 	void Update()
     {
-        abilityTriggered = false;
+		if(Time.time > lastAbilityTriggeredTime + abilityCooldown)
+		{
+			abilityTriggered = false;
 
-        if(abilityAction.WasPressedThisFrame())
-        {
-            abilityTriggered = true;
-			Vector3 playerPosition = transform.position;
-			activeAbility.AbilityUse(playerPosition);
+			if(abilityAction.WasPressedThisFrame())
+			{
+				abilityTriggered = true;
+				Vector3 playerPosition = transform.position;
+				activeAbility.AbilityUse(playerPosition);
+
+				lastAbilityTriggeredTime = Time.time;
+			}
 		}
 		else
 		{
-			abilityTriggered = false;
+			Debug.Log("Ability Cooldown");
 		}
     }
 }

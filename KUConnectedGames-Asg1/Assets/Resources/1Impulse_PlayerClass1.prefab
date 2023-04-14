@@ -1616,6 +1616,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityTriggered: 0
   playerAbilityType: 0
+  abilityCooldown: 5
 --- !u!114 &8088884789369369546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4032,7 +4033,7 @@ PrefabInstance:
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.9436684
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
@@ -4147,7 +4148,7 @@ PrefabInstance:
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.9436684
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8,
         type: 3}
