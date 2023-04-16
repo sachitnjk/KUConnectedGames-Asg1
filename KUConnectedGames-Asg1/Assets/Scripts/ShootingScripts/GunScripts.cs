@@ -123,8 +123,11 @@ public class GunScripts : MonoBehaviourPunCallbacks
 				}
 				break;
 			case FireModes.AutoFire:
-				Shoot();
-				yield return new WaitForSeconds(0.1f);
+				while(_input.Shoot.ReadValue<float>() > 0)
+				{
+					Shoot();
+					yield return new WaitForSeconds(0.1f);
+				}
 				break;
 		}
 	}
