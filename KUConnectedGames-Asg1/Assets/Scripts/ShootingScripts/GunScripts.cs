@@ -5,6 +5,7 @@ using UnityEngine;
 using Photon.Pun;
 using UnityEngine.VFX;
 using UnityEngine.Rendering;
+using UnityEngine.InputSystem;
 
 public class GunScripts : MonoBehaviourPunCallbacks
 {
@@ -62,10 +63,20 @@ public class GunScripts : MonoBehaviourPunCallbacks
 
 	private void Update()
 	{
-		if (_input.shoot && Time.time >= gun_NextTimeToFire)
+		//if (_input.shoot && Time.time >= gun_NextTimeToFire)
+		//{
+		//	gun_NextTimeToFire = Time.time + 2f / gun_RateOfFire;
+		//	Shoot();
+		//}
+
+		if(_input.Shoot.WasPressedThisFrame())
 		{
-			gun_NextTimeToFire = Time.time + 2f / gun_RateOfFire;
-			Shoot();
+			StartCoroutine(ShootWithFireMode());
+		}
+
+		if(_input.SwitchFireMode.WasPressedThisFrame())
+		{
+			ChangeFireMode();
 		}
 
 		if (isReloading)
@@ -77,6 +88,37 @@ public class GunScripts : MonoBehaviourPunCallbacks
 		{
 			StartCoroutine(Reload());
 			return;
+		}
+	}
+
+	private void ChangeFireMode()
+	{
+		switch(currentFireMode)
+		{
+			case FireModes.SingleShot:
+				currentFireMode = FireModes.BurstFire;
+				break;
+			case FireModes.BurstFire:
+				currentFireMode = FireModes.AutoFire;
+				break;
+			case FireModes.AutoFire:
+				currentFireMode = FireModes.SingleShot;
+				break;
+		}
+	}
+
+	private IEnumerator ShootWithFireMode()
+	{
+		switch(currentFireMode)
+		{
+			case FireModes.SingleShot:
+				Shoot();
+				yield return new WaitForSeconds(1f);
+				break;
+			case FireModes.BurstFire:
+				break;
+			case FireModes.AutoFire:
+				break;
 		}
 	}
 

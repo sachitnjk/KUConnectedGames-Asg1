@@ -56,7 +56,7 @@ public class ThirdPersonShooter : MonoBehaviourPunCallbacks
 				_animator.SetLayerWeight(1, Mathf.Lerp(_animator.GetLayerWeight(1), 0f, Time.deltaTime * 10f));
 			}
 
-			if(_input.shoot)
+			if(_input.Shoot.IsPressed())
 			{
 				_TPController.SetRotateOnMove(false);
 

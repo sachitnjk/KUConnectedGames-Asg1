@@ -126,6 +126,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &160148365 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3363259848303861639, guid: 938db13b0896ee5489253a42313e534e,
+    type: 3}
+  m_PrefabInstance: {fileID: 239049773}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &239049773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -228,6 +240,11 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3192155895569281352, guid: 938db13b0896ee5489253a42313e534e,
+        type: 3}
+      propertyPath: _playerInput
+      value: 
+      objectReference: {fileID: 160148365}
     - target: {fileID: 3192155895569281352, guid: 938db13b0896ee5489253a42313e534e,
         type: 3}
       propertyPath: addProjectile

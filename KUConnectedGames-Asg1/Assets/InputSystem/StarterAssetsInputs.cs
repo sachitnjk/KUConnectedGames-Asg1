@@ -13,9 +13,11 @@ namespace StarterAssets
 		public bool jump;
 		public bool sprint;
 		public bool isAiming;
-		public bool shoot;
 		public bool ability;
 		public bool pause;
+		public InputAction SwitchFireMode;
+		public InputAction Shoot;
+		private PlayerInput _playerInput;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -23,6 +25,16 @@ namespace StarterAssets
 		[Header("Mouse Cursor Settings")]
 		public bool cursorLocked = true;
 		public bool cursorInputForLook = true;
+
+		private void Start()
+		{
+			_playerInput = GetComponent<PlayerInput>();
+			if(_playerInput != null)
+			{
+				SwitchFireMode = _playerInput.actions["SwitchFireMode"];
+				Shoot = _playerInput.actions["Shoot"];
+			}
+		}
 
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 		public void OnMove(InputValue value)
@@ -58,15 +70,11 @@ namespace StarterAssets
 			AbilityInput(value.isPressed);
 		}
 
-		public void OnShoot(InputValue value)
-		{
-			shoot = value.isPressed;
-		}
-
 		public void OnPause(InputValue inputValue)
 		{
 			pause = inputValue.isPressed;
 		}
+
 #endif
 
 
@@ -94,11 +102,6 @@ namespace StarterAssets
 		{
 			ability = newAbilityState;
 		}
-
-		//public void ShootInput(bool newShootState)
-		//{
-		//	shoot = newShootState;
-		//}
 
 		private void OnApplicationFocus(bool hasFocus)
 		{
