@@ -63,18 +63,12 @@ public class GunScripts : MonoBehaviourPunCallbacks
 
 	private void Update()
 	{
-		//if (_input.shoot && Time.time >= gun_NextTimeToFire)
-		//{
-		//	gun_NextTimeToFire = Time.time + 2f / gun_RateOfFire;
-		//	Shoot();
-		//}
-
-		if(_input.Shoot.WasPressedThisFrame())
+		if (_input.Shoot.WasPressedThisFrame())
 		{
 			StartCoroutine(ShootWithFireMode());
 		}
 
-		if(_input.SwitchFireMode.WasPressedThisFrame())
+		if (_input.SwitchFireMode.WasPressedThisFrame())
 		{
 			ChangeFireMode();
 		}
@@ -109,6 +103,8 @@ public class GunScripts : MonoBehaviourPunCallbacks
 
 	private IEnumerator ShootWithFireMode()
 	{
+		int shotsFiredInBurst = 0;
+
 		switch(currentFireMode)
 		{
 			case FireModes.SingleShot:
@@ -116,8 +112,19 @@ public class GunScripts : MonoBehaviourPunCallbacks
 				yield return new WaitForSeconds(1f);
 				break;
 			case FireModes.BurstFire:
+				for(int i = 0; i < 3; i++)
+				{
+					while(shotsFiredInBurst < 4)
+					{
+						Shoot();
+						shotsFiredInBurst++;
+						yield return new WaitForSeconds(0.1f);
+					}
+				}
 				break;
 			case FireModes.AutoFire:
+				Shoot();
+				yield return new WaitForSeconds(0.1f);
 				break;
 		}
 	}
