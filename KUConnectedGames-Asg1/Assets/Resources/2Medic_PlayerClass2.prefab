@@ -4038,7 +4038,7 @@ PrefabInstance:
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4
+      value: -3.9436684
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
@@ -4153,7 +4153,7 @@ PrefabInstance:
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4
+      value: -3.9436684
       objectReference: {fileID: 0}
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8,
         type: 3}
@@ -4324,6 +4324,11 @@ PrefabInstance:
       objectReference: {fileID: 1297859331578561527}
     - target: {fileID: 101393793845680707, guid: 37aec8f54888bf44985b5c26bdb0de0f,
         type: 3}
+      propertyPath: Automatic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 101393793845680707, guid: 37aec8f54888bf44985b5c26bdb0de0f,
+        type: 3}
       propertyPath: ray_Range
       value: 100
       objectReference: {fileID: 0}
@@ -4336,6 +4341,11 @@ PrefabInstance:
         type: 3}
       propertyPath: bullet_Damage
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 101393793845680707, guid: 37aec8f54888bf44985b5c26bdb0de0f,
+        type: 3}
+      propertyPath: semiAutomatic
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 101393793845680707, guid: 37aec8f54888bf44985b5c26bdb0de0f,
         type: 3}
