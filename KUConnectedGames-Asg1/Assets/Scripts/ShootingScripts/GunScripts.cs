@@ -29,8 +29,7 @@ public class GunScripts : MonoBehaviourPunCallbacks
 	[SerializeField] private int gun_CurrentAmmo;
 
 	[Header("Fire Modes")]
-	[SerializeField] private bool Automatic;
-	[SerializeField] private bool semiAutomatic;
+	[SerializeField] private FireModes currentFireMode;
 
 	[Header("All bullet attributes")]
 	[SerializeField] bool addProjectile;
@@ -46,6 +45,13 @@ public class GunScripts : MonoBehaviourPunCallbacks
 	[SerializeField] private float ray_Range;
 
 	[SerializeField] private GameObject screenCenter_GO;
+
+	private enum FireModes
+	{
+		SingleShot,
+		BurstFire,
+		AutoFire
+	}
 
 	private void Start()
 	{
