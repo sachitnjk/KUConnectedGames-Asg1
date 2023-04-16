@@ -233,6 +233,11 @@ PrefabInstance:
       propertyPath: addProjectile
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3192155895569281352, guid: 938db13b0896ee5489253a42313e534e,
+        type: 3}
+      propertyPath: gun_ReloadTime
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3363259848303861643, guid: 938db13b0896ee5489253a42313e534e,
         type: 3}
       propertyPath: m_Name

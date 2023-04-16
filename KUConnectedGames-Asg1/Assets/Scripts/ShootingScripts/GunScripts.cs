@@ -86,44 +86,49 @@ public class GunScripts : MonoBehaviourPunCallbacks
 
 	private void Shoot()
 	{
-		Ray ray = gun_PlayerMainCam.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
-		RaycastHit hitResult;
-		if (Physics.Raycast(ray, out hitResult, 1000.0f))
+		if(gun_CurrentAmmo > 0)
 		{
-			GameObject hitObject = hitResult.collider.gameObject;
-			bullet_Target = hitResult.point;
-			VisualEffect hitImpact_basic = Instantiate(hitImpact_1, bullet_Target, Quaternion.identity);
-
-			if (hitObject.CompareTag("Enemy"))
+			Ray ray = gun_PlayerMainCam.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
+			RaycastHit hitResult;
+			if (Physics.Raycast(ray, out hitResult, 1000.0f))
 			{
-				Enemy_AiBehaviour aiBehaviour = hitObject.GetComponent<Enemy_AiBehaviour>();
-				PhotonView enemyPhotonView = hitObject.GetComponent<PhotonView>();
-				if (aiBehaviour != null && aiBehaviour.GetCurrentState() != Enemy_AiBehaviour.State.IsHit)
-				{
-					enemyPhotonView.RPC("TriggerHitAnimation", RpcTarget.All);
-				}
+				GameObject hitObject = hitResult.collider.gameObject;
+				bullet_Target = hitResult.point;
+				VisualEffect hitImpact_basic = Instantiate(hitImpact_1, bullet_Target, Quaternion.identity);
 
-				if(enemyPhotonView != null)
+				if (hitObject.CompareTag("Enemy"))
 				{
-					Debug.Log("This weird photon call through gun script");
-					enemyPhotonView.RPC("EnemyDamageTake", RpcTarget.AllBuffered, bullet_Damage);
+					Enemy_AiBehaviour aiBehaviour = hitObject.GetComponent<Enemy_AiBehaviour>();
+					PhotonView enemyPhotonView = hitObject.GetComponent<PhotonView>();
+					if (aiBehaviour != null && aiBehaviour.GetCurrentState() != Enemy_AiBehaviour.State.IsHit)
+					{
+						enemyPhotonView.RPC("TriggerHitAnimation", RpcTarget.All);
+					}
+
+					if(enemyPhotonView != null)
+					{
+						Debug.Log("This weird photon call through gun script");
+						enemyPhotonView.RPC("EnemyDamageTake", RpcTarget.AllBuffered, bullet_Damage);
 					
+					}
 				}
+				StartCoroutine(DestroyHitImpact(hitImpact_basic));
+
 			}
-			StartCoroutine(DestroyHitImpact(hitImpact_basic));
+			else
+			{
+				bullet_Target = gun_PlayerMainCam.transform.position + (ray.direction * 1000.0f);
+			}
 
-		}
-		else
-		{
-			bullet_Target = gun_PlayerMainCam.transform.position + (ray.direction * 1000.0f);
-		}
+			gun_CurrentAmmo--;
 
-		if(addProjectile)
-		{
-			GameObject bullet_Instance = Instantiate(bullet_Prefab, gun_ShootPoint.transform.position, gun_ShootPoint.transform.rotation);
-			Vector3 bullet_Direction = (bullet_Target - gun_ShootPoint.transform.position).normalized;
-			bullet_Instance.GetComponent<Rigidbody>().velocity = bullet_Direction * bullet_Speed;
-			Destroy(bullet_Instance, 1.5f);
+			if(addProjectile)
+			{
+				GameObject bullet_Instance = Instantiate(bullet_Prefab, gun_ShootPoint.transform.position, gun_ShootPoint.transform.rotation);
+				Vector3 bullet_Direction = (bullet_Target - gun_ShootPoint.transform.position).normalized;
+				bullet_Instance.GetComponent<Rigidbody>().velocity = bullet_Direction * bullet_Speed;
+				Destroy(bullet_Instance, 1.5f);
+			}
 		}
 	}
 	IEnumerator DestroyHitImpact(VisualEffect hitImpactObject)
