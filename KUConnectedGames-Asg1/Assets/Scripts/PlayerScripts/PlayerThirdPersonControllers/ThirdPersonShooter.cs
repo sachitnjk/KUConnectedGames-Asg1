@@ -13,6 +13,8 @@ public class ThirdPersonShooter : MonoBehaviourPunCallbacks
 	[SerializeField] float aimSensitivity;
 	[SerializeField] float normalSensitivity;
 
+	private bool shouldAim = false;
+	private bool isAiming = false;
 	private Animator _animator;
 
 	private void Awake()
@@ -35,12 +37,20 @@ public class ThirdPersonShooter : MonoBehaviourPunCallbacks
 				mouseWorldPosition = raycastHit.point;
 			}
 
-			if (_input.isAiming)
+			shouldAim = _input.isAiming;
+			if(shouldAim != isAiming)
+			{
+				photonView.RPC("SetAiming", RpcTarget.All, shouldAim);
+			}
+
+			if (isAiming)
 			{
 				cm_AimVirtualCamera.gameObject.SetActive(true);
 				_TPController.SetSensitivity(aimSensitivity);
 				_TPController.SetRotateOnMove(false);
-				_animator.SetLayerWeight(1, Mathf.Lerp(_animator.GetLayerWeight(1), 1f, Time.deltaTime * 10f));
+				//_animator.SetLayerWeight(1, Mathf.Lerp(_animator.GetLayerWeight(1), 1f, Time.deltaTime * 10f));
+				float weight = Mathf.Lerp(_animator.GetLayerWeight(1), 1f, Time.deltaTime * 10f);
+				photonView.RPC("SetLayerWeight", RpcTarget.All, weight);
 
 				Vector3 worldAimTarget = mouseWorldPosition;
 				worldAimTarget.y = transform.position.y;
@@ -53,7 +63,9 @@ public class ThirdPersonShooter : MonoBehaviourPunCallbacks
 				cm_AimVirtualCamera.gameObject.SetActive(false);
 				_TPController.SetSensitivity(normalSensitivity);
 				_TPController.SetRotateOnMove(true);
-				_animator.SetLayerWeight(1, Mathf.Lerp(_animator.GetLayerWeight(1), 0f, Time.deltaTime * 10f));
+				//_animator.SetLayerWeight(1, Mathf.Lerp(_animator.GetLayerWeight(1), 0f, Time.deltaTime * 10f));
+				float weight = Mathf.Lerp(_animator.GetLayerWeight(1), 0f, Time.deltaTime * 10f);
+				photonView.RPC("SetLayerWeight", RpcTarget.All, weight);
 			}
 
 			if(_input.Shoot.IsPressed())
@@ -67,6 +79,18 @@ public class ThirdPersonShooter : MonoBehaviourPunCallbacks
 				transform.forward = Vector3.Lerp(transform.forward, aimDirection, Time.deltaTime * 20f);
 			}
 		}
+	}
+
+	[PunRPC]
+	private void SetAiming(bool aiming)
+	{
+		isAiming = aiming;
+	}
+
+	[PunRPC]
+	private void SetLayerWeight(float weight)
+	{
+		_animator.SetLayerWeight(1, weight);
 	}
 
 }
