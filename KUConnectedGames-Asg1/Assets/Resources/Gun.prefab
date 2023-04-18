@@ -87,8 +87,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2687
   _input: {fileID: 0}
-  gun_MaxAmmo: 10
-  gun_CurrentAmmo: 10
+  gun_MaxAmmo: 100
+  gun_CurrentAmmo: 50
   currentFireMode: 0
   addProjectile: 0
   bullet_Prefab: {fileID: 3906352131627959738, guid: 0946b80a53a889141bc0aa73c0fe7a2e,
@@ -97,8 +97,8 @@ MonoBehaviour:
     type: 3}
   bullet_Speed: 100
   bullet_Damage: 10
+  bullet_Spread: 0
   ray_Range: 100
-  screenCenter_GO: {fileID: 0}
 --- !u!114 &5502239148476244020
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -38,12 +38,13 @@ public class GunScripts : MonoBehaviourPunCallbacks
 	[SerializeField] private VisualEffect bullet_Impact;
 	[SerializeField] private float bullet_Speed;
 	[SerializeField] private int bullet_Damage;
+	[SerializeField] private float bullet_Spread;
 
 	private Vector3 bullet_Target;
 
 	[SerializeField] private float ray_Range;
 
-	[SerializeField] private GameObject screenCenter_GO;
+	//[SerializeField] private GameObject screenCenter_GO;
 
 	private enum FireModes
 	{
@@ -143,6 +144,9 @@ public class GunScripts : MonoBehaviourPunCallbacks
 		if(gun_CurrentAmmo > 0)
 		{
 			Ray ray = gun_PlayerMainCam.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
+			Vector2 bulletSpreadOffset = Random.insideUnitCircle * bullet_Spread;
+			ray.direction = Quaternion.Euler(bulletSpreadOffset.x, bulletSpreadOffset.y, 0) * ray.direction;
+
 			RaycastHit hitResult;
 			if (Physics.Raycast(ray, out hitResult, 1000.0f))
 			{
