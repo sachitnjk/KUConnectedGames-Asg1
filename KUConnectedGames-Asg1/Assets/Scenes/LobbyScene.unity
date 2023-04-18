@@ -1044,7 +1044,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: fe32ed070ed28c8498991a407bef0e82, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -1119,7 +1119,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00004127488}
+  m_AnchoredPosition: {x: 0, y: 0.00014129795}
   m_SizeDelta: {x: 0, y: 90.1448}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &271039638
@@ -2696,7 +2696,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 971662702}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99995714
+  m_Size: 0.9999825
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4166,7 +4166,7 @@ Transform:
   - {fileID: 84531874}
   - {fileID: 706853002}
   m_Father: {fileID: 1977236772}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1408986333
 PrefabInstance:
@@ -5837,10 +5837,10 @@ Transform:
   - {fileID: 1529531088}
   - {fileID: 8767182530991281614}
   - {fileID: 1853203257}
+  - {fileID: 1388248381}
   - {fileID: 1966725334}
   - {fileID: 1032565873}
   - {fileID: 836762664}
-  - {fileID: 1388248381}
   - {fileID: 138075552}
   - {fileID: 1504852230}
   - {fileID: 1919932139}
