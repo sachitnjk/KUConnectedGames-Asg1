@@ -275,10 +275,35 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7025343409789733695, guid: 938db13b0896ee5489253a42313e534e,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8052448301568605087, guid: 938db13b0896ee5489253a42313e534e,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052448301568605087, guid: 938db13b0896ee5489253a42313e534e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052448301568605087, guid: 938db13b0896ee5489253a42313e534e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052448301568605087, guid: 938db13b0896ee5489253a42313e534e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052448301568605087, guid: 938db13b0896ee5489253a42313e534e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8870643181897504611, guid: 938db13b0896ee5489253a42313e534e,
         type: 3}

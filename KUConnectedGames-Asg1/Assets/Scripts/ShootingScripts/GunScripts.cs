@@ -35,11 +35,9 @@ public class GunScripts : MonoBehaviourPunCallbacks
 	[Header("All bullet attributes")]
 	[SerializeField] bool addProjectile;
 	[SerializeField] private GameObject bullet_Prefab;
-	[SerializeField] private GameObject bullet_Impact;
+	[SerializeField] private VisualEffect bullet_Impact;
 	[SerializeField] private float bullet_Speed;
 	[SerializeField] private int bullet_Damage;
-
-	private VisualEffect hitImpact_1;
 
 	private Vector3 bullet_Target;
 
@@ -57,8 +55,6 @@ public class GunScripts : MonoBehaviourPunCallbacks
 	private void Start()
 	{
 		gun_CurrentAmmo = gun_MaxAmmo;
-
-		hitImpact_1 = bullet_Impact.GetComponent<VisualEffect>();
 	}
 
 	private void Update()
@@ -123,7 +119,7 @@ public class GunScripts : MonoBehaviourPunCallbacks
 				}
 				break;
 			case FireModes.AutoFire:
-				while(_input.Shoot.ReadValue<float>() > 0)
+				while (_input.Shoot.ReadValue<float>() > 0)
 				{
 					Shoot();
 					yield return new WaitForSeconds(0.1f);
@@ -152,7 +148,7 @@ public class GunScripts : MonoBehaviourPunCallbacks
 			{
 				GameObject hitObject = hitResult.collider.gameObject;
 				bullet_Target = hitResult.point;
-				VisualEffect hitImpact_basic = Instantiate(hitImpact_1, bullet_Target, Quaternion.identity);
+				GameObject hitImpact_basic = PhotonNetwork.Instantiate(bullet_Impact.name, bullet_Target, Quaternion.identity);
 
 				if (hitObject.CompareTag("Enemy"))
 				{
@@ -189,12 +185,12 @@ public class GunScripts : MonoBehaviourPunCallbacks
 			}
 		}
 	}
-	IEnumerator DestroyHitImpact(VisualEffect hitImpactObject)
+	IEnumerator DestroyHitImpact(GameObject hitImpactObject)
 	{
 		yield return new WaitForSeconds(.5f);
-		if(hitImpact_1 != null)
+		if(bullet_Impact != null)
 		{
-			hitImpact_1.Stop();
+			bullet_Impact.Stop();
 			Destroy(hitImpactObject.gameObject);
 		}
 	}
