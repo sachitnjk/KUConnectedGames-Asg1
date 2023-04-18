@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ContrlsTurotialPromt : MonoBehaviour
+public class ControlsTutorialPrompt : MonoBehaviour
 {
 	public GameObject tutorialPanel;
 	public float tutorialDisplayTime;
