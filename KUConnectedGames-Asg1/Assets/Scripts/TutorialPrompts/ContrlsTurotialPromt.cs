@@ -5,25 +5,22 @@ using TMPro;
 
 public class ContrlsTurotialPromt : MonoBehaviour
 {
-	public TextMeshProUGUI controlsText;
+	public GameObject tutorialPanel;
+	public float tutorialDisplayTime;
+	public float tutorialInitializeTime;
 
-	private bool hasShownControls = false;
-
-	private void OnTriggerEnter(Collider other)
+	private void Start()
 	{
-		if(other.CompareTag("Player") && !hasShownControls)
-		{
-			controlsText.gameObject.SetActive(true);
-			hasShownControls = true;
-		}
+		Invoke("ActivateTutorialPanel", tutorialInitializeTime);
+		Invoke("DeactivateTutorialPanel", tutorialDisplayTime);
 	}
 
-	private void OnTriggerExit(Collider other)
+	void ActivateTutorialPanel()
 	{
-		if(other.CompareTag("Player"))
-		{
-			controlsText.gameObject.SetActive(false);
-		}
+		tutorialPanel.SetActive(true);
 	}
-
+	void DeactivateTutorialPanel()
+	{
+		tutorialPanel.SetActive(false);
+	}
 }
