@@ -4,8 +4,6 @@ using System.Collections;
 using UnityEngine;
 using Photon.Pun;
 using UnityEngine.VFX;
-using UnityEngine.Rendering;
-using UnityEngine.InputSystem;
 
 public class GunScripts : MonoBehaviourPunCallbacks
 {
@@ -18,8 +16,6 @@ public class GunScripts : MonoBehaviourPunCallbacks
 	[SerializeField] private GameObject gun_ShootPoint;
 
 	[SerializeField] private LayerMask ray_RaycastMask;
-
-	private float gun_NextTimeToFire = 0f;
 
 	private bool isReloading;
 
@@ -43,8 +39,6 @@ public class GunScripts : MonoBehaviourPunCallbacks
 	private Vector3 bullet_Target;
 
 	[SerializeField] private float ray_Range;
-
-	//[SerializeField] private GameObject screenCenter_GO;
 
 	private enum FireModes
 	{
@@ -144,8 +138,11 @@ public class GunScripts : MonoBehaviourPunCallbacks
 		if(gun_CurrentAmmo > 0)
 		{
 			Ray ray = gun_PlayerMainCam.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
+
 			Vector2 bulletSpreadOffset = Random.insideUnitCircle * bullet_Spread;
-			ray.direction = Quaternion.Euler(bulletSpreadOffset.x, bulletSpreadOffset.y, 0) * ray.direction;
+			Quaternion spreadRotation = Quaternion.Euler(bulletSpreadOffset.x, bulletSpreadOffset.y, 0);
+			ray.direction = spreadRotation * ray.direction;
+
 
 			RaycastHit hitResult;
 			if (Physics.Raycast(ray, out hitResult, 1000.0f))
@@ -165,7 +162,6 @@ public class GunScripts : MonoBehaviourPunCallbacks
 
 					if(enemyPhotonView != null)
 					{
-						Debug.Log("This weird photon call through gun script");
 						enemyPhotonView.RPC("EnemyDamageTake", RpcTarget.AllBuffered, bullet_Damage);
 					
 					}
