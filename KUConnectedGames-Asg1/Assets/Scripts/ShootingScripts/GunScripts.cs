@@ -40,6 +40,8 @@ public class GunScripts : MonoBehaviourPunCallbacks
 
 	[SerializeField] private float ray_Range;
 
+	private GunRecoil _recoilScript;
+
 	private enum FireModes
 	{
 		SingleShot,
@@ -49,6 +51,7 @@ public class GunScripts : MonoBehaviourPunCallbacks
 
 	private void Start()
 	{
+		_recoilScript = GetComponent<GunRecoil>();
 		gun_CurrentAmmo = gun_MaxAmmo;
 	}
 
@@ -138,6 +141,8 @@ public class GunScripts : MonoBehaviourPunCallbacks
 		if(gun_CurrentAmmo > 0)
 		{
 			Ray ray = gun_PlayerMainCam.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
+
+			_recoilScript.TriggerRecoil();
 
 			Vector2 bulletSpreadOffset = Random.insideUnitCircle * bullet_Spread;
 			Quaternion spreadRotation = Quaternion.Euler(bulletSpreadOffset.x, bulletSpreadOffset.y, 0);
