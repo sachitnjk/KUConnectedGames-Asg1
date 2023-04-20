@@ -13219,6 +13219,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyWaypoints: {fileID: 104149764}
   gateKeyScript: {fileID: 0}
+  gunCurrentAmmoField: {fileID: 630860605}
+  gunMaxAmmoField: {fileID: 1454719515}
 --- !u!4 &558044630
 Transform:
   m_ObjectHideFlags: 0

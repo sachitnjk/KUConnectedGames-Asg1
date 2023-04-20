@@ -4,6 +4,7 @@ using System.Collections;
 using UnityEngine;
 using Photon.Pun;
 using UnityEngine.VFX;
+using TMPro;
 
 public class GunScripts : MonoBehaviourPunCallbacks
 {
@@ -43,6 +44,9 @@ public class GunScripts : MonoBehaviourPunCallbacks
 
 	private GunRecoil _recoilScript;
 
+	private TextMeshProUGUI currentAmmotext;
+	private TextMeshProUGUI maxAmmotext;
+
 	private enum FireModes
 	{
 		SingleShot,
@@ -53,8 +57,15 @@ public class GunScripts : MonoBehaviourPunCallbacks
 	private void Start()
 	{
 		_recoilScript = GetComponent<GunRecoil>();
+
+		currentAmmotext = ReferenceManager.instance.gunCurrentAmmoField;
+		maxAmmotext = ReferenceManager.instance.gunMaxAmmoField;
+
 		gun_MaxAmmo = gun_MagazineSize * gun_MagazineCount;
 		gun_CurrentAmmo = gun_MagazineSize;
+
+		currentAmmotext.text = gun_CurrentAmmo.ToString();
+		maxAmmotext.text = gun_MaxAmmo.ToString();
 	}
 
 	private void Update()
@@ -88,6 +99,10 @@ public class GunScripts : MonoBehaviourPunCallbacks
 		yield return new WaitForSeconds(0.25f);
 		gun_CurrentAmmo = gun_MagazineSize;
 		gun_MaxAmmo -= gun_MagazineSize;
+
+		currentAmmotext.text = gun_CurrentAmmo.ToString();
+		maxAmmotext.text = gun_MaxAmmo.ToString();
+
 		isReloading = false;
 
 	}
@@ -183,8 +198,9 @@ public class GunScripts : MonoBehaviourPunCallbacks
 			}
 
 			gun_CurrentAmmo--;
+			currentAmmotext.text = gun_CurrentAmmo.ToString();
 
-			if(addProjectile)
+			if (addProjectile)
 			{
 				GameObject bullet_Instance = Instantiate(bullet_Prefab, gun_ShootPoint.transform.position, gun_ShootPoint.transform.rotation);
 				Vector3 bullet_Direction = (bullet_Target - gun_ShootPoint.transform.position).normalized;
