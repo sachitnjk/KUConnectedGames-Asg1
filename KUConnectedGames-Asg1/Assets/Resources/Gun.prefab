@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun_RateOfFire: 10
-  gun_ReloadTime: 0
+  gun_ReloadTime: 2
   gun_MagazineSize: 20
   gun_PlayerVirtualCam: {fileID: 0}
   gun_PlayerMainCam: {fileID: 0}
@@ -98,7 +98,7 @@ MonoBehaviour:
     type: 3}
   bullet_Speed: 100
   bullet_Damage: 10
-  bullet_Spread: 5
+  bullet_Spread: 2
   ray_Range: 100
 --- !u!114 &5077680090506809941
 MonoBehaviour:
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recoilFollowPosition: {fileID: 0}
-  recoilKickBackAmount: -1
+  recoilKickBackAmount: -1.5
   recoilKickBackSpeed: 10
   returnSpeed: 20
 --- !u!114 &5502239148476244020

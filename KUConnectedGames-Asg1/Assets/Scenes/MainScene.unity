@@ -9164,7 +9164,7 @@ MonoBehaviour:
   - {fileID: 330181072}
   - {fileID: 1883161509}
   phView: {fileID: 394038668}
-  enemyNumberToSpawn: 10
+  enemyNumberToSpawn: 5
 --- !u!114 &394038668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20141,7 +20141,7 @@ MonoBehaviour:
   - {fileID: 1730289245}
   - {fileID: 886954336}
   phView: {fileID: 903397720}
-  enemyNumberToSpawn: 10
+  enemyNumberToSpawn: 3
 --- !u!114 &903397720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43504,7 +43504,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730289244}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -15.47}
+  m_LocalPosition: {x: 0, y: 0, z: -18.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45832,7 +45832,7 @@ MonoBehaviour:
   enemySpawnPoints:
   - {fileID: 2119831778}
   phView: {fileID: 1837618535}
-  enemyNumberToSpawn: 10
+  enemyNumberToSpawn: 2
 --- !u!114 &1837618535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52558,7 +52558,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2119831777}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.25, y: -1.409, z: 5.21}
+  m_LocalPosition: {x: -9.11, y: -1.409, z: -23.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
