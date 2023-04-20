@@ -81,6 +81,7 @@ MonoBehaviour:
   gun_RateOfFire: 10
   gun_ReloadTime: 2
   gun_MagazineSize: 20
+  gun_MagazineCount: 2
   gun_PlayerVirtualCam: {fileID: 0}
   gun_PlayerMainCam: {fileID: 0}
   gun_ShootPoint: {fileID: 0}
@@ -88,7 +89,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2687
   _input: {fileID: 0}
-  gun_MaxAmmo: 100
   gun_CurrentAmmo: 50
   currentFireMode: 0
   addProjectile: 0

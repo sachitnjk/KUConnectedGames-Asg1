@@ -1630,8 +1630,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityTriggered: 0
-  playerAbilityType: 0
-  abilityCooldown: 0
+  playerAbilityType: 1
+  abilityCooldown: 5
 --- !u!114 &8120166549012579789
 MonoBehaviour:
   m_ObjectHideFlags: 0

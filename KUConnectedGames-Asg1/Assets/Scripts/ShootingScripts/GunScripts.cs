@@ -10,7 +10,8 @@ public class GunScripts : MonoBehaviourPunCallbacks
 	[Header("All gun realated attributes")]
 	[SerializeField] private float gun_RateOfFire;
 	[SerializeField] private float gun_ReloadTime;
-	[SerializeField] private float gun_MagazineSize;
+	[SerializeField] private int gun_MagazineSize;
+	[SerializeField] private int gun_MagazineCount;
 	[SerializeField] private CinemachineVirtualCamera gun_PlayerVirtualCam;
 	[SerializeField] private Camera gun_PlayerMainCam;
 	[SerializeField] private GameObject gun_ShootPoint;
@@ -52,7 +53,8 @@ public class GunScripts : MonoBehaviourPunCallbacks
 	private void Start()
 	{
 		_recoilScript = GetComponent<GunRecoil>();
-		gun_CurrentAmmo = gun_MaxAmmo;
+		gun_MaxAmmo = gun_MagazineSize * gun_MagazineCount;
+		gun_CurrentAmmo = gun_MagazineSize;
 	}
 
 	private void Update()
@@ -72,11 +74,22 @@ public class GunScripts : MonoBehaviourPunCallbacks
 			return;
 		}
 
-		if(gun_CurrentAmmo <= 1)
+		if(gun_CurrentAmmo <= 1 && gun_MaxAmmo >= 1)
 		{
 			StartCoroutine(Reload());
 			return;
 		}
+	}
+
+	IEnumerator Reload()
+	{
+		isReloading = true;
+		yield return new WaitForSeconds(gun_ReloadTime - 0.25f);
+		yield return new WaitForSeconds(0.25f);
+		gun_CurrentAmmo = gun_MagazineSize;
+		gun_MaxAmmo -= gun_MagazineSize;
+		isReloading = false;
+
 	}
 
 	private void ChangeFireMode()
@@ -94,7 +107,6 @@ public class GunScripts : MonoBehaviourPunCallbacks
 				break;
 		}
 	}
-
 	private IEnumerator ShootWithFireMode()
 	{
 		int shotsFiredInBurst = 0;
@@ -126,19 +138,10 @@ public class GunScripts : MonoBehaviourPunCallbacks
 		}
 	}
 
-	IEnumerator Reload()
-	{
-		isReloading = true;
-		yield return new WaitForSeconds(gun_ReloadTime - 0.25f);
-		yield return new WaitForSeconds(0.25f);
-		gun_CurrentAmmo = gun_MaxAmmo;
-		isReloading = false;
-
-	}
 
 	private void Shoot()
 	{
-		if(gun_CurrentAmmo > 0)
+		if(gun_CurrentAmmo > 0 && gun_MaxAmmo >= 0)
 		{
 			Ray ray = gun_PlayerMainCam.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
 
