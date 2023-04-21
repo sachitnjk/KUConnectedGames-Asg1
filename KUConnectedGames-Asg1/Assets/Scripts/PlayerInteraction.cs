@@ -50,4 +50,9 @@ public class PlayerInteraction : MonoBehaviourPunCallbacks
 		}
 	}
 
+	private void InteractionAction()
+	{
+
+	}
+
 }
