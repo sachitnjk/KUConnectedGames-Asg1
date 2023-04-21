@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using Photon.Pun;
 
 public class PlayerInteraction : MonoBehaviourPunCallbacks
 {
@@ -15,9 +14,15 @@ public class PlayerInteraction : MonoBehaviourPunCallbacks
 	private void Start()
 	{
 		interactableText = ReferenceManager.instance.interactionText;
+		interactableText.gameObject.SetActive(false);
 	}
 
 	private void Update()
+	{
+		InteractionAppear();
+	}
+
+	private void InteractionAppear()
 	{
 		if(photonView.IsMine)
 		{
@@ -26,12 +31,7 @@ public class PlayerInteraction : MonoBehaviourPunCallbacks
 
 			if(Physics.Raycast(ray, out hitInfo, interactionDistance, interactableLayer)) 
 			{
-				if(hitInfo.collider.CompareTag("Interactable"))
-				{
-					Debug.Log("interactable available");
-					interactableText.text = "Press E to Interact";
-					interactableText.gameObject.SetActive(true);
-				}
+				interactableText.gameObject.SetActive(true);
 			}
 			else
 			{
