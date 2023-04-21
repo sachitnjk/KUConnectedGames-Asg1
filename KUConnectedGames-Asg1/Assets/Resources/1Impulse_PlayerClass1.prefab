@@ -1218,6 +1218,7 @@ GameObject:
   - component: {fileID: 455281735667569706}
   - component: {fileID: 2142254117267395184}
   - component: {fileID: 8088884789369369546}
+  - component: {fileID: 5813848525518898346}
   m_Layer: 10
   m_Name: 1Impulse_PlayerClass1
   m_TagString: Player
@@ -1433,7 +1434,7 @@ MonoBehaviour:
     m_Name: 
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 
+    m_Id: 1fdd072f-82d9-481f-bf58-c2fee731a7d9
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -1442,7 +1443,25 @@ MonoBehaviour:
     m_Name: 
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 
+    m_Id: 5362a0e2-b6e6-4819-ab9c-bd905c7fceec
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  PrimaryWeapon:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 025b0946-c9ec-4545-b09c-63681fb0cf92
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  SecondaryWeapon:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 9aeec927-7f02-4cf1-997d-fd4edcd0a4d6
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -1678,6 +1697,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHasKey: 0
+--- !u!114 &5813848525518898346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3363259848303861643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77dc5e1ceb0f64a4cb7a057b8ec88657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionDistance: 1
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &3431887501438043480
 GameObject:
   m_ObjectHideFlags: 0
@@ -4082,7 +4117,7 @@ PrefabInstance:
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4
+      value: -3.9436684
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
@@ -4197,7 +4232,7 @@ PrefabInstance:
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4
+      value: -3.9436684
       objectReference: {fileID: 0}
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8,
         type: 3}

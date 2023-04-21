@@ -1187,6 +1187,7 @@ GameObject:
   - component: {fileID: 7628719731266123823}
   - component: {fileID: 416998447084099867}
   - component: {fileID: 8120166549012579789}
+  - component: {fileID: 7653979774489948191}
   m_Layer: 10
   m_Name: 4Tanker_PlayerClass4
   m_TagString: Player
@@ -1663,6 +1664,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHasKey: 0
+--- !u!114 &7653979774489948191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3363259848303861643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77dc5e1ceb0f64a4cb7a057b8ec88657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionDistance: 1
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &3431887501438043480
 GameObject:
   m_ObjectHideFlags: 0
