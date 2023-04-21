@@ -825,11 +825,11 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: Template3D
   metroPackageVersion: 1.0.0.0
-  metroCertificatePath: 
+  metroCertificatePath: D:\GitForkStuff\KUConnectedGames-Asg1\KUConnectedGames-Asg1\Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: DefaultCompany
+  metroCertificateIssuer: DefaultCompany
+  metroCertificateNotAfter: 001c4ea0f492da01
   metroApplicationDescription: Template_3D
   wsaImages: {}
   metroTileShortName: KUConnectedGames-Asg1
