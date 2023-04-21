@@ -10,16 +10,26 @@ public class PlayerInteraction : MonoBehaviourPunCallbacks
 	[SerializeField] private LayerMask interactableLayer;
 
 	private TextMeshProUGUI interactableText;
+	private PlayerKeyManager keyManagerScript;
 
 	private void Start()
 	{
 		interactableText = ReferenceManager.instance.interactionText;
+		keyManagerScript = GetComponent<PlayerKeyManager>();
+
 		interactableText.gameObject.SetActive(false);
 	}
 
 	private void Update()
 	{
-		InteractionAppear();
+		if(keyManagerScript.playerHasKey)
+		{
+			InteractionAppear();
+		}
+		else
+		{
+			interactableText.gameObject.SetActive(false);
+		}
 	}
 
 	private void InteractionAppear()
