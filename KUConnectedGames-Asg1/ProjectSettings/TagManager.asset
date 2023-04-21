@@ -8,7 +8,6 @@ TagManager:
   - Bullet
   - Enemy
   - Key
-  - Interactable
   layers:
   - Default
   - TransparentFX
