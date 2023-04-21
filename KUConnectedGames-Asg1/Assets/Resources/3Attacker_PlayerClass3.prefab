@@ -1374,6 +1374,24 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  PrimaryWeapon:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  SecondaryWeapon:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
@@ -4082,7 +4100,7 @@ PrefabInstance:
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4
+      value: -3.9436684
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
@@ -4197,7 +4215,7 @@ PrefabInstance:
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4
+      value: -3.9436684
       objectReference: {fileID: 0}
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8,
         type: 3}
@@ -4632,6 +4650,11 @@ PrefabInstance:
       propertyPath: recoilFollowPosition
       value: 
       objectReference: {fileID: 7736547323458256963}
+    - target: {fileID: 5747943775907164058, guid: 37aec8f54888bf44985b5c26bdb0de0f,
+        type: 3}
+      propertyPath: _input
+      value: 
+      objectReference: {fileID: 1297859331578561527}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37aec8f54888bf44985b5c26bdb0de0f, type: 3}
 --- !u!1 &9167605849047394705 stripped

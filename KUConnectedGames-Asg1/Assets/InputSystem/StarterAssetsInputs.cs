@@ -17,6 +17,8 @@ namespace StarterAssets
 		public bool pause;
 		public InputAction SwitchFireMode;
 		public InputAction Shoot;
+		public InputAction PrimaryWeapon;
+		public InputAction SecondaryWeapon;
 		private PlayerInput _playerInput;
 
 		[Header("Movement Settings")]
@@ -33,6 +35,8 @@ namespace StarterAssets
 			{
 				SwitchFireMode = _playerInput.actions["SwitchFireMode"];
 				Shoot = _playerInput.actions["Shoot"];
+				PrimaryWeapon = _playerInput.actions["PrimaryWeapon"];
+				SecondaryWeapon = _playerInput.actions["SecondaryWeapon"];
 			}
 		}
 

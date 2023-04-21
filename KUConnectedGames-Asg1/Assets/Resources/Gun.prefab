@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 101393793845680706}
   - component: {fileID: 101393793845680707}
   - component: {fileID: 5077680090506809941}
+  - component: {fileID: 5747943775907164058}
   - component: {fileID: 5502239148476244020}
   m_Layer: 0
   m_Name: Gun1
@@ -89,6 +90,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2687
   _input: {fileID: 0}
+  gun_MaxAmmo: 0
   gun_CurrentAmmo: 50
   currentFireMode: 0
   addProjectile: 0
@@ -116,6 +118,21 @@ MonoBehaviour:
   recoilKickBackAmount: -1.5
   recoilKickBackSpeed: 10
   returnSpeed: 20
+--- !u!114 &5747943775907164058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101393793845680717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d44b5a8712ce5a4c9f1a1f87e087e38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponSlot1: {fileID: 0}
+  weaponSlot2: {fileID: 0}
+  _input: {fileID: 0}
 --- !u!114 &5502239148476244020
 MonoBehaviour:
   m_ObjectHideFlags: 0
