@@ -75,12 +75,20 @@ public class PlayerInteraction : MonoBehaviourPunCallbacks
 				if (Physics.Raycast(ray, out hitInfo, interactionDistance, interactableLayer))
 				{
 					gateOpeningText.gameObject.SetActive(true);
-					StartCoroutine(GateOpeningTextDisable());
+					//StartCoroutine(GateOpeningTextDisable());
+					photonView.RPC("GateOpeningTextDisableRPC", RpcTarget.AllBuffered);
 
 					keyManagerScript.playerHasKey = false;
 				}
 			}
 		}
+	}
+
+	[PunRPC]
+	private void GateOpeningTextDisableRPC()
+	{
+		gateOpeningText.gameObject.SetActive(true);
+		StartCoroutine(GateOpeningTextDisable());
 	}
 
 	private IEnumerator GateOpeningTextDisable()
