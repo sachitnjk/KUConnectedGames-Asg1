@@ -19,6 +19,7 @@ namespace StarterAssets
 		public InputAction Shoot;
 		public InputAction PrimaryWeapon;
 		public InputAction SecondaryWeapon;
+		public InputAction Interaction;
 		private PlayerInput _playerInput;
 
 		[Header("Movement Settings")]
@@ -37,6 +38,7 @@ namespace StarterAssets
 				Shoot = _playerInput.actions["Shoot"];
 				PrimaryWeapon = _playerInput.actions["PrimaryWeapon"];
 				SecondaryWeapon = _playerInput.actions["SecondaryWeapon"];
+				Interaction = _playerInput.actions["Interaction"];
 			}
 		}
 

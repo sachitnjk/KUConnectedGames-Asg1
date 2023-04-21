@@ -12,6 +12,7 @@ public class ReferenceManager : MonoBehaviour
 	[SerializeField] public GateKey gateKeyScript;
 
 	[SerializeField] public TextMeshProUGUI interactionText;
+	[SerializeField] public TextMeshProUGUI gateOpeningText;
 
 	[SerializeField] public TextMeshProUGUI gunCurrentAmmoField;
 	[SerializeField] public TextMeshProUGUI gunMaxAmmoField;
