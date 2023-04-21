@@ -349,7 +349,7 @@
                 {
                     "name": "",
                     "id": "e0f35a62-dead-4371-b01d-b8056e1043a1",
-                    "path": "<Gamepad>/leftShoulder",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -392,8 +392,30 @@
                 },
                 {
                     "name": "",
+                    "id": "0bf0e2d6-46fc-4815-b0bb-64798141822f",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchFireMode",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "266f0623-8dd2-43c7-8191-1c2e725ff50b",
                     "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PrimaryWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cfee1e8c-8f26-48d1-8732-16b9baa13239",
+                    "path": "<Gamepad>/dpad/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -414,8 +436,30 @@
                 },
                 {
                     "name": "",
+                    "id": "1e1307e3-7382-4bd8-83fc-549d3aeba3ff",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SecondaryWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f407f2e1-80d4-4a3d-aa49-33ca1f777495",
                     "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interaction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9d813880-cbf5-436c-9ff9-542a6dd4fc11",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
