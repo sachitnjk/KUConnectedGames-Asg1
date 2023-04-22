@@ -9,7 +9,7 @@ public class PlayerInteraction : MonoBehaviourPunCallbacks
 {
 	[SerializeField] private float interactionDistance;
 	[SerializeField] private LayerMask interactableLayer;
-
+	
 	[SerializeField] private StarterAssetsInputs _input;
 
 	private TextMeshProUGUI interactableText;
@@ -17,6 +17,7 @@ public class PlayerInteraction : MonoBehaviourPunCallbacks
 	private PlayerKeyManager keyManagerScript;
 
 	private bool canInteract;
+	private int gateOpeningCountdown = 10;
 
 	private void Start()
 	{
@@ -88,12 +89,16 @@ public class PlayerInteraction : MonoBehaviourPunCallbacks
 	private void GateOpeningTextDisableRPC()
 	{
 		gateOpeningText.gameObject.SetActive(true);
-		StartCoroutine(GateOpeningTextDisable());
+		StartCoroutine(GateOpeningCountdown());
 	}
 
-	private IEnumerator GateOpeningTextDisable()
+	private IEnumerator GateOpeningCountdown()
 	{
-		yield return new WaitForSeconds(3f);
+		for (int i = gateOpeningCountdown; i > 0; i--)
+		{
+			gateOpeningText.text = "Gate will open in " + i.ToString() + " second(s)";
+			yield return new WaitForSeconds(1f);
+		}
 		gateOpeningText.gameObject.SetActive(false);
 	}
 
