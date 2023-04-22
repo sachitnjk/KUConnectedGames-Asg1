@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerInteraction : MonoBehaviourPunCallbacks
 {
@@ -100,6 +101,13 @@ public class PlayerInteraction : MonoBehaviourPunCallbacks
 			yield return new WaitForSeconds(1f);
 		}
 		gateOpeningText.gameObject.SetActive(false);
+		photonView.RPC("LoadNextLevel", RpcTarget.AllBuffered);
+	}
+
+	[PunRPC]
+	private void LoadNextLevel()
+	{
+		SceneManager.LoadScene(4);
 	}
 
 }

@@ -54,6 +54,7 @@ MonoBehaviour:
   - SetAiming
   - SetLayerWeight
   - GateOpeningTextDisableRPC
+  - LoadNextLevel
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
