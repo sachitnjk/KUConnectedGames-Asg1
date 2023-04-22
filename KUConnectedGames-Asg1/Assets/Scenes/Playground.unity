@@ -248,9 +248,29 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6188804731855804731, guid: 119a04b934d31f44da59e8b382b4b5c1,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8052448301568605087, guid: 119a04b934d31f44da59e8b382b4b5c1,
         type: 3}
       propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052448301568605087, guid: 119a04b934d31f44da59e8b382b4b5c1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.665
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052448301568605087, guid: 119a04b934d31f44da59e8b382b4b5c1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224273677378679870, guid: 119a04b934d31f44da59e8b382b4b5c1,
+        type: 3}
+      propertyPath: sceneViewId
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8870643181897504611, guid: 119a04b934d31f44da59e8b382b4b5c1,

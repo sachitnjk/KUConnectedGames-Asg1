@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2877476287828570784}
+  - component: {fileID: 7404405097232254409}
   m_Layer: 0
   m_Name: STG44_Rifle
   m_TagString: Untagged
@@ -32,6 +33,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7404405097232254409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2877476287828570785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53fa4472629936a4e958d8c2832d98ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gun_RateOfFire: 10
+  gun_ReloadTime: 2
+  gun_MagazineSize: 20
+  gun_MagazineCount: 2
+  gun_PlayerVirtualCam: {fileID: 0}
+  gun_PlayerMainCam: {fileID: 0}
+  gun_ShootPoint: {fileID: 0}
+  ray_RaycastMask:
+    serializedVersion: 2
+    m_Bits: 2687
+  _input: {fileID: 0}
+  gun_MaxAmmo: 0
+  gun_CurrentAmmo: 50
+  currentFireMode: 0
+  addProjectile: 0
+  bullet_Prefab: {fileID: 3906352131627959738, guid: 0946b80a53a889141bc0aa73c0fe7a2e,
+    type: 3}
+  bullet_Impact: {fileID: 1684090314261528999, guid: f3a8399bf60a7664e9d872e1768d6d7a,
+    type: 3}
+  bullet_Speed: 100
+  bullet_Damage: 10
+  bullet_Spread: 2
+  ray_Range: 100
 --- !u!1001 &7355905620666046363
 PrefabInstance:
   m_ObjectHideFlags: 0
