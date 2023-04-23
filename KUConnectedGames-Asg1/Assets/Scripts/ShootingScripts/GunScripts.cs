@@ -218,4 +218,10 @@ public class GunScripts : MonoBehaviourPunCallbacks
 			Destroy(hitImpactObject.gameObject);
 		}
 	}
+
+	public void AddMaxAmmo(int addedAmmo)
+	{
+		gun_MaxAmmo = gun_MaxAmmo + addedAmmo;
+		maxAmmotext.text = gun_MaxAmmo.ToString();
+	}
 }
