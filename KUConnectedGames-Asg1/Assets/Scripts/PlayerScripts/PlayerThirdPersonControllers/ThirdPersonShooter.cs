@@ -5,11 +5,15 @@ using Photon.Pun;
 
 public class ThirdPersonShooter : MonoBehaviourPunCallbacks
 {
-	[SerializeField] CinemachineVirtualCamera cm_AimVirtualCamera;
 	StarterAssetsInputs _input;
 	ThirdPersonController _TPController;
-
+	
+	[Header("Component references")]
+	[SerializeField] CinemachineVirtualCamera cm_AimVirtualCamera;
 	[SerializeField] LayerMask aimColliderLayerMask;
+
+
+	[Header("Sensitivity controls")]
 	[SerializeField] float aimSensitivity;
 	[SerializeField] float normalSensitivity;
 

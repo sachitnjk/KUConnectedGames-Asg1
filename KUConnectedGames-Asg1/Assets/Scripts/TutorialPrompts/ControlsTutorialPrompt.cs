@@ -6,6 +6,8 @@ using TMPro;
 public class ControlsTutorialPrompt : MonoBehaviour
 {
 	public GameObject tutorialPanel;
+
+	[Header("Tutorial box inputs")]
 	public float tutorialDisplayTime;
 	public float tutorialInitializeTime;
 

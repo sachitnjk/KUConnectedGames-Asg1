@@ -7,8 +7,8 @@ using UnityEngine.InputSystem;
 public class PlayerHealthBar : MonoBehaviour
 {
 
+    [HideInInspector]public int currentHealth;
     public int maxHealth= 100;
-    public int currentHealth;
 
     public HealthBarScript healthBar;
 

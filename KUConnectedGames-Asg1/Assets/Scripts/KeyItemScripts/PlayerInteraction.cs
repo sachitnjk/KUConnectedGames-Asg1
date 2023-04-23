@@ -8,9 +8,11 @@ using UnityEngine.SceneManagement;
 
 public class PlayerInteraction : MonoBehaviourPunCallbacks
 {
+	[Header("Interactions related references")]
 	[SerializeField] private float interactionDistance;
 	[SerializeField] private LayerMask interactableLayer;
-	
+
+	[Header("Script references")]
 	[SerializeField] private StarterAssetsInputs _input;
 
 	private TextMeshProUGUI interactableText;

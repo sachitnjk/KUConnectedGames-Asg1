@@ -7,14 +7,14 @@ using UnityEngine.InputSystem;
 public class PlayerStaminaBar : MonoBehaviour
 {
 
+	[HideInInspector]public float currentStam;
+
+    [Header("Stamina settings")]
     public float maxStam = 100;
-	public float currentStam;
-
-    //private bool isSprinting;
-
     [SerializeField] private float stamDecay;
     [SerializeField] private float stamRegen;
 
+    [Header("Script references")]
     public StaminaBarScript stamBarScript;
     public ThirdPersonController tpController;
     private StarterAssetsInputs _input;
@@ -26,7 +26,6 @@ public class PlayerStaminaBar : MonoBehaviour
 
         tpController = GetComponent<ThirdPersonController>();
         _input = GetComponent<StarterAssetsInputs>();
-        //isSprinting = false;
 	}
 
     void Update()
