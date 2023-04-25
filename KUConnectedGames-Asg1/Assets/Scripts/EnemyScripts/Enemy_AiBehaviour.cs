@@ -17,7 +17,6 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 	[SerializeField] private float enemy_TimeToRotate;
 
 	float waitTime;
-	float timeToRotate;
 
 	[SerializeField] private float enemy_AttackRange;
 	[SerializeField] private int enemy_Damage;
@@ -29,9 +28,11 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 	public NavMeshAgent navMeshAgent;
 
 	private State enemy_CurrentState;
+	private State previousState;
 
 	private GameObject player;
 	private EnemyHpController enemyHpController;
+	private Rigidbody enemyRigidBody;
 
 	private Transform[] waypoints;
 	private	int enemy_CurrentWaypointIndex;
@@ -50,11 +51,11 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 		Dead
 	}
 
-	private State previousState;
 
 	private void Start()
 	{
 		enemyHpController = GetComponent<EnemyHpController>();
+		enemyRigidBody = GetComponent<Rigidbody>();
 
 		GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 		if(players.Length > 0)
@@ -75,8 +76,6 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 
 
 		enemy_CurrentState = State.Patrol;
-
-		previousState = enemy_CurrentState;
 	}
 
 	private void Update()
@@ -141,23 +140,16 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 		}
 	}
 
-	[PunRPC]
-	public void EndHitAnimation()
-	{
-		navMeshAgent.isStopped=false;
-		photonView.RPC("SetPreviousState", RpcTarget.All);
-	}
-
-	[PunRPC]
-	public void SetPreviousState()
-	{
-		enemy_CurrentState = previousState;
-	}
 	private void IsHit()
 	{
-		navMeshAgent.isStopped = true;
-		enemy_CurrentState = previousState;
-
+		if (enemy_CurrentState == State.IsHit)
+		{
+			enemyRigidBody.velocity = Vector3.zero;
+			navMeshAgent.isStopped = true;
+			Debug.Log(navMeshAgent.isStopped);
+			enemy_CurrentState = previousState;
+			return;
+		}
 	}
 
 	private void Patrol()
@@ -185,8 +177,6 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 
 		if(DetectEntity())
 		{
-			Debug.Log("changinmg to chase from patrol");
-
 			enemy_CurrentState = State.Chase;
 		}
 	}
@@ -209,14 +199,8 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 
 				if (!Physics.Raycast(transform.position, direction, out hitInfo, distance, obstacleMask))
 				{
-					Debug.Log("Detecting player-raycast");
-
 					enemy_Target = entity.transform;
 					return true;
-				}
-				else
-				{
-					Debug.Log(hitInfo.collider.gameObject.name);
 				}
 			}
 		}
@@ -225,6 +209,7 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 
 	private void Chasing()
 	{
+		navMeshAgent.isStopped = false;
 		_animator.SetBool("isWalking", false);
 		_animator.SetBool("isAttacking", false);
 		_animator.SetBool("isRunning", true);
@@ -243,7 +228,7 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 		else if (Vector3.Distance(transform.position, targetPosition) > enemy_DetactionRange)
 		{
 			player_LastKnownPos = enemy_Target.position;
-			player_LastKnownPos.y = transform.position.y;  // adjusting target position so that it is close to enemy pos when enmey on it
+			player_LastKnownPos.y = transform.position.y;
 
 			enemy_CurrentState = State.Searching;
 		}
@@ -254,7 +239,6 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 		_animator.SetBool("isRunning", false);
 		_animator.SetBool("isWalking", true);
 
-		Debug.Log("going to player last pos");
 		navMeshAgent.SetDestination(player_LastKnownPos);
 
 		float distanceToLastKnownPos = Vector3.Distance(transform.position, player_LastKnownPos);
@@ -281,7 +265,6 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 
 		if (enemy_CanDamage)
 		{
-			Debug.Log("I am attacking");
 			player.GetComponent<PlayerHealthBar>().TakeDamage(damage);
 			Stop();
 			var towardsPlayer = enemy_Target.position - transform.position;
@@ -298,7 +281,6 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 
 		if (Vector3.Distance(transform.position, enemy_Target.position) > enemy_AttackRange)
 		{
-			Debug.Log("attack -> chase");
 			enemy_CurrentState = State.Chase;
 		}
 	}
