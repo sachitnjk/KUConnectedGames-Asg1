@@ -1607,8 +1607,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1958e28a13664408bcd5bca9fec5e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 80
   currentHealth: 80
+  maxHealth: 80
   healthBar: {fileID: 4938280552918583279}
 --- !u!114 &8105024763133557330
 MonoBehaviour:
@@ -1622,8 +1622,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d8f7228eeed8f1499964a81c71efe69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStam: 150
   currentStam: 150
+  maxStam: 150
   stamDecay: 19
   stamRegen: 13
   stamBarScript: {fileID: 3079493921623841978}

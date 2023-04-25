@@ -100,7 +100,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
 	void UpdatePlayerList()
 	{
-		foreach(PlayerItem item in playerItemsList)
+		foreach (PlayerItem item in playerItemsList)
 		{
 			Destroy(item.gameObject);
 		}

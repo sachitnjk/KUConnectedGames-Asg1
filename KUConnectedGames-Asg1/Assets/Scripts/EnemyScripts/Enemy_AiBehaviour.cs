@@ -38,6 +38,7 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 	private	int enemy_CurrentWaypointIndex;
 
 	private Vector3 player_LastKnownPos;
+	private Vector3 previousDestination;
 
 	private bool enemy_CanDamage;
 
@@ -98,7 +99,6 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 				Searching();
 				break;
 			case State.IsHit:
-				IsHit();
 				break;
 			case State.Attack:
 				EnemyAttack(enemy_Damage);
@@ -134,23 +134,20 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 		if(enemyHpController.e_CurrentHealth > 0)
 		{
 			previousState = enemy_CurrentState;
+			previousDestination = navMeshAgent.destination;
+			navMeshAgent.SetDestination(transform.position);
 			enemy_CurrentState = State.IsHit;
 			_animator.SetTrigger("isHit");
-			navMeshAgent.isStopped = true;
 		}
 	}
 
-	private void IsHit()
+	//Calling this as animation event
+	private void ReturnFromHit()
 	{
-		if (enemy_CurrentState == State.IsHit)
-		{
-			enemyRigidBody.velocity = Vector3.zero;
-			navMeshAgent.isStopped = true;
-			Debug.Log(navMeshAgent.isStopped);
-			enemy_CurrentState = previousState;
-			return;
-		}
+		enemy_CurrentState = previousState;
+		navMeshAgent.SetDestination(previousDestination);
 	}
+
 
 	private void Patrol()
 	{
