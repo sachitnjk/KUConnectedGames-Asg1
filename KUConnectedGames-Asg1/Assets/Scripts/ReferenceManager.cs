@@ -20,6 +20,7 @@ public class ReferenceManager : MonoBehaviour
 	[Header("GameObject References")]
 	[SerializeField] public GameObject PrimaryWeapon;
 	[SerializeField] public GameObject SecondaryWeapon;
+	[SerializeField] public GameObject InventoryPanelUI;
 
 
 	private void Awake()

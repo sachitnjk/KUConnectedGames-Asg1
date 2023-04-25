@@ -1188,6 +1188,7 @@ GameObject:
   - component: {fileID: 4612128456991174367}
   - component: {fileID: 7817422224171649901}
   - component: {fileID: 4105377375752331807}
+  - component: {fileID: 5774434192938331250}
   m_Layer: 10
   m_Name: 3Attacker_PlayerClass3
   m_TagString: Player
@@ -1360,7 +1361,7 @@ MonoBehaviour:
     m_Name: 
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 
+    m_Id: 37c0c5a0-f485-45e4-b361-83611f19fbb3
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -1369,7 +1370,7 @@ MonoBehaviour:
     m_Name: 
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 
+    m_Id: 517d6687-4d38-4398-8ac5-3acf56d67da6
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -1378,7 +1379,7 @@ MonoBehaviour:
     m_Name: 
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 
+    m_Id: 1a751d16-3798-4359-aff8-7242536a6ed6
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -1387,7 +1388,7 @@ MonoBehaviour:
     m_Name: 
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 
+    m_Id: 4a485a9d-9545-4d73-9a82-ece46fba7e62
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -1396,7 +1397,16 @@ MonoBehaviour:
     m_Name: 
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 
+    m_Id: 3d8386a0-ed36-40e0-ac90-c7bff92ed7fc
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  InventoryPanel:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 6cb8d187-ce60-4669-9be4-cb2bda69ed54
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -1691,6 +1701,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _input: {fileID: 0}
+--- !u!114 &5774434192938331250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3363259848303861643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f741ce45d9793a34ba42639ade9605f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3431887501438043480
 GameObject:
   m_ObjectHideFlags: 0

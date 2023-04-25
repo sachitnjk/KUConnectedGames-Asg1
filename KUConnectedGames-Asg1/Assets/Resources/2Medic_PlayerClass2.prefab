@@ -1188,6 +1188,7 @@ GameObject:
   - component: {fileID: 8401377882231176365}
   - component: {fileID: 7965351393409222785}
   - component: {fileID: 3019116654363175091}
+  - component: {fileID: 5899250363364963532}
   m_Layer: 10
   m_Name: 2Medic_PlayerClass2
   m_TagString: Player
@@ -1401,6 +1402,15 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  InventoryPanel:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 210e0ab8-e98d-4038-b03f-88ae2cf981a1
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
@@ -1607,8 +1617,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1958e28a13664408bcd5bca9fec5e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 110
   currentHealth: 110
+  maxHealth: 110
   healthBar: {fileID: 4938280552918583279}
 --- !u!114 &8105024763133557330
 MonoBehaviour:
@@ -1622,8 +1632,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d8f7228eeed8f1499964a81c71efe69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStam: 120
   currentStam: 120
+  maxStam: 120
   stamDecay: 15
   stamRegen: 20
   stamBarScript: {fileID: 3079493921623841978}
@@ -1691,6 +1701,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _input: {fileID: 1297859331578561527}
+--- !u!114 &5899250363364963532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3363259848303861643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f741ce45d9793a34ba42639ade9605f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3431887501438043480
 GameObject:
   m_ObjectHideFlags: 0

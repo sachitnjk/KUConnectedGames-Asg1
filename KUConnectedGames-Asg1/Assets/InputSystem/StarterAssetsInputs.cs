@@ -20,6 +20,7 @@ namespace StarterAssets
 		public InputAction PrimaryWeapon;
 		public InputAction SecondaryWeapon;
 		public InputAction Interaction;
+		public InputAction InventoryPanel;
 		private PlayerInput _playerInput;
 
 		[Header("Movement Settings")]
@@ -39,6 +40,7 @@ namespace StarterAssets
 				PrimaryWeapon = _playerInput.actions["PrimaryWeapon"];
 				SecondaryWeapon = _playerInput.actions["SecondaryWeapon"];
 				Interaction = _playerInput.actions["Interaction"];
+				InventoryPanel = _playerInput.actions["InventoryPanel"];
 			}
 		}
 

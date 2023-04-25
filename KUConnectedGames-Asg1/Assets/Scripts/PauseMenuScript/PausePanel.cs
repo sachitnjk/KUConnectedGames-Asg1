@@ -30,16 +30,6 @@ public class PausePanel : MonoBehaviourPunCallbacks
 
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Confined;
-
-		//if (photonView.IsMine)
-		//{
-		//	player_ThirdPersonController.enabled = true;
-
-		//	pausePanel.SetActive(false);
-
-		//	Cursor.visible = false;
-		//	Cursor.lockState = CursorLockMode.Confined;
-		//}
 	}
 	private void Update()
 	{

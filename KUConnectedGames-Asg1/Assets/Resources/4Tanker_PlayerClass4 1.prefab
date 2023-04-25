@@ -390,6 +390,7 @@ GameObject:
   - component: {fileID: 416998447084099867}
   - component: {fileID: 8120166549012579789}
   - component: {fileID: 7653979774489948191}
+  - component: {fileID: 7111240307046824903}
   m_Layer: 10
   m_Name: 4Tanker_PlayerClass4 1
   m_TagString: Player
@@ -598,6 +599,15 @@ MonoBehaviour:
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: 8221910d-db56-40b6-81af-d7379533db5c
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  InventoryPanel:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 65eba83d-8ffd-46e9-8da9-5fd6ca3e0cca
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -892,6 +902,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   _input: {fileID: 1297859331578561527}
+--- !u!114 &7111240307046824903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3363259848303861643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f741ce45d9793a34ba42639ade9605f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4531224813069335336
 GameObject:
   m_ObjectHideFlags: 0

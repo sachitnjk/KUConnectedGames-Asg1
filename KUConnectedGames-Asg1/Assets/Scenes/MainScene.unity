@@ -13577,6 +13577,7 @@ MonoBehaviour:
   gunMaxAmmoField: {fileID: 1454719515}
   PrimaryWeapon: {fileID: 1011233443}
   SecondaryWeapon: {fileID: 1654495148}
+  InventoryPanelUI: {fileID: 908425708}
 --- !u!4 &558044630
 Transform:
   m_ObjectHideFlags: 0
@@ -21094,7 +21095,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &908425709
 RectTransform:
   m_ObjectHideFlags: 0
