@@ -12,6 +12,22 @@ public class PlayerInventoryController : MonoBehaviour
 	private GunScripts _gunScript;
 
 	private GameObject inventoryPanel;
+	public InventoryObject inventoryObject;
+
+	private void OnTriggerEnter(Collider other)
+	{
+		var item = other.GetComponent<ItemObjectCaller>();
+		if (item)
+		{
+			inventoryObject.AddItem(item.item, 1);
+			Destroy(other.gameObject);
+		}
+	}
+
+	private void OnApplicationQuit()
+	{
+		inventoryObject.Container.Clear();
+	}
 
 	private void Start()
 	{

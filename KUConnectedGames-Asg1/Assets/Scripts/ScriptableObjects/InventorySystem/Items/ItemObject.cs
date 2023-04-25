@@ -7,6 +7,7 @@ public enum ItemType
 	Samples,
 	Tapes,
 	Notes,
+	Key,
 	Dogtags
 }
 
