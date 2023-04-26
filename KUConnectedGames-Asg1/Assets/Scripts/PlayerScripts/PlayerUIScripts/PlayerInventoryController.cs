@@ -14,6 +14,8 @@ public class PlayerInventoryController : MonoBehaviour
 	private GameObject inventoryPanel;
 	public InventoryObject inventoryObject;
 
+	private float animSpeed = 1.0f;
+
 	private void OnTriggerEnter(Collider other)
 	{
 		var item = other.GetComponent<ItemObjectCaller>();
@@ -52,26 +54,27 @@ public class PlayerInventoryController : MonoBehaviour
 	{
 		if(_input.InventoryPanel.WasPressedThisFrame())
 		{
-			Debug.Log("Getting triggered");
 			inventoryPanel.SetActive(true);
 
 			_thirdPersonController.enabled = false; 
 			_thirdPersonShooter.enabled = false;
-			_playerAnimator.enabled = false;
 			_gunScript.enabled = false;
+
+			_playerAnimator.enabled = false;
+
 
 			Cursor.visible = true;
 			Cursor.lockState = CursorLockMode.None;
 		}
 		else if (_input.InventoryPanel.WasReleasedThisFrame())
 		{
-			Debug.Log("Getting released");
 			inventoryPanel.SetActive(false);
 
 			_thirdPersonController.enabled = true; 
 			_thirdPersonShooter.enabled = true;
-			_playerAnimator.enabled = true;
 			_gunScript.enabled = true;
+			_playerAnimator.enabled = true;
+
 
 			Cursor.visible = false;
 			Cursor.lockState = CursorLockMode.Confined;
