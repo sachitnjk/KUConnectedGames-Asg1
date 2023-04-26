@@ -110,6 +110,12 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 	{
 		return enemy_CurrentState;
 	}
+
+	public Vector3 TargetPosition()
+	{
+		return enemy_Target.position;
+	}
+
 	public void NextPoint()
 	{
 		enemy_CurrentWaypointIndex = (enemy_CurrentWaypointIndex + 1) % waypoints.Length;

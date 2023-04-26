@@ -181,6 +181,7 @@ public class GunScripts : MonoBehaviourPunCallbacks
 					if (aiBehaviour != null && aiBehaviour.GetCurrentState() != Enemy_AiBehaviour.State.IsHit)
 					{
 						enemyPhotonView.RPC("TriggerHitAnimation", RpcTarget.All);
+						aiBehaviour.navMeshAgent.SetDestination(aiBehaviour.TargetPosition());
 					}
 
 					if(enemyPhotonView != null)
