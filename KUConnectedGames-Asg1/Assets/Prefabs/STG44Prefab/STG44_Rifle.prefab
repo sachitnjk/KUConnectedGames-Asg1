@@ -540,7 +540,6 @@ GameObject:
   - component: {fileID: 2813370709456690128}
   - component: {fileID: 615351417865823455}
   - component: {fileID: 4148564886560144011}
-  - component: {fileID: 3647143623444231383}
   - component: {fileID: 5811126509872721855}
   m_Layer: 0
   m_Name: STG44_Rifle
@@ -618,19 +617,6 @@ MonoBehaviour:
   recoilKickBackAmount: -1.5
   recoilKickBackSpeed: 10
   returnSpeed: 20
---- !u!114 &3647143623444231383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2813370709456690129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d44b5a8712ce5a4c9f1a1f87e087e38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _input: {fileID: 0}
 --- !u!114 &5811126509872721855
 MonoBehaviour:
   m_ObjectHideFlags: 0
