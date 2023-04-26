@@ -13,6 +13,7 @@ public class IconActiveEvent : MonoBehaviour, IPointerEnterHandler, IPointerExit
 	private void Start()
 	{
 		descriptionText.text = item.description;
+		descriptionPanel.SetActive(false);
 	}
 
 	public void OnPointerEnter(PointerEventData eventData)
