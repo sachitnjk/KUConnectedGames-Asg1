@@ -1716,7 +1716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f741ce45d9793a34ba42639ade9605f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryObject: {fileID: 0}
+  inventoryObject: {fileID: 11400000, guid: b0f33924f82d1a649953a5edd7728232, type: 2}
 --- !u!114 &8245217215743941690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4307,7 +4307,7 @@ PrefabInstance:
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.9436684
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
@@ -4416,7 +4416,7 @@ PrefabInstance:
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.9436684
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8,
         type: 3}
