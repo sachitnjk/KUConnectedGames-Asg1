@@ -16,7 +16,7 @@ MonoBehaviour:
     AppIdRealtime: 3be91469-6399-456b-8b91-160521103e4b
     AppIdFusion: 
     AppIdChat: 
-    AppIdVoice: 
+    AppIdVoice: 64cf125c-8757-41ac-8a48-821860e767ae
     AppVersion: 
     UseNameServer: 1
     FixedRegion: 
@@ -56,6 +56,9 @@ MonoBehaviour:
   - GateOpeningTextDisableRPC
   - LoadNextLevel
   - EndHitTrigger
+  - CantHearYou
+  - ChangeColour
+  - HeresWhy
   DisableAutoOpenWizard: 1
-  ShowSettings: 0
+  ShowSettings: 1
   DevRegionSetOnce: 1
