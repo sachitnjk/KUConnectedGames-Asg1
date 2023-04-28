@@ -2193,9 +2193,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dbd33e4b519dce48bd3bb12659a025b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy_PatrolSound: {fileID: 0}
+  enemy_PatrolSound: {fileID: 8300000, guid: b4f0864fe2937934fb1577092767584e, type: 3}
   enemy_ChaseSound: {fileID: 8300000, guid: a1dd17e7cbde9924bb7b47bb380a782e, type: 3}
-  enemy_AttackSound: {fileID: 0}
+  enemy_AttackSound: {fileID: 8300000, guid: b2f1585ab28e0d04f88b4aa8eafe90b3, type: 3}
+  enemy_HitSound: {fileID: 0}
 --- !u!82 &8219526884558851097
 AudioSource:
   m_ObjectHideFlags: 0
