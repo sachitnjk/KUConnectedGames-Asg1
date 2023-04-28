@@ -1703,7 +1703,7 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 128
-  _input: {fileID: 0}
+  _input: {fileID: 1297859331578561527}
 --- !u!114 &5774434192938331250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4278,7 +4278,7 @@ PrefabInstance:
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.9436684
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
@@ -4387,7 +4387,7 @@ PrefabInstance:
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.9436684
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8,
         type: 3}
