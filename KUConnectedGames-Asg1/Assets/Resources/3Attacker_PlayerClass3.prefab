@@ -1189,9 +1189,9 @@ GameObject:
   - component: {fileID: 7817422224171649901}
   - component: {fileID: 4105377375752331807}
   - component: {fileID: 5774434192938331250}
-  - component: {fileID: 8245217215743941690}
   - component: {fileID: 5899808105404042209}
   - component: {fileID: 5050557973777808272}
+  - component: {fileID: 2643386819246986030}
   m_Layer: 10
   m_Name: 3Attacker_PlayerClass3
   m_TagString: Player
@@ -1717,47 +1717,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryObject: {fileID: 11400000, guid: b0f33924f82d1a649953a5edd7728232, type: 2}
---- !u!114 &8245217215743941690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3363259848303861643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91175dcc15224463780e01a8a98b1b60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voiceDetection: 1
-  voiceDetectionThreshold: 0.01
-  voiceDetectionDelayMs: 500
-  interestGroup: 0
-  debugEchoMode: 0
-  reliableMode: 0
-  encrypt: 0
-  transmitEnabled: 1
-  samplingRate: 24000
-  frameDuration: 20000
-  bitrate: 30000
-  sourceType: 0
-  microphoneType: 1
-  audioClip: {fileID: 0}
-  loopAudioClip: 1
-  recordingEnabled: 1
-  audioSessionParameters:
-    Category: 4
-    Mode: 0
-    CategoryOptions: 0800000004000000
-  editorAudioSessionPreset: 0
-  androidNativeMicrophoneSettings:
-    AcousticEchoCancellation: 1
-    AutomaticGainControl: 1
-    NoiseSuppression: 1
-  stopRecordingWhenPaused: 0
-  useOnAudioFilterRead: 0
-  useMicrophoneTypeFallback: 1
-  recordWhenJoined: 1
 --- !u!82 &5899808105404042209
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1778,7 +1737,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 10
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -1872,6 +1831,18 @@ MonoBehaviour:
     Max: 1000
     SpeedUpPerc: 5
   restartOnDeviceChange: 1
+--- !u!114 &2643386819246986030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3363259848303861643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 126494ae2a10a34499272ed97a6c9f5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3431887501438043480
 GameObject:
   m_ObjectHideFlags: 0
@@ -4307,7 +4278,7 @@ PrefabInstance:
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4
+      value: -3.9436684
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
@@ -4416,7 +4387,7 @@ PrefabInstance:
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4
+      value: -3.9436684
       objectReference: {fileID: 0}
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8,
         type: 3}
