@@ -2197,6 +2197,7 @@ MonoBehaviour:
   enemy_ChaseSound: {fileID: 8300000, guid: a1dd17e7cbde9924bb7b47bb380a782e, type: 3}
   enemy_AttackSound: {fileID: 8300000, guid: b2f1585ab28e0d04f88b4aa8eafe90b3, type: 3}
   enemy_HitSound: {fileID: 0}
+  enemy_DeathSound: {fileID: 0}
 --- !u!82 &8219526884558851097
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2208,7 +2209,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2217,7 +2218,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 10
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
