@@ -225,4 +225,10 @@ public class GunScripts : MonoBehaviourPunCallbacks
 		gun_MaxAmmo = gun_MaxAmmo + addedAmmo;
 		maxAmmotext.text = gun_MaxAmmo.ToString();
 	}
+
+	public void UpdateAmmoDisplay()
+	{
+		currentAmmotext.text = gun_CurrentAmmo.ToString();
+		maxAmmotext.text = gun_MaxAmmo.ToString();
+	}
 }

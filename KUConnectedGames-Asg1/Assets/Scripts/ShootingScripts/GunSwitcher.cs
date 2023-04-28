@@ -12,6 +12,8 @@ public class GunSwitcher : MonoBehaviour
 	[SerializeField] GameObject primaryWeaponObject;
 	[SerializeField] GameObject secondaryWeaponObject;
 
+	private GunScripts currentGun;
+
 	private void Start()
 	{
 		weaponSlot1 = ReferenceManager.instance.PrimaryWeapon;
@@ -40,8 +42,13 @@ public class GunSwitcher : MonoBehaviour
 		weaponSlot1.SetActive(true);
 		weaponSlot2.SetActive(false);
 
+		currentGun = primaryWeaponObject.GetComponent<GunScripts>();
+		currentGun.enabled = true;
+
 		primaryWeaponObject.SetActive(true);
 		secondaryWeaponObject.SetActive(false);
+
+		currentGun.UpdateAmmoDisplay();
 	}
 
 	private void EquipSecondary()
@@ -49,7 +56,12 @@ public class GunSwitcher : MonoBehaviour
 		weaponSlot1.SetActive(false);
 		weaponSlot2.SetActive(true);
 
+		currentGun = secondaryWeaponObject.GetComponent<GunScripts>();
+		currentGun.enabled = true;
+
 		primaryWeaponObject.SetActive(false);
 		secondaryWeaponObject.SetActive(true);
+
+		currentGun.UpdateAmmoDisplay();
 	}
 }
