@@ -21,6 +21,7 @@ namespace StarterAssets
 		public InputAction SecondaryWeapon;
 		public InputAction Interaction;
 		public InputAction InventoryPanel;
+		public InputAction PushToTalk;
 		private PlayerInput _playerInput;
 
 		[Header("Movement Settings")]
@@ -41,6 +42,7 @@ namespace StarterAssets
 				SecondaryWeapon = _playerInput.actions["SecondaryWeapon"];
 				Interaction = _playerInput.actions["Interaction"];
 				InventoryPanel = _playerInput.actions["InventoryPanel"];
+				PushToTalk = _playerInput.actions["PushToTalk"];
 			}
 		}
 

@@ -14,8 +14,6 @@ public class PlayerInventoryController : MonoBehaviour
 	private GameObject inventoryPanel;
 	public InventoryObject inventoryObject;
 
-	private float animSpeed = 1.0f;
-
 	private void OnTriggerEnter(Collider other)
 	{
 		var item = other.GetComponent<ItemObjectCaller>();

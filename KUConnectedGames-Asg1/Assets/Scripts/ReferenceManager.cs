@@ -1,3 +1,4 @@
+using Photon.Voice.Unity;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,6 +22,7 @@ public class ReferenceManager : MonoBehaviour
 	[SerializeField] public GameObject PrimaryWeapon;
 	[SerializeField] public GameObject SecondaryWeapon;
 	[SerializeField] public GameObject InventoryPanelUI;
+	[SerializeField] public Recorder primaryRecorder;
 
 
 	private void Awake()

@@ -1192,6 +1192,7 @@ GameObject:
   - component: {fileID: 5899808105404042209}
   - component: {fileID: 5050557973777808272}
   - component: {fileID: 2643386819246986030}
+  - component: {fileID: 7049589678295064551}
   m_Layer: 10
   m_Name: 3Attacker_PlayerClass3
   m_TagString: Player
@@ -1410,6 +1411,15 @@ MonoBehaviour:
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: 6cb8d187-ce60-4669-9be4-cb2bda69ed54
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  PushToTalk:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -1841,6 +1851,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 126494ae2a10a34499272ed97a6c9f5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7049589678295064551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3363259848303861643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1330b70b5aa33e34ab0d82f62bbdb5a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3431887501438043480
