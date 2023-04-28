@@ -23,11 +23,6 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 	[SerializeField] private float enemy_ViewRadius;
 	[SerializeField] private float enemy_GapBetweenDamage;
 
-	[Header("Enemy Audio")]
-	[SerializeField] private AudioSource enemy_PatrolSound;
-	[SerializeField] private AudioSource enemy_ChaseSound;
-	[SerializeField] private AudioSource enemy_AttackSound;
-
 	[SerializeField] private Animator _animator;
 
 	public NavMeshAgent navMeshAgent;
