@@ -1986,7 +1986,7 @@ PrefabInstance:
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.9436684
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
@@ -2101,7 +2101,7 @@ PrefabInstance:
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.9436684
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8,
         type: 3}
@@ -2230,6 +2230,11 @@ PrefabInstance:
       propertyPath: _input
       value: 
       objectReference: {fileID: 1297859331578561527}
+    - target: {fileID: 615351417865823455, guid: 52aafdab2f752a94eaf2b40a3fda77a6,
+        type: 3}
+      propertyPath: gun_MaxAmmo
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 615351417865823455, guid: 52aafdab2f752a94eaf2b40a3fda77a6,
         type: 3}
       propertyPath: gun_PlayerMainCam

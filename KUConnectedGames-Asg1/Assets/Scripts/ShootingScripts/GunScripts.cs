@@ -58,8 +58,11 @@ public class GunScripts : MonoBehaviourPunCallbacks
 	{
 		_recoilScript = GetComponent<GunRecoil>();
 
-		currentAmmotext = ReferenceManager.instance.gunCurrentAmmoField;
-		maxAmmotext = ReferenceManager.instance.gunMaxAmmoField;
+		if (currentAmmotext == null)
+		{
+			currentAmmotext = ReferenceManager.instance.gunCurrentAmmoField;
+			maxAmmotext = ReferenceManager.instance.gunMaxAmmoField;
+		}
 
 		gun_MaxAmmo = gun_MagazineSize * gun_MagazineCount;
 		gun_CurrentAmmo = gun_MagazineSize;
@@ -228,6 +231,11 @@ public class GunScripts : MonoBehaviourPunCallbacks
 
 	public void UpdateAmmoDisplay()
 	{
+		if(currentAmmotext == null)
+		{
+			currentAmmotext = ReferenceManager.instance.gunCurrentAmmoField;
+			maxAmmotext = ReferenceManager.instance.gunMaxAmmoField;
+		}
 		currentAmmotext.text = gun_CurrentAmmo.ToString();
 		maxAmmotext.text = gun_MaxAmmo.ToString();
 	}
