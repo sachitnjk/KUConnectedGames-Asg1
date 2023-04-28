@@ -9,6 +9,7 @@ public class EnemyAudio : MonoBehaviour
 	[SerializeField] private AudioClip enemy_ChaseSound;
 	[SerializeField] private AudioClip enemy_AttackSound;
 	[SerializeField] private AudioClip enemy_HitSound;
+	[SerializeField] private AudioClip enemy_DeathSound;
 
 	AudioSource audioSource;
 
@@ -28,6 +29,7 @@ public class EnemyAudio : MonoBehaviour
 		PlayChaseSound();
 		PlayAttackSound();
 		PlayOnHitSound();
+		PlayOnDeathSound();
 	}
 
 	private void PlayPatrolSound()
@@ -55,7 +57,7 @@ public class EnemyAudio : MonoBehaviour
 			{
 				audioSource.clip = enemy_ChaseSound;
 				audioSource.loop = true;
-				audioSource.volume = 0.2f;
+				audioSource.volume = 0.25f;
 				audioSource.Play();
 			}
 		}
@@ -74,7 +76,7 @@ public class EnemyAudio : MonoBehaviour
 			{
 				audioSource.clip = enemy_AttackSound;
 				audioSource.loop = true;
-				audioSource.volume = 0.2f;
+				audioSource.volume = 0.35f;
 				audioSource.Play();
 			}
 		}
@@ -92,7 +94,25 @@ public class EnemyAudio : MonoBehaviour
 			{
 				audioSource.clip = enemy_HitSound;
 				audioSource.loop = true;
-				audioSource.volume = 0.2f;
+				audioSource.volume = 0.35f;
+				audioSource.Play();
+			}
+		}
+		else
+		{
+			audioSource.Stop();
+		}
+	}
+
+	private void PlayOnDeathSound()
+	{
+		if(currentState == Enemy_AiBehaviour.State.Dead) 
+		{
+			if (!audioSource.isPlaying)
+			{
+				audioSource.clip = enemy_DeathSound;
+				audioSource.loop = true;
+				audioSource.volume = 0.3f;
 				audioSource.Play();
 			}
 		}
