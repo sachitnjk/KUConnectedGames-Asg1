@@ -47,6 +47,8 @@ public class GunScripts : MonoBehaviourPunCallbacks
 	private TextMeshProUGUI currentAmmotext;
 	private TextMeshProUGUI maxAmmotext;
 
+	AudioManager.AudioClipEnum gunAudio;
+
 	private enum FireModes
 	{
 		SingleShot,
@@ -69,6 +71,8 @@ public class GunScripts : MonoBehaviourPunCallbacks
 
 		currentAmmotext.text = gun_CurrentAmmo.ToString();
 		maxAmmotext.text = gun_MaxAmmo.ToString();
+
+		gunAudio = AudioManager.AudioClipEnum.SingleShot;
 	}
 
 	private void Update()
@@ -115,7 +119,7 @@ public class GunScripts : MonoBehaviourPunCallbacks
 		switch(currentFireMode)
 		{
 			case FireModes.SingleShot:
-				currentFireMode = FireModes.BurstFire;
+				currentFireMode = FireModes.BurstFire; 
 				break;
 			case FireModes.BurstFire:
 				currentFireMode = FireModes.AutoFire;
@@ -176,6 +180,8 @@ public class GunScripts : MonoBehaviourPunCallbacks
 				GameObject hitObject = hitResult.collider.gameObject;
 				bullet_Target = hitResult.point;
 				GameObject hitImpact_basic = PhotonNetwork.Instantiate(bullet_Impact.name, bullet_Target, Quaternion.identity);
+
+				AudioManager.instance.PlayOneShotAudio(gunAudio); // this for sound change later, sleep now
 
 				if (hitObject.CompareTag("Enemy"))
 				{

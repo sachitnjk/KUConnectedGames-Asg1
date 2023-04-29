@@ -21,6 +21,8 @@ public class AbilityController : MonoBehaviour
 	private float lastAbilityTriggeredTime;
 	[SerializeField] float abilityCooldown;
 
+	AudioManager.AudioClipEnum abilitySound;
+
 	private enum AbilityType
 	{
 		Impulse,
@@ -36,11 +38,13 @@ public class AbilityController : MonoBehaviour
 		{
 			Ability_Impulse abilityImpulse = gameObject.AddComponent<Ability_Impulse>();
 			SetActiveAbility(abilityImpulse);
+			abilitySound = AudioManager.AudioClipEnum.Impulse;
 		}
 		else if (playerAbilityType == AbilityType.Attacker)
 		{
 			Ability_AttackerDash attackerDash = gameObject.AddComponent<Ability_AttackerDash>();
 			SetActiveAbility(attackerDash);
+			abilitySound = AudioManager.AudioClipEnum.Dash;
 		}
 	}
 
@@ -59,6 +63,8 @@ public class AbilityController : MonoBehaviour
 				abilityTriggered = true;
 				Vector3 playerPosition = transform.position;
 				activeAbility.AbilityUse(playerPosition);
+
+				AudioManager.instance.PlayOneShotAudio(abilitySound);
 
 				lastAbilityTriggeredTime = Time.time;
 			}
