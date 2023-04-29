@@ -2196,8 +2196,8 @@ MonoBehaviour:
   enemy_PatrolSound: {fileID: 8300000, guid: b4f0864fe2937934fb1577092767584e, type: 3}
   enemy_ChaseSound: {fileID: 8300000, guid: a1dd17e7cbde9924bb7b47bb380a782e, type: 3}
   enemy_AttackSound: {fileID: 8300000, guid: b2f1585ab28e0d04f88b4aa8eafe90b3, type: 3}
-  enemy_HitSound: {fileID: 0}
-  enemy_DeathSound: {fileID: 0}
+  enemy_HitSound: {fileID: 8300000, guid: d1e1719eebf7d9f4eab3918de782ed2a, type: 3}
+  enemy_DeathSound: {fileID: 8300000, guid: d1e1719eebf7d9f4eab3918de782ed2a, type: 3}
 --- !u!82 &8219526884558851097
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2218,8 +2218,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 10
-  MaxDistance: 500
+  MinDistance: 0.5
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -2254,7 +2254,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

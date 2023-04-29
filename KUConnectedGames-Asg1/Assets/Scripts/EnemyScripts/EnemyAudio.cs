@@ -11,113 +11,47 @@ public class EnemyAudio : MonoBehaviour
 	[SerializeField] private AudioClip enemy_HitSound;
 	[SerializeField] private AudioClip enemy_DeathSound;
 
-	AudioSource audioSource;
+	private AudioSource audioSource;
+	private AudioClip currentClip;
 
-	Enemy_AiBehaviour enemy_AiBehaviour;
-	Enemy_AiBehaviour.State currentState;
+	private Enemy_AiBehaviour enemy_AiBehaviour;
 
-	private void Start()
+	private void Awake()
 	{
 		enemy_AiBehaviour = GetComponent<Enemy_AiBehaviour>();
-		currentState = enemy_AiBehaviour.GetCurrentState();
 		audioSource = GetComponent<AudioSource>();
 	}
 
 	private void Update()
 	{
-		PlayPatrolSound();
-		PlayChaseSound();
-		PlayAttackSound();
-		PlayOnHitSound();
-		PlayOnDeathSound();
+		PlaySound();
 	}
 
-	private void PlayPatrolSound()
+	private void PlaySound()
 	{
-		if(currentState == Enemy_AiBehaviour.State.Patrol)
+		AudioClip clipToPlay = null;
+
+		if(enemy_AiBehaviour.GetCurrentState() == Enemy_AiBehaviour.State.Patrol)
 		{
-			if (!audioSource.isPlaying)
-			{
-				audioSource.clip = enemy_PatrolSound;
-				audioSource.loop = true;
-				audioSource.volume = 0.2f;
-				audioSource.Play();
-			}
+			clipToPlay = enemy_PatrolSound;
 		}
-		else
+		else if (enemy_AiBehaviour.GetCurrentState() == Enemy_AiBehaviour.State.Chase)
 		{
+			clipToPlay = enemy_ChaseSound;
+		}
+
+		if(clipToPlay != null && clipToPlay != currentClip) 
+		{
+			currentClip = clipToPlay;
 			audioSource.Stop();
+			audioSource.clip = clipToPlay;
+			audioSource.volume = 0.7f;
+			audioSource.loop = true;
+			audioSource.Play();
 		}
-	}
-	private void PlayChaseSound()
-	{
-		if (currentState == Enemy_AiBehaviour.State.Chase)
+		else if (clipToPlay == null && currentClip != null) 
 		{
-			if (!audioSource.isPlaying)
-			{
-				audioSource.clip = enemy_ChaseSound;
-				audioSource.loop = true;
-				audioSource.volume = 0.25f;
-				audioSource.Play();
-			}
-		}
-		else
-		{
-			audioSource.Stop();
-		}
-	}
-
-
-	private void PlayAttackSound()
-	{
-		if(currentState == Enemy_AiBehaviour.State.Attack)
-		{
-			if (!audioSource.isPlaying)
-			{
-				audioSource.clip = enemy_AttackSound;
-				audioSource.loop = true;
-				audioSource.volume = 0.35f;
-				audioSource.Play();
-			}
-		}
-		else
-		{
-			audioSource.Stop();
-		}
-	}
-
-	private void PlayOnHitSound()
-	{
-		if (currentState == Enemy_AiBehaviour.State.IsHit)
-		{
-			if (!audioSource.isPlaying)
-			{
-				audioSource.clip = enemy_HitSound;
-				audioSource.loop = true;
-				audioSource.volume = 0.35f;
-				audioSource.Play();
-			}
-		}
-		else
-		{
-			audioSource.Stop();
-		}
-	}
-
-	private void PlayOnDeathSound()
-	{
-		if(currentState == Enemy_AiBehaviour.State.Dead) 
-		{
-			if (!audioSource.isPlaying)
-			{
-				audioSource.clip = enemy_DeathSound;
-				audioSource.loop = true;
-				audioSource.volume = 0.3f;
-				audioSource.Play();
-			}
-		}
-		else
-		{
+			currentClip = null;
 			audioSource.Stop();
 		}
 	}
