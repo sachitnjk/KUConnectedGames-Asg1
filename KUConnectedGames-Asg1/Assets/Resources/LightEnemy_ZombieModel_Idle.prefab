@@ -2196,8 +2196,8 @@ MonoBehaviour:
   enemy_PatrolSound: {fileID: 8300000, guid: b4f0864fe2937934fb1577092767584e, type: 3}
   enemy_ChaseSound: {fileID: 8300000, guid: a1dd17e7cbde9924bb7b47bb380a782e, type: 3}
   enemy_AttackSound: {fileID: 8300000, guid: b2f1585ab28e0d04f88b4aa8eafe90b3, type: 3}
-  enemy_HitSound: {fileID: 8300000, guid: d1e1719eebf7d9f4eab3918de782ed2a, type: 3}
-  enemy_DeathSound: {fileID: 8300000, guid: d1e1719eebf7d9f4eab3918de782ed2a, type: 3}
+  enemy_HitSound: {fileID: 8300000, guid: 324321dfa7f649849bf20c0d5faa43f7, type: 3}
+  enemy_DeathSound: {fileID: 8300000, guid: 3b3d53795a384274fbe8a69adfa92d43, type: 3}
 --- !u!82 &8219526884558851097
 AudioSource:
   m_ObjectHideFlags: 0
