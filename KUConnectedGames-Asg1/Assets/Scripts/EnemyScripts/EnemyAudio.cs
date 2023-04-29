@@ -31,33 +31,31 @@ public class EnemyAudio : MonoBehaviour
 	{
 		AudioClip clipToPlay = null;
 
-		if(enemy_AiBehaviour.GetCurrentState() == Enemy_AiBehaviour.State.Patrol)
+		switch (enemy_AiBehaviour.GetCurrentState())
 		{
-			clipToPlay = enemy_PatrolSound;
-			audioSource.loop = true;
-		}
-		else if (enemy_AiBehaviour.GetCurrentState() == Enemy_AiBehaviour.State.Chase)
-		{
-			clipToPlay = enemy_ChaseSound;
-			audioSource.loop = true;
-		}
-		else if(enemy_AiBehaviour.GetCurrentState() == Enemy_AiBehaviour.State.Attack)
-		{
-			clipToPlay = enemy_AttackSound;
-			audioSource.loop = true;
-		}
-		else if(enemy_AiBehaviour.GetCurrentState() == Enemy_AiBehaviour.State.IsHit)
-		{
-			clipToPlay = enemy_HitSound;
-			audioSource.loop = false;
-		}
-		else if(enemy_AiBehaviour.GetCurrentState() == Enemy_AiBehaviour.State.Dead)
-		{
-			clipToPlay = enemy_DeathSound;
-			audioSource.loop = false;
+			case Enemy_AiBehaviour.State.Patrol:
+				clipToPlay = enemy_PatrolSound;
+				audioSource.loop = true;
+				break;
+			case Enemy_AiBehaviour.State.Chase:
+				clipToPlay = enemy_ChaseSound;
+				audioSource.loop = true;
+				break;
+			case Enemy_AiBehaviour.State.Attack:
+				clipToPlay = enemy_AttackSound;
+				audioSource.loop = true;
+				break;
+			case Enemy_AiBehaviour.State.IsHit:
+				clipToPlay = enemy_HitSound;
+				audioSource.loop = false;
+				break;
+			case Enemy_AiBehaviour.State.Dead:
+				clipToPlay = enemy_DeathSound;
+				audioSource.loop = false;
+				break;
 		}
 
-		if(clipToPlay != null && clipToPlay != currentClip) 
+		if (clipToPlay != null && clipToPlay != currentClip) 
 		{
 			currentClip = clipToPlay;
 			audioSource.Stop();
