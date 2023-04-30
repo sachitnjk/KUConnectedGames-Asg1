@@ -181,7 +181,7 @@ public class GunScripts : MonoBehaviourPunCallbacks
 				bullet_Target = hitResult.point;
 				GameObject hitImpact_basic = PhotonNetwork.Instantiate(bullet_Impact.name, bullet_Target, Quaternion.identity);
 
-				AudioManager.instance.PlayOneShotAudio(gunAudio); // this for sound change later, sleep now
+				AudioManager.instance.PlayOneShotAudio(gunAudio); //Gunshot pew sound
 
 				if (hitObject.CompareTag("Enemy"))
 				{

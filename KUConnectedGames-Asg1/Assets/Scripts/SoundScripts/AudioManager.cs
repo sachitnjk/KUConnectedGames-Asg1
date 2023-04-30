@@ -63,14 +63,19 @@ public class AudioManager : MonoBehaviour
 		switch (clipEnum) 
 		{
 			case AudioClipEnum.Impulse:
+				source.volume = 0.6f;
 				return ImpulseClip;
 			case AudioClipEnum.Dash:
+				source.volume = 0.6f;
 				return DashClip;
 			case AudioClipEnum.SingleShot:
+				source.volume = 0.2f;
 				return singleShotClip;
 			case AudioClipEnum.Burst:
+				source.volume = 0.2f;
 				return burstFireClip;
 			case AudioClipEnum.AutoFire:
+				source.volume = 0.2f;
 				return autoFireClip;
 		}
 		return null;
