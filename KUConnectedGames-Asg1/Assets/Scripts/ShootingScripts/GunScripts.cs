@@ -47,6 +47,10 @@ public class GunScripts : MonoBehaviourPunCallbacks
 	private TextMeshProUGUI currentAmmotext;
 	private TextMeshProUGUI maxAmmotext;
 
+	private GameObject singleshotIcon;
+	private GameObject burstFireIcon;
+	private GameObject autoFireIcon;
+
 	AudioManager.AudioClipEnum gunAudio;
 
 	private enum FireModes
@@ -54,6 +58,17 @@ public class GunScripts : MonoBehaviourPunCallbacks
 		SingleShot,
 		BurstFire,
 		AutoFire
+	}
+
+	private void Awake()
+	{
+		singleshotIcon = ReferenceManager.instance.SingleshotIcon;
+		burstFireIcon = ReferenceManager.instance.BurstFireIcon;
+		autoFireIcon = ReferenceManager.instance.AutoFireIcon;
+
+		singleshotIcon.SetActive(true);
+		burstFireIcon.SetActive(false);
+		autoFireIcon.SetActive(false);
 	}
 
 	private void Start()
@@ -119,12 +134,21 @@ public class GunScripts : MonoBehaviourPunCallbacks
 		switch(currentFireMode)
 		{
 			case FireModes.SingleShot:
+				singleshotIcon.SetActive(false);
+				burstFireIcon.SetActive(true);
+				autoFireIcon.SetActive(false);
 				currentFireMode = FireModes.BurstFire; 
 				break;
 			case FireModes.BurstFire:
+				singleshotIcon.SetActive(false);
+				burstFireIcon.SetActive(false);
+				autoFireIcon.SetActive(true);
 				currentFireMode = FireModes.AutoFire;
 				break;
 			case FireModes.AutoFire:
+				singleshotIcon.SetActive(true);
+				burstFireIcon.SetActive(false);
+				autoFireIcon.SetActive(false);
 				currentFireMode = FireModes.SingleShot;
 				break;
 		}
@@ -245,4 +269,27 @@ public class GunScripts : MonoBehaviourPunCallbacks
 		currentAmmotext.text = gun_CurrentAmmo.ToString();
 		maxAmmotext.text = gun_MaxAmmo.ToString();
 	}
+
+	public void UpdateFireModeIcons()
+	{
+		if(currentFireMode == FireModes.SingleShot) 
+		{
+			singleshotIcon.SetActive(true);
+			burstFireIcon.SetActive(false);
+			autoFireIcon.SetActive(false);
+		}
+		else if(currentFireMode == FireModes.BurstFire) 
+		{
+			burstFireIcon.SetActive(true);
+			singleshotIcon.SetActive(false);
+			autoFireIcon.SetActive(false);
+		}
+		else
+		{
+			autoFireIcon.SetActive(true);
+			singleshotIcon.SetActive(false);
+			burstFireIcon.SetActive(false);
+		}
+	}
+
 }

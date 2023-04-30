@@ -4010,7 +4010,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 141423633}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4019,11 +4019,11 @@ RectTransform:
   - {fileID: 595125684}
   - {fileID: 2066169067}
   m_Father: {fileID: 1249589073}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 242.2731, y: 0.0000076293945}
+  m_AnchoredPosition: {x: 242.27313, y: 0}
   m_SizeDelta: {x: -309.4538, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &141423635
@@ -13660,6 +13660,9 @@ MonoBehaviour:
   gunMaxAmmoField: {fileID: 1454719515}
   PrimaryWeapon: {fileID: 1011233443}
   SecondaryWeapon: {fileID: 1654495148}
+  SingleshotIcon: {fileID: 1674721506}
+  BurstFireIcon: {fileID: 595125683}
+  AutoFireIcon: {fileID: 2066169066}
   InventoryPanelUI: {fileID: 908425708}
   primaryRecorder: {fileID: 1479303168}
 --- !u!4 &558044630
@@ -15543,7 +15546,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1249589073}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -34484,10 +34487,10 @@ RectTransform:
   m_Children:
   - {fileID: 1866259265}
   - {fileID: 240268840}
+  - {fileID: 141423634}
   - {fileID: 630860604}
   - {fileID: 1454719514}
   - {fileID: 1698106375}
-  - {fileID: 141423634}
   m_Father: {fileID: 1730221924}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -38431,7 +38434,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1249589073}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -44854,7 +44857,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1249589073}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

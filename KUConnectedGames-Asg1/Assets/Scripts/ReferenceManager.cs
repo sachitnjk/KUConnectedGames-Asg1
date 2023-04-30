@@ -21,6 +21,9 @@ public class ReferenceManager : MonoBehaviour
 	[Header("GameObject References")]
 	[SerializeField] public GameObject PrimaryWeapon;
 	[SerializeField] public GameObject SecondaryWeapon;
+	[SerializeField] public GameObject SingleshotIcon;
+	[SerializeField] public GameObject BurstFireIcon;
+	[SerializeField] public GameObject AutoFireIcon;
 	[SerializeField] public GameObject InventoryPanelUI;
 	[SerializeField] public Recorder primaryRecorder;
 

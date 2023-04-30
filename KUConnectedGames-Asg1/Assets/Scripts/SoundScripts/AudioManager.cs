@@ -17,9 +17,7 @@ public class AudioManager : MonoBehaviour
 	{
 		Impulse,
 		Dash,
-		SingleShot,
-		Burst,
-		AutoFire
+		SingleShot
 	}
 
 	private void Awake()
@@ -71,12 +69,6 @@ public class AudioManager : MonoBehaviour
 			case AudioClipEnum.SingleShot:
 				source.volume = 0.2f;
 				return singleShotClip;
-			case AudioClipEnum.Burst:
-				source.volume = 0.2f;
-				return burstFireClip;
-			case AudioClipEnum.AutoFire:
-				source.volume = 0.2f;
-				return autoFireClip;
 		}
 		return null;
 	}

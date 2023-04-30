@@ -49,6 +49,7 @@ public class GunSwitcher : MonoBehaviour
 		secondaryWeaponObject.SetActive(false);
 
 		currentGun.UpdateAmmoDisplay();
+		currentGun.UpdateFireModeIcons();
 	}
 
 	private void EquipSecondary()
@@ -63,5 +64,6 @@ public class GunSwitcher : MonoBehaviour
 		secondaryWeaponObject.SetActive(true);
 
 		currentGun.UpdateAmmoDisplay();
+		currentGun.UpdateFireModeIcons();
 	}
 }
