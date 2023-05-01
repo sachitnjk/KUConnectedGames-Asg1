@@ -3932,7 +3932,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &768440377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8270,15 +8270,15 @@ MonoBehaviour:
   gateKeyScript: {fileID: 0}
   interactionText: {fileID: 0}
   gateOpeningText: {fileID: 0}
-  gunCurrentAmmoField: {fileID: 0}
-  gunMaxAmmoField: {fileID: 0}
-  PrimaryWeapon: {fileID: 0}
-  SecondaryWeapon: {fileID: 0}
-  SingleshotIcon: {fileID: 0}
-  BurstFireIcon: {fileID: 0}
-  AutoFireIcon: {fileID: 0}
-  InventoryPanelUI: {fileID: 0}
-  primaryRecorder: {fileID: 0}
+  gunCurrentAmmoField: {fileID: 1683293926}
+  gunMaxAmmoField: {fileID: 50125329}
+  PrimaryWeapon: {fileID: 1328452039}
+  SecondaryWeapon: {fileID: 570317439}
+  SingleshotIcon: {fileID: 83448653}
+  BurstFireIcon: {fileID: 1622262262}
+  AutoFireIcon: {fileID: 1361517809}
+  InventoryPanelUI: {fileID: 924032239}
+  primaryRecorder: {fileID: 1582756919}
 --- !u!4 &1608606537
 Transform:
   m_ObjectHideFlags: 0
