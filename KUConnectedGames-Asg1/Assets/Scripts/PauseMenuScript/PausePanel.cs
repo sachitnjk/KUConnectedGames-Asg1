@@ -28,9 +28,6 @@ public class PausePanel : MonoBehaviourPunCallbacks
 			}
 		}
 
-		_thirdPersonController.enabled = true;
-		_thirdPersonShooter.enabled = true;
-		_gunSwitcher.currentGun.enabled = true;
 		pausePanel.SetActive(false);
 
 		Cursor.visible = false;
