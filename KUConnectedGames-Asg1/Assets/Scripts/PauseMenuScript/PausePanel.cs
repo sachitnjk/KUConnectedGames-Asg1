@@ -6,7 +6,9 @@ using Photon.Pun;
 public class PausePanel : MonoBehaviourPunCallbacks
 {
 	PlayerInput _input;
-	ThirdPersonController player_ThirdPersonController;
+	ThirdPersonController _thirdPersonController;
+	ThirdPersonShooter _thirdPersonShooter;
+	GunSwitcher _gunSwitcher;
 
 	[SerializeField] GameObject pausePanel;
 	private bool isPaused;
@@ -19,13 +21,16 @@ public class PausePanel : MonoBehaviourPunCallbacks
 			_input = player.GetComponent<PlayerInput>();
 			if(_input != null)
 			{
-				player_ThirdPersonController = player.GetComponent<ThirdPersonController>();
+				_thirdPersonController = player.GetComponent<ThirdPersonController>();
+				_thirdPersonShooter = player.GetComponent<ThirdPersonShooter>();
+				_gunSwitcher = player.GetComponentInChildren<GunSwitcher>();
 				break;
 			}
 		}
 
-		player_ThirdPersonController.enabled = true;
-
+		_thirdPersonController.enabled = true;
+		_thirdPersonShooter.enabled = true;
+		_gunSwitcher.currentGun.enabled = true;
 		pausePanel.SetActive(false);
 
 		Cursor.visible = false;
@@ -42,7 +47,9 @@ public class PausePanel : MonoBehaviourPunCallbacks
 		if (pauseAction.triggered && isPaused == false)
 		{
 			pausePanel.SetActive(true);
-			player_ThirdPersonController.enabled = false;
+			_thirdPersonController.enabled = false;
+			_thirdPersonShooter.enabled = false;
+			_gunSwitcher.currentGun.enabled = false;
 
 			Cursor.visible = true;
 			Cursor.lockState = CursorLockMode.None;
@@ -50,23 +57,6 @@ public class PausePanel : MonoBehaviourPunCallbacks
 			isPaused = true;
 		}
 	}
-
-	//[PunRPC]
-	//public void PauseGame_RPC()
-	//{
-	//	pausePanel.SetActive(true);
-	//	player_ThirdPersonController.enabled = false;
-
-	//	Cursor.visible = true;
-	//	Cursor.lockState = CursorLockMode.None;
-	//}
-
-	//public void OnResumeButtonClicked()
-	//{
-	//	photonView.RPC("OnResumeButtonClicked_RPC", RpcTarget.All);
-	//}
-
-	//[PunRPC]
 	public void OnResumeButtonClicked()
 	{
 		isPaused = false;
@@ -74,7 +64,10 @@ public class PausePanel : MonoBehaviourPunCallbacks
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Confined;
 
-		player_ThirdPersonController.enabled = true;
+		_thirdPersonController.enabled = true;
+		_thirdPersonShooter.enabled = true;
+		_gunSwitcher.currentGun.enabled = true;		
+
 	}
 
 	public void OnExitButtonClick()
@@ -82,11 +75,4 @@ public class PausePanel : MonoBehaviourPunCallbacks
 		Debug.Log("Exit is called");
 		Application.Quit();
 	}
-
-	//[PunRPC]
-	//public void OnExitButtonClick_RPC()
-	//{
-	//	Debug.Log("Exit is called");
-	//	Application.Quit();
-	//}
 }

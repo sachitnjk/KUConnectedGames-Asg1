@@ -12,7 +12,7 @@ public class GunSwitcher : MonoBehaviour
 	[SerializeField] GameObject primaryWeaponObject;
 	[SerializeField] GameObject secondaryWeaponObject;
 
-	private GunScripts currentGun;
+	[HideInInspector] public GunScripts currentGun;
 
 	private void Start()
 	{

@@ -9,7 +9,7 @@ public class PlayerInventoryController : MonoBehaviour
 	private ThirdPersonController _thirdPersonController;
 	private ThirdPersonShooter _thirdPersonShooter;
 	private Animator _playerAnimator;
-	private GunScripts _gunScript;
+	[SerializeField] private GunSwitcher _gunSwitcher;
 
 	private GameObject inventoryPanel;
 	public InventoryObject inventoryObject;
@@ -37,7 +37,6 @@ public class PlayerInventoryController : MonoBehaviour
 		_thirdPersonController = GetComponent<ThirdPersonController>();
 		_thirdPersonShooter = GetComponent<ThirdPersonShooter>();
 		_playerAnimator = GetComponent<Animator>();
-		_gunScript = GetComponentInChildren<GunScripts>();
 
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Confined;	
@@ -56,7 +55,7 @@ public class PlayerInventoryController : MonoBehaviour
 
 			_thirdPersonController.enabled = false; 
 			_thirdPersonShooter.enabled = false;
-			_gunScript.enabled = false;
+			_gunSwitcher.currentGun.enabled = false;
 
 			_playerAnimator.enabled = false;
 
@@ -70,7 +69,8 @@ public class PlayerInventoryController : MonoBehaviour
 
 			_thirdPersonController.enabled = true; 
 			_thirdPersonShooter.enabled = true;
-			_gunScript.enabled = true;
+			_gunSwitcher.currentGun.enabled = true;
+
 			_playerAnimator.enabled = true;
 
 
