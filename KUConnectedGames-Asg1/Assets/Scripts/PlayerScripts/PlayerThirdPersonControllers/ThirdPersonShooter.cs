@@ -52,7 +52,21 @@ public class ThirdPersonShooter : MonoBehaviourPunCallbacks
 				cm_AimVirtualCamera.gameObject.SetActive(true);
 				_TPController.SetSensitivity(aimSensitivity);
 				_TPController.SetRotateOnMove(false);
-				//_animator.SetLayerWeight(1, Mathf.Lerp(_animator.GetLayerWeight(1), 1f, Time.deltaTime * 10f));
+
+				if (_TPController.targetSpeed == _TPController.MoveSpeed)
+				{
+					_animator.Play("RifleAimWalk", 1);
+				}
+				else if (_TPController.targetSpeed == _TPController.SprintSpeed)
+				{
+					_animator.Play("RifleAimRun", 1);
+				}
+				else if (_TPController.targetSpeed <= 0f)
+				{
+					_animator.Play("RifleAimIdle", 1);
+				}
+				_animator.SetLayerWeight(1, Mathf.Lerp(_animator.GetLayerWeight(1), 1f, Time.deltaTime * 10f));
+
 				float weight = Mathf.Lerp(_animator.GetLayerWeight(1), 1f, Time.deltaTime * 10f);
 				photonView.RPC("SetLayerWeight", RpcTarget.All, weight);
 
@@ -67,7 +81,9 @@ public class ThirdPersonShooter : MonoBehaviourPunCallbacks
 				cm_AimVirtualCamera.gameObject.SetActive(false);
 				_TPController.SetSensitivity(normalSensitivity);
 				_TPController.SetRotateOnMove(true);
-				//_animator.SetLayerWeight(1, Mathf.Lerp(_animator.GetLayerWeight(1), 0f, Time.deltaTime * 10f));
+
+				_animator.SetLayerWeight(1, Mathf.Lerp(_animator.GetLayerWeight(1), 0f, Time.deltaTime * 10f));
+
 				float weight = Mathf.Lerp(_animator.GetLayerWeight(1), 0f, Time.deltaTime * 10f);
 				photonView.RPC("SetLayerWeight", RpcTarget.All, weight);
 			}

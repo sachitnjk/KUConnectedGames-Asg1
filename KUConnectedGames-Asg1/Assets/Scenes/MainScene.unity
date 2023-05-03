@@ -18847,7 +18847,7 @@ MonoBehaviour:
   - {fileID: 3363259848303861643, guid: de8b507764b14044f8ecbbef278cbb9b, type: 3}
   - {fileID: 3363259848303861643, guid: 938db13b0896ee5489253a42313e534e, type: 3}
   - {fileID: 3363259848303861643, guid: fc353060890cc7b44a12010be6e82e72, type: 3}
-  - {fileID: 3363259848303861643, guid: 119a04b934d31f44da59e8b382b4b5c1, type: 3}
+  - {fileID: 3363259848303861643, guid: 038b6cf5f10f6b848936545f8bf622b7, type: 3}
   spawnPoints:
   - {fileID: 2009892270}
   - {fileID: 68538878}
@@ -34178,8 +34178,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\t\tControls\n\nBasic movement - W, A, S, D\nJump - Space\nAim - Left
-    click\nShoot - Right click\nSwitch fire mode - B\nAbility - Q\nPause - P\n"
+  m_text: "\t\tControls\n\nBasic movement - W, A, S, D\nAim - Left click\nShoot -
+    Right click\nSwitch fire mode - B\nAbility - Q\nPause - P\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2c14bbfc90439d14bbc639c9fe82dc81, type: 2}
   m_sharedMaterial: {fileID: 4206979007005216264, guid: 2c14bbfc90439d14bbc639c9fe82dc81,
