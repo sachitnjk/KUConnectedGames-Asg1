@@ -2229,6 +2229,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: VanguardChar
       objectReference: {fileID: 0}
+    - target: {fileID: 8025657406939854246, guid: dbf6f8bde5f45924483eeccbb8bd5558,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2012bcbd1e5c9a14599a57d2ae6c9f32, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbf6f8bde5f45924483eeccbb8bd5558, type: 3}
 --- !u!4 &8948627228686695361 stripped
