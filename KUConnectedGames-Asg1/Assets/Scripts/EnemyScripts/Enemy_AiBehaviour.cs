@@ -106,7 +106,11 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 			case State.IsHit:
 				break;
 			case State.Attack:
-				EnemyAttack(enemy_Damage);
+				GameObject playerBeingAttacked = GetDetectedEntity();
+				if(playerBeingAttacked != null) 
+				{
+					EnemyAttack(enemy_Damage, playerBeingAttacked);
+				}
 				break;
 		}
 	}
@@ -198,6 +202,35 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 		}
 	}
 
+	public GameObject GetDetectedEntity()
+	{
+		Collider[] entityInRange = Physics.OverlapSphere(transform.position, enemy_ViewRadius, playerMask);
+
+		if (entityInRange != null && entityInRange.Length > 0)
+		{
+			foreach (Collider entity in entityInRange)
+			{
+				Vector3 targetPoint = entity.transform.position;
+				targetPoint.y += 1;
+				Vector3 direction = targetPoint - transform.position;
+				float distance = direction.magnitude;
+				direction.Normalize();
+
+				RaycastHit hitInfo;
+
+				if (Physics.Raycast(transform.position, direction, out hitInfo, distance, obstacleMask))
+				{
+					if (hitInfo.collider.CompareTag("Player"))
+					{
+						return hitInfo.collider.gameObject;
+					}
+				}
+			}
+		}
+
+		return null;
+	}
+
 	private bool DetectEntity()
 	{
 		Collider[] entityInRange = Physics.OverlapSphere(transform.position, enemy_ViewRadius, playerMask);
@@ -274,7 +307,7 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 	}
 
 
-	void EnemyAttack(int damage)
+	void EnemyAttack(int damage, GameObject playerBeingDamaged)
 	{
 		_animator.SetBool("isWalking", false);
 		_animator.SetBool("isRunning", false);
@@ -283,7 +316,8 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 		if (enemy_CanDamage)
 		{
 			Debug.Log(player.gameObject.name);
-			player.GetComponent<PlayerHealthBar>().TakeDamage(damage);
+			//player.GetComponent<PlayerHealthBar>().TakeDamage(damage);
+			photonView.RPC("TakeDamage", RpcTarget.All, damage, playerBeingDamaged.GetPhotonView().ViewID);
 			Stop();
 			var towardsPlayer = enemy_Target.position - transform.position;
 			transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(towardsPlayer), Time.deltaTime * enemy_TimeToRotate);

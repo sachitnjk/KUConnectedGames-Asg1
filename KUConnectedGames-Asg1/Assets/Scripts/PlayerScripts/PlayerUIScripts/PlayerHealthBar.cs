@@ -1,10 +1,11 @@
+using Photon.Pun;
 using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerHealthBar : MonoBehaviour
+public class PlayerHealthBar : MonoBehaviourPunCallbacks
 {
 
     [HideInInspector]public int currentHealth;
@@ -19,10 +20,16 @@ public class PlayerHealthBar : MonoBehaviour
         healthBar?.SetMaxHealth(maxHealth);     //run if not null
     }
 
-    public void TakeDamage(int damage)
+    [PunRPC]
+    public void TakeDamage(int damage, int playerBeingDamagedViewID)
     {
         Debug.Log("player taking damage");
         currentHealth -= damage;
         healthBar?.SetHealth(currentHealth);
+
+        if(PhotonView.Find(playerBeingDamagedViewID).IsMine)
+        {
+            photonView.RPC("TakeDamage", RpcTarget.Others, damage, playerBeingDamagedViewID);
+        }
     }
 }
