@@ -198,34 +198,34 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 		}
 	}
 
-	public GameObject GetDetectedEntity()
-	{
-		Collider[] entityInRange = Physics.OverlapSphere(transform.position, enemy_ViewRadius, playerMask);
+	//public GameObject GetDetectedEntity()
+	//{
+	//	Collider[] entityInRange = Physics.OverlapSphere(transform.position, enemy_ViewRadius, playerMask);
 
-		if (entityInRange != null && entityInRange.Length > 0)
-		{
-			foreach (Collider entity in entityInRange)
-			{
-				Vector3 targetPoint = entity.transform.position;
-				targetPoint.y += 1;
-				Vector3 direction = targetPoint - transform.position;
-				float distance = direction.magnitude;
-				direction.Normalize();
+	//	if (entityInRange != null && entityInRange.Length > 0)
+	//	{
+	//		foreach (Collider entity in entityInRange)
+	//		{
+	//			Vector3 targetPoint = entity.transform.position;
+	//			targetPoint.y += 1;
+	//			Vector3 direction = targetPoint - transform.position;
+	//			float distance = direction.magnitude;
+	//			direction.Normalize();
 
-				RaycastHit hitInfo;
+	//			RaycastHit hitInfo;
 
-				if (Physics.Raycast(transform.position, direction, out hitInfo, distance, obstacleMask))
-				{
-					if (hitInfo.collider.CompareTag("Player"))
-					{
-						return hitInfo.collider.gameObject;
-					}
-				}
-			}
-		}
+	//			if (Physics.Raycast(transform.position, direction, out hitInfo, distance, obstacleMask))
+	//			{
+	//				if (hitInfo.collider.CompareTag("Player"))
+	//				{
+	//					return hitInfo.collider.gameObject;
+	//				}
+	//			}
+	//		}
+	//	}
 
-		return null;
-	}
+	//	return null;
+	//}
 
 	private bool DetectEntity()
 	{
