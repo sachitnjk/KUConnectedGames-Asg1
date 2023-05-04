@@ -6,6 +6,7 @@ using Photon.Pun;
 public class PausePanel : MonoBehaviourPunCallbacks
 {
 	PlayerInput _input;
+	InputAction _pauseAction;
 	ThirdPersonController _thirdPersonController;
 	ThirdPersonShooter _thirdPersonShooter;
 	GunSwitcher _gunSwitcher;
@@ -13,8 +14,9 @@ public class PausePanel : MonoBehaviourPunCallbacks
 	[SerializeField] GameObject pausePanel;
 	private bool isPaused;
 
-	private void Start()
+	private void Awake()
 	{
+		_pauseAction = _input.actions["Pause"];
 		GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 		foreach(GameObject player in players)
 		{
@@ -24,6 +26,7 @@ public class PausePanel : MonoBehaviourPunCallbacks
 				_thirdPersonController = player.GetComponent<ThirdPersonController>();
 				_thirdPersonShooter = player.GetComponent<ThirdPersonShooter>();
 				_gunSwitcher = player.GetComponentInChildren<GunSwitcher>();
+				_pauseAction = _input.actions["Pause"];
 				break;
 			}
 		}
@@ -40,8 +43,7 @@ public class PausePanel : MonoBehaviourPunCallbacks
 
 	public void PauseGame()
 	{
-		InputAction pauseAction = _input.actions["Pause"];
-		if (pauseAction.triggered && isPaused == false)
+		if (_pauseAction.triggered && isPaused == false)
 		{
 			pausePanel.SetActive(true);
 			_thirdPersonController.enabled = false;
