@@ -14,9 +14,8 @@ public class PausePanel : MonoBehaviourPunCallbacks
 	[SerializeField] GameObject pausePanel;
 	private bool isPaused;
 
-	private void Awake()
+	private void Start()
 	{
-		_pauseAction = _input.actions["Pause"];
 		GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 		foreach(GameObject player in players)
 		{
@@ -26,10 +25,11 @@ public class PausePanel : MonoBehaviourPunCallbacks
 				_thirdPersonController = player.GetComponent<ThirdPersonController>();
 				_thirdPersonShooter = player.GetComponent<ThirdPersonShooter>();
 				_gunSwitcher = player.GetComponentInChildren<GunSwitcher>();
-				_pauseAction = _input.actions["Pause"];
 				break;
 			}
 		}
+
+		_pauseAction = _input.actions["Pause"];
 
 		pausePanel.SetActive(false);
 
@@ -43,6 +43,8 @@ public class PausePanel : MonoBehaviourPunCallbacks
 
 	public void PauseGame()
 	{
+		if(_input == null) return;
+
 		if (_pauseAction.triggered && isPaused == false)
 		{
 			pausePanel.SetActive(true);
