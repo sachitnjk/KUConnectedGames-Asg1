@@ -893,10 +893,13 @@ MonoBehaviour:
   - Type: 1
     SynchronizeType: 1
     Name: MotionSpeed
+  - Type: 9
+    SynchronizeType: 0
+    Name: PlayerDeathTrigger
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0
-  - SynchronizeType: 2
+  - SynchronizeType: 1
     LayerIndex: 1
 --- !u!114 &1153294328679365783
 MonoBehaviour:
