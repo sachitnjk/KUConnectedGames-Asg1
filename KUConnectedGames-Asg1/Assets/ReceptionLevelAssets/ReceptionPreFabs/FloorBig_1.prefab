@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2975059571085741660}
   - component: {fileID: 2226558873362104825}
   - component: {fileID: 4108026363899737395}
+  - component: {fileID: 4393759130260171421}
   m_Layer: 0
   m_Name: FloorBig_1
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4393759130260171421
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2450618206029698278}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -629719859055844128, guid: 0a7e7d750b03fbc4bb659f7ceaa2855c, type: 3}
