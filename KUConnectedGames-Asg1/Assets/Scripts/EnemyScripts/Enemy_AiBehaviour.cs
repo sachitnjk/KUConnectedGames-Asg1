@@ -227,9 +227,37 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 	//	return null;
 	//}
 
+	//private bool DetectEntity()
+	//{
+	//	Collider[] entityInRange = Physics.OverlapSphere(transform.position, enemy_ViewRadius, playerMask);
+
+	//	if (entityInRange != null && entityInRange.Length > 0)
+	//	{
+	//		foreach (Collider entity in entityInRange)
+	//		{
+	//			Vector3 targetPoint = entity.transform.position;
+	//			targetPoint.y += 1;
+	//			Vector3 direction = targetPoint - transform.position;
+	//			float distance = direction.magnitude;
+	//			direction.Normalize();
+
+	//			RaycastHit hitInfo;
+
+	//			if (!Physics.Raycast(transform.position, direction, out hitInfo, distance, obstacleMask))
+	//			{
+	//				enemy_Target = entity.transform;
+	//				return true;
+	//			}
+	//		}
+	//	}
+	//		return false;
+	//}
+
 	private bool DetectEntity()
 	{
 		Collider[] entityInRange = Physics.OverlapSphere(transform.position, enemy_ViewRadius, playerMask);
+		Collider closestEntity = null;
+		float closestDistance = Mathf.Infinity;
 
 		if (entityInRange != null && entityInRange.Length > 0)
 		{
@@ -245,12 +273,23 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 
 				if (!Physics.Raycast(transform.position, direction, out hitInfo, distance, obstacleMask))
 				{
-					enemy_Target = entity.transform;
-					return true;
+					if (distance < closestDistance)
+					{
+						closestDistance = distance;
+						closestEntity = entity;
+						Debug.Log(entity.name);
+					}
 				}
 			}
+
+			if (closestEntity != null)
+			{
+				enemy_Target = closestEntity.transform;
+				return true;
+			}
 		}
-			return false;
+
+		return false;
 	}
 
 	private void Chasing()

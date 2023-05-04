@@ -53,18 +53,7 @@ public class ThirdPersonShooter : MonoBehaviourPunCallbacks
 				_TPController.SetSensitivity(aimSensitivity);
 				_TPController.SetRotateOnMove(false);
 
-				//if (_TPController.targetSpeed == _TPController.MoveSpeed)
-				//{
-				//	_animator.Play("RifleAimWalk", 1);
-				//}
-				//else if (_TPController.targetSpeed == _TPController.SprintSpeed)
-				//{
-				//	_animator.Play("RifleAimRun", 1);
-				//}
-				//else if (_TPController.targetSpeed <= 0f)
-				//{
-				//	_animator.Play("RifleAimIdle", 1);
-				//}
+				//Aim blend tree anims
 				float targetSpeed = Mathf.Abs(_TPController.targetSpeed);
 				_animator.SetFloat("Speed", targetSpeed);
 
