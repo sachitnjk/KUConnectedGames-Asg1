@@ -282,6 +282,7 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 
 		if (enemy_CanDamage)
 		{
+			Debug.Log(player.gameObject.name);
 			player.GetComponent<PlayerHealthBar>().TakeDamage(damage);
 			Stop();
 			var towardsPlayer = enemy_Target.position - transform.position;
