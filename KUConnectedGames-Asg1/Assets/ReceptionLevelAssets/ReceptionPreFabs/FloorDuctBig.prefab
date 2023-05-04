@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1684493900086081309}
   - component: {fileID: 2364211493349521592}
   - component: {fileID: 516694162023550066}
-  - component: {fileID: 6277556591467906787}
+  - component: {fileID: 7415078606485153714}
   m_Layer: 0
   m_Name: FloorDuctBig
   m_TagString: Untagged
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6277556591467906787
-MeshCollider:
+--- !u!65 &7415078606485153714
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,7 +94,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6956378534732589096, guid: 6067e6ef750008145a7867792a70b051, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 22.661182, y: 0.070842385, z: 26.609623}
+  m_Center: {x: 0.11411762, y: -0.2145788, z: 0.02240181}

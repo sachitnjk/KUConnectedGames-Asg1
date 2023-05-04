@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3515726164322824669}
   - component: {fileID: 7601300231068347466}
   - component: {fileID: 3743635182021462830}
+  - component: {fileID: 2239026359870664594}
   m_Layer: 0
   m_Name: Cylinder_2_2
   m_TagString: Untagged
@@ -83,6 +84,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2239026359870664594
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126052933238652731}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1414001775342854026, guid: ae7db2d0266a9c44199ca895ac571c7b, type: 3}
 --- !u!1 &152807424703695078
 GameObject:
   m_ObjectHideFlags: 0
@@ -991,6 +1006,7 @@ GameObject:
   - component: {fileID: 3326625529608144950}
   - component: {fileID: 1725419764573352522}
   - component: {fileID: 6145320829733512810}
+  - component: {fileID: 4916097753612753287}
   m_Layer: 0
   m_Name: asteroid
   m_TagString: Untagged
@@ -1063,6 +1079,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4916097753612753287
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9052273105598817245}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7445099610986950344, guid: ae7db2d0266a9c44199ca895ac571c7b, type: 3}
 --- !u!1 &9124532963520098405
 GameObject:
   m_ObjectHideFlags: 0
