@@ -75,8 +75,7 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 		navMeshAgent.speed = enemy_SpeedWalk;
 		navMeshAgent.SetDestination(waypoints[enemy_CurrentWaypointIndex].position);
 
-
-		enemy_CurrentState = State.Patrol;
+		SetState(State.Patrol, false);
 	}
 
 	private void Update()
@@ -84,7 +83,13 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 		if(enemy_CurrentState != State.Dead && enemyHpController.e_CurrentHealth == 0)
 		{
 			EnemyDead();
-			enemy_CurrentState = State.Dead;	
+			SetState(State.Dead);
+		}
+
+		if(player.GetComponent<PlayerDeath>().GetPlayerDeathState()) 
+		{
+			enemy_CanDamage = false;
+			SetState(State.Patrol);
 		}
 
 		switch (enemy_CurrentState)
@@ -104,6 +109,16 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 				EnemyAttack(enemy_Damage);
 				break;
 		}
+	}
+
+	private void SetState(State state, bool shouldRegisterPrevious = true)
+	{
+		if(shouldRegisterPrevious) 
+		{
+			previousState = enemy_CurrentState;
+		}
+
+		enemy_CurrentState = state;
 	}
 
 	public State GetCurrentState()
@@ -139,10 +154,9 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 	{
 		if(enemyHpController.e_CurrentHealth > 0)
 		{
-			previousState = enemy_CurrentState;
+			SetState(State.IsHit);
 			previousDestination = navMeshAgent.destination;
 			navMeshAgent.SetDestination(transform.position);
-			enemy_CurrentState = State.IsHit;
 			_animator.SetTrigger("isHit");
 		}
 	}
@@ -150,7 +164,7 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 	//Calling this as animation event
 	private void ReturnFromHit()
 	{
-		enemy_CurrentState = previousState;
+		SetState(previousState);
 		navMeshAgent.SetDestination(previousDestination);
 	}
 
@@ -180,7 +194,7 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 
 		if(DetectEntity())
 		{
-			enemy_CurrentState = State.Chase;
+			SetState(State.Chase);
 		}
 	}
 
@@ -226,14 +240,14 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 		navMeshAgent.SetDestination(targetPosition);
 		if (Vector3.Distance(transform.position, targetPosition) <= enemy_AttackRange)
 		{
-			enemy_CurrentState = State.Attack;
+			SetState(State.Attack);
 		}
 		else if (Vector3.Distance(transform.position, targetPosition) > enemy_DetactionRange)
 		{
 			player_LastKnownPos = enemy_Target.position;
 			player_LastKnownPos.y = transform.position.y;
 
-			enemy_CurrentState = State.Searching;
+			SetState(State.Searching);
 		}
 	}
 
@@ -250,11 +264,11 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 		{
 			if (DetectEntity())
 			{
-				enemy_CurrentState = State.Chase;
+				SetState(State.Chase);
 			}
 			else
 			{
-				enemy_CurrentState = State.Patrol;
+				SetState(State.Patrol);
 			}
 		}
 	}
@@ -284,7 +298,7 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 
 		if (Vector3.Distance(transform.position, enemy_Target.position) > enemy_AttackRange)
 		{
-			enemy_CurrentState = State.Chase;
+			SetState(State.Chase);
 		}
 	}
 
