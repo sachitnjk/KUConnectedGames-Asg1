@@ -20,16 +20,10 @@ public class PlayerHealthBar : MonoBehaviourPunCallbacks
         healthBar?.SetMaxHealth(maxHealth);     //run if not null
     }
 
-    [PunRPC]
-    public void TakeDamage(int damage, int playerBeingDamagedViewID)
+    public void TakeDamage(int damage)
     {
         Debug.Log("player taking damage");
         currentHealth -= damage;
         healthBar?.SetHealth(currentHealth);
-
-        if(PhotonView.Find(playerBeingDamagedViewID).IsMine)
-        {
-            photonView.RPC("TakeDamage", RpcTarget.Others, damage, playerBeingDamagedViewID);
-        }
     }
 }

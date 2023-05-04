@@ -106,11 +106,7 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 			case State.IsHit:
 				break;
 			case State.Attack:
-				GameObject playerBeingAttacked = GetDetectedEntity();
-				if(playerBeingAttacked != null) 
-				{
-					EnemyAttack(enemy_Damage, playerBeingAttacked);
-				}
+				EnemyAttack(enemy_Damage);
 				break;
 		}
 	}
@@ -307,7 +303,7 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 	}
 
 
-	void EnemyAttack(int damage, GameObject playerBeingDamaged)
+	void EnemyAttack(int damage)
 	{
 		_animator.SetBool("isWalking", false);
 		_animator.SetBool("isRunning", false);
@@ -316,8 +312,7 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 		if (enemy_CanDamage)
 		{
 			Debug.Log(player.gameObject.name);
-			//player.GetComponent<PlayerHealthBar>().TakeDamage(damage);
-			photonView.RPC("TakeDamage", RpcTarget.All, damage, playerBeingDamaged.GetPhotonView().ViewID);
+			player.GetComponent<PlayerHealthBar>().TakeDamage(damage);
 			Stop();
 			var towardsPlayer = enemy_Target.position - transform.position;
 			transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(towardsPlayer), Time.deltaTime * enemy_TimeToRotate);
