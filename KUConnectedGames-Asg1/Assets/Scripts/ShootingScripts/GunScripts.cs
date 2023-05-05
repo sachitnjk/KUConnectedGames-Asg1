@@ -51,7 +51,8 @@ public class GunScripts : MonoBehaviourPunCallbacks
 	private GameObject burstFireIcon;
 	private GameObject autoFireIcon;
 
-	AudioManager.AudioClipEnum gunAudio;
+	AudioManager.AudioClipEnum gunShootAudio;
+	AudioManager.AudioClipEnum gunReloadAudio;
 
 	private enum FireModes
 	{
@@ -87,7 +88,8 @@ public class GunScripts : MonoBehaviourPunCallbacks
 		currentAmmotext.text = gun_CurrentAmmo.ToString();
 		maxAmmotext.text = gun_MaxAmmo.ToString();
 
-		gunAudio = AudioManager.AudioClipEnum.SingleShot;
+		gunShootAudio = AudioManager.AudioClipEnum.SingleShot;
+		gunReloadAudio = AudioManager.AudioClipEnum.Reload;
 	}
 
 	private void Update()
@@ -117,6 +119,9 @@ public class GunScripts : MonoBehaviourPunCallbacks
 	IEnumerator Reload()
 	{
 		isReloading = true;
+
+		AudioManager.instance.PlayOneShotAudio(gunReloadAudio);
+
 		yield return new WaitForSeconds(gun_ReloadTime - 0.25f);
 		yield return new WaitForSeconds(0.25f);
 		gun_CurrentAmmo = gun_MagazineSize;
@@ -205,7 +210,7 @@ public class GunScripts : MonoBehaviourPunCallbacks
 				bullet_Target = hitResult.point;
 				GameObject hitImpact_basic = PhotonNetwork.Instantiate(bullet_Impact.name, bullet_Target, Quaternion.identity);
 
-				AudioManager.instance.PlayOneShotAudio(gunAudio); //Gunshot pew sound
+				AudioManager.instance.PlayOneShotAudio(gunShootAudio); //Gunshot pew sound
 
 				if (hitObject.CompareTag("Enemy"))
 				{
