@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class SettingsPanel : MonoBehaviour
@@ -8,6 +9,7 @@ public class SettingsPanel : MonoBehaviour
 	[SerializeField] GameObject mainMenuPanel;
 	[SerializeField] GameObject settingsPanel;
 	[SerializeField] GameObject keybindingsSelectionPanel;
+	[SerializeField] GameObject audioSettingsPanel;
 	[SerializeField] GameObject keyboardMouseControlsPanel;
 	[SerializeField] GameObject controllerControlsPanel;
 
@@ -25,6 +27,7 @@ public class SettingsPanel : MonoBehaviour
 	public void OnMainMenuButtonClick()
 	{
 		settingsPanel.SetActive(false);
+		audioSettingsPanel.SetActive(false);
 		mainMenuPanel.SetActive(true);
 	}
 
@@ -32,6 +35,12 @@ public class SettingsPanel : MonoBehaviour
 	{
 		keybindingsSelectionPanel.SetActive(true);
 		settingsPanel.SetActive(false);
+	}
+
+	public void OnAudioSettingsClick()
+	{
+		settingsPanel.SetActive(false);
+		audioSettingsPanel.SetActive(true);
 	}
 
 	public void OnKeyboardMouseControlsClick()
