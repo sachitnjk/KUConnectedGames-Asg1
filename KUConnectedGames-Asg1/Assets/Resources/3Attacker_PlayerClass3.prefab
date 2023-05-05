@@ -564,7 +564,7 @@ MonoBehaviour:
   ability: 0
   pause: 0
   SwitchFireMode:
-    m_Name: 
+    m_Name: Switch Fire Mode
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: 37c0c5a0-f485-45e4-b361-83611f19fbb3
@@ -573,7 +573,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   Shoot:
-    m_Name: 
+    m_Name: Shoot
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: 517d6687-4d38-4398-8ac5-3acf56d67da6
@@ -582,7 +582,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   PrimaryWeapon:
-    m_Name: 
+    m_Name: Primary Weapon
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: 1a751d16-3798-4359-aff8-7242536a6ed6
@@ -591,7 +591,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   SecondaryWeapon:
-    m_Name: 
+    m_Name: Secondary Weapon
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: 4a485a9d-9545-4d73-9a82-ece46fba7e62
@@ -600,7 +600,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   Interaction:
-    m_Name: 
+    m_Name: Interaction
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: 3d8386a0-ed36-40e0-ac90-c7bff92ed7fc
@@ -609,7 +609,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   InventoryPanel:
-    m_Name: 
+    m_Name: Inventory Panel
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: 6cb8d187-ce60-4669-9be4-cb2bda69ed54
@@ -618,10 +618,10 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   PushToTalk:
-    m_Name: 
+    m_Name: Push To Talk
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 
+    m_Id: 96a653c6-1308-4151-be09-6546af1a0b97
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -888,7 +888,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityTriggered: 0
   playerAbilityType: 1
-  abilityCooldown: 5
+  abilityCooldown: 2
 --- !u!114 &7817422224171649901
 MonoBehaviour:
   m_ObjectHideFlags: 0
