@@ -11,13 +11,15 @@ public class AudioManager : MonoBehaviour
 	[SerializeField] AudioClip DashClip;
 	[SerializeField] AudioClip singleShotClip;
 	[SerializeField] AudioClip rifleReloadClip;
+	[SerializeField] AudioClip gunSwitchClip;
 
 	public enum AudioClipEnum
 	{
 		Impulse,
 		Dash,
 		SingleShot,
-		Reload
+		Reload,
+		gunSwitch
 	}
 
 	private void Awake()
@@ -72,6 +74,9 @@ public class AudioManager : MonoBehaviour
 			case AudioClipEnum.Reload:
 				source.volume = 0.3f;
 				return rifleReloadClip;
+			case AudioClipEnum.gunSwitch:
+				source.volume = 0.3f;
+				return gunSwitchClip;
 		}
 		return null;
 	}

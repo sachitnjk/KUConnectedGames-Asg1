@@ -17512,6 +17512,7 @@ MonoBehaviour:
   DashClip: {fileID: 8300000, guid: 29188743cbfa7b94a92b3d014f8ce571, type: 3}
   singleShotClip: {fileID: 8300000, guid: 97b12b3cf6da4d54f904a6ee4012f70b, type: 3}
   rifleReloadClip: {fileID: 8300000, guid: d1e1719eebf7d9f4eab3918de782ed2a, type: 3}
+  gunSwitchClip: {fileID: 8300000, guid: 872d0264b3cb4824d83a73387308c2a3, type: 3}
 --- !u!82 &698042691
 AudioSource:
   m_ObjectHideFlags: 0

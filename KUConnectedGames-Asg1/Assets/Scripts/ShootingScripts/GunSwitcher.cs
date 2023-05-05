@@ -14,10 +14,14 @@ public class GunSwitcher : MonoBehaviour
 
 	[HideInInspector] public GunScripts currentGun;
 
+	AudioManager.AudioClipEnum gunSwitchSound;
+
 	private void Start()
 	{
 		weaponSlot1 = ReferenceManager.instance.PrimaryWeapon;
 		weaponSlot2 = ReferenceManager.instance.SecondaryWeapon;
+
+		gunSwitchSound = AudioManager.AudioClipEnum.gunSwitch;
 
 		primaryWeaponObject.SetActive(true);
 		secondaryWeaponObject.SetActive(false);
@@ -45,6 +49,8 @@ public class GunSwitcher : MonoBehaviour
 		currentGun = primaryWeaponObject.GetComponent<GunScripts>();
 		currentGun.enabled = true;
 
+		AudioManager.instance.PlayOneShotAudio(gunSwitchSound);
+
 		primaryWeaponObject.SetActive(true);
 		secondaryWeaponObject.SetActive(false);
 
@@ -59,6 +65,8 @@ public class GunSwitcher : MonoBehaviour
 
 		currentGun = secondaryWeaponObject.GetComponent<GunScripts>();
 		currentGun.enabled = true;
+
+		AudioManager.instance.PlayOneShotAudio(gunSwitchSound);
 
 		primaryWeaponObject.SetActive(false);
 		secondaryWeaponObject.SetActive(true);
