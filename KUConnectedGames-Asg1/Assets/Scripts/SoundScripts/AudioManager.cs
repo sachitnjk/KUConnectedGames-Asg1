@@ -10,8 +10,6 @@ public class AudioManager : MonoBehaviour
 	[SerializeField] AudioClip ImpulseClip;
 	[SerializeField] AudioClip DashClip;
 	[SerializeField] AudioClip singleShotClip;
-	[SerializeField] AudioClip burstFireClip;
-	[SerializeField] AudioClip autoFireClip;
 
 	public enum AudioClipEnum
 	{

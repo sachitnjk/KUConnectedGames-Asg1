@@ -17511,8 +17511,6 @@ MonoBehaviour:
   ImpulseClip: {fileID: 8300000, guid: 3559e98c021f40f49b49be9fbd5e1096, type: 3}
   DashClip: {fileID: 8300000, guid: 29188743cbfa7b94a92b3d014f8ce571, type: 3}
   singleShotClip: {fileID: 8300000, guid: 97b12b3cf6da4d54f904a6ee4012f70b, type: 3}
-  burstFireClip: {fileID: 8300000, guid: baeaaa4ae2a30944fad61675a92f730b, type: 3}
-  autoFireClip: {fileID: 8300000, guid: 97b12b3cf6da4d54f904a6ee4012f70b, type: 3}
 --- !u!82 &698042691
 AudioSource:
   m_ObjectHideFlags: 0
