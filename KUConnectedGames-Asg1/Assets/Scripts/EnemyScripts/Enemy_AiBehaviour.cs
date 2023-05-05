@@ -30,9 +30,10 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 	private State enemy_CurrentState;
 	private State previousState;
 
-	private GameObject player;
 	private EnemyHpController enemyHpController;
 	private Rigidbody enemyRigidBody;
+	private PlayerDeath playerDeathRef;
+	private PlayerHealthBar playerHealthBar;
 
 	private Transform[] waypoints;
 	private	int enemy_CurrentWaypointIndex;
@@ -58,12 +59,6 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 		enemyHpController = GetComponent<EnemyHpController>();
 		enemyRigidBody = GetComponent<Rigidbody>();
 
-		GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-		if(players.Length > 0)
-		{
-			player = players[0];
-		}
-
 		enemy_CanDamage = true;
 
 		waypoints = ReferenceManager.instance.enemyWaypoints.waypoints;
@@ -86,7 +81,7 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 			SetState(State.Dead);
 		}
 
-		if(player.GetComponent<PlayerDeath>().GetPlayerDeathState()) 
+		if (playerDeathRef != null && playerDeathRef.GetPlayerDeathState()) 
 		{
 			enemy_CanDamage = false;
 			SetState(State.Patrol);
@@ -176,6 +171,8 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 		_animator.SetBool("isWalking", true);
 		navMeshAgent.SetDestination(waypoints[enemy_CurrentWaypointIndex].position);
 
+		playerHealthBar = null;
+		playerDeathRef = null;
 
 		if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
 		{
@@ -198,66 +195,9 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 		}
 	}
 
-	//public GameObject GetDetectedEntity()
-	//{
-	//	Collider[] entityInRange = Physics.OverlapSphere(transform.position, enemy_ViewRadius, playerMask);
-
-	//	if (entityInRange != null && entityInRange.Length > 0)
-	//	{
-	//		foreach (Collider entity in entityInRange)
-	//		{
-	//			Vector3 targetPoint = entity.transform.position;
-	//			targetPoint.y += 1;
-	//			Vector3 direction = targetPoint - transform.position;
-	//			float distance = direction.magnitude;
-	//			direction.Normalize();
-
-	//			RaycastHit hitInfo;
-
-	//			if (Physics.Raycast(transform.position, direction, out hitInfo, distance, obstacleMask))
-	//			{
-	//				if (hitInfo.collider.CompareTag("Player"))
-	//				{
-	//					return hitInfo.collider.gameObject;
-	//				}
-	//			}
-	//		}
-	//	}
-
-	//	return null;
-	//}
-
-	//private bool DetectEntity()
-	//{
-	//	Collider[] entityInRange = Physics.OverlapSphere(transform.position, enemy_ViewRadius, playerMask);
-
-	//	if (entityInRange != null && entityInRange.Length > 0)
-	//	{
-	//		foreach (Collider entity in entityInRange)
-	//		{
-	//			Vector3 targetPoint = entity.transform.position;
-	//			targetPoint.y += 1;
-	//			Vector3 direction = targetPoint - transform.position;
-	//			float distance = direction.magnitude;
-	//			direction.Normalize();
-
-	//			RaycastHit hitInfo;
-
-	//			if (!Physics.Raycast(transform.position, direction, out hitInfo, distance, obstacleMask))
-	//			{
-	//				enemy_Target = entity.transform;
-	//				return true;
-	//			}
-	//		}
-	//	}
-	//		return false;
-	//}
-
 	private bool DetectEntity()
 	{
 		Collider[] entityInRange = Physics.OverlapSphere(transform.position, enemy_ViewRadius, playerMask);
-		Collider closestEntity = null;
-		float closestDistance = Mathf.Infinity;
 
 		if (entityInRange != null && entityInRange.Length > 0)
 		{
@@ -273,24 +213,17 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 
 				if (!Physics.Raycast(transform.position, direction, out hitInfo, distance, obstacleMask))
 				{
-					if (distance < closestDistance)
-					{
-						closestDistance = distance;
-						closestEntity = entity;
-						Debug.Log(entity.name);
-					}
+					enemy_Target = entity.transform;
+					playerDeathRef = entity.gameObject.GetComponent<PlayerDeath>();
+					playerHealthBar = entity.gameObject.GetComponent<PlayerHealthBar>();
+					return true;
 				}
 			}
-
-			if (closestEntity != null)
-			{
-				enemy_Target = closestEntity.transform;
-				return true;
-			}
 		}
-
 		return false;
 	}
+
+
 
 	private void Chasing()
 	{
@@ -350,8 +283,7 @@ public class Enemy_AiBehaviour : MonoBehaviourPunCallbacks
 
 		if (enemy_CanDamage)
 		{
-			Debug.Log(player.gameObject.name);
-			player.GetComponent<PlayerHealthBar>().TakeDamage(damage);
+			playerHealthBar.TakeDamage(damage);
 			Stop();
 			var towardsPlayer = enemy_Target.position - transform.position;
 			transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(towardsPlayer), Time.deltaTime * enemy_TimeToRotate);
