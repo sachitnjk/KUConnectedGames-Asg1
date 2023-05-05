@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ability_AttackerDash : MonoBehaviour, IAbilityController
 {
-	[SerializeField] private float attacker_dashDistance = 1f;
+	[SerializeField] private float attacker_dashDistance = 1.01f;
 	[SerializeField] private float attacker_dashSpeed = 10f;
 
 	public void AbilityUse(Vector3 playerPosition)

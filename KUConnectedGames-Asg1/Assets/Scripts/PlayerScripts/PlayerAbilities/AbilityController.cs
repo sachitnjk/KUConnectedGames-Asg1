@@ -21,6 +21,9 @@ public class AbilityController : MonoBehaviour
 	private float lastAbilityTriggeredTime;
 	[SerializeField] float abilityCooldown;
 
+	[SerializeField] ParticleSystem dashAbilityVisualEffect;
+	ParticleSystem currentAbilityVisualEffect;
+
 	AudioManager.AudioClipEnum abilitySound;
 
 	private enum AbilityType
@@ -44,13 +47,21 @@ public class AbilityController : MonoBehaviour
 		{
 			Ability_AttackerDash attackerDash = gameObject.AddComponent<Ability_AttackerDash>();
 			SetActiveAbility(attackerDash);
+			SetActiveAbilityVisual(dashAbilityVisualEffect);
 			abilitySound = AudioManager.AudioClipEnum.Dash;
 		}
+
+		currentAbilityVisualEffect.Stop();
 	}
 
 	public void SetActiveAbility(IAbilityController ability)
 	{
 		activeAbility = ability;
+	}
+
+	public void SetActiveAbilityVisual(ParticleSystem abilityVisual)
+	{
+		currentAbilityVisualEffect = abilityVisual;
 	}
 	void Update()
     {
@@ -64,10 +75,16 @@ public class AbilityController : MonoBehaviour
 				Vector3 playerPosition = transform.position;
 				activeAbility.AbilityUse(playerPosition);
 
+				currentAbilityVisualEffect.Play();
+
 				AudioManager.instance.PlayOneShotAudio(abilitySound);
 
 				lastAbilityTriggeredTime = Time.time;
 			}
+		}
+		if(!abilityTriggered)
+		{
+			currentAbilityVisualEffect.Stop();
 		}
     }
 }
