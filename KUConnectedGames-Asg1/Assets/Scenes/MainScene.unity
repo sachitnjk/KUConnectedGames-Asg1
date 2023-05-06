@@ -14145,7 +14145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyWaypoints: {fileID: 104149764}
-  gateKeyScript: {fileID: 0}
+  gateKeyScript: {fileID: 7628989431153423531}
   interactionText: {fileID: 1253983424}
   gateOpeningText: {fileID: 1856775306}
   gunCurrentAmmoField: {fileID: 630860605}
@@ -14156,6 +14156,7 @@ MonoBehaviour:
   BurstFireIcon: {fileID: 595125683}
   AutoFireIcon: {fileID: 2066169066}
   InventoryPanelUI: {fileID: 908425708}
+  AbilityIcon: {fileID: 73449516}
   primaryRecorder: {fileID: 1479303168}
 --- !u!4 &558044630
 Transform:
@@ -59113,6 +59114,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 228e250fb95f8df4e81888d915030a86, type: 3}
+--- !u!114 &7628989431153423531 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9141012892767307274, guid: 228e250fb95f8df4e81888d915030a86,
+    type: 3}
+  m_PrefabInstance: {fileID: 7628989431153423530}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5549688cae72b847999a8789e706946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7868921589650074896
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -25,6 +25,9 @@ public class ReferenceManager : MonoBehaviour
 	[SerializeField] public GameObject BurstFireIcon;
 	[SerializeField] public GameObject AutoFireIcon;
 	[SerializeField] public GameObject InventoryPanelUI;
+	[SerializeField] public GameObject AbilityIcon;
+
+	[Header("Audio references")]
 	[SerializeField] public Recorder primaryRecorder;
 
 

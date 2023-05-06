@@ -25,6 +25,8 @@ public class AbilityController : MonoBehaviourPunCallbacks
 	[SerializeField] ParticleSystem dashAbilityVisualEffect;
 	ParticleSystem currentAbilityVisualEffect;
 
+	private GameObject AbilityIcon;
+
 	AudioManager.AudioClipEnum abilitySound;
 
 	private enum AbilityType
@@ -53,6 +55,7 @@ public class AbilityController : MonoBehaviourPunCallbacks
 		}
 
 		currentAbilityVisualEffect.Stop();
+		AbilityIcon = ReferenceManager.instance.AbilityIcon;
 	}
 
 	public void SetActiveAbility(IAbilityController ability)
@@ -82,10 +85,12 @@ public class AbilityController : MonoBehaviourPunCallbacks
 
 				lastAbilityTriggeredTime = Time.time;
 			}
+			AbilityIcon.SetActive(true);
 		}
-		if(!abilityTriggered)
+		else
 		{
 			photonView.RPC("StopAbilityVisualEffect", RpcTarget.All);
+			AbilityIcon.SetActive(false);
 		}
     }
 
