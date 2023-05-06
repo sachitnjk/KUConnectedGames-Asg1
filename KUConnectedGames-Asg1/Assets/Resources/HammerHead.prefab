@@ -913,6 +913,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1793792416012486985
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9011774731010762166}
+  m_Layer: 0
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9011774731010762166
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793792416012486985}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0746, y: 0.008, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7041690746552885915}
+  m_RootOrder: 68
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1820520643854535466
 GameObject:
   m_ObjectHideFlags: 0
@@ -4913,6 +4944,7 @@ Transform:
   - {fileID: 619453735383512587}
   - {fileID: 7101184949401590336}
   - {fileID: 4775878498300415317}
+  - {fileID: 9011774731010762166}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -4934,8 +4966,7 @@ MonoBehaviour:
   gun_MagazineCount: 2
   gun_PlayerVirtualCam: {fileID: 0}
   gun_PlayerMainCam: {fileID: 0}
-  gun_ShootPoint: {fileID: 893658118645713974, guid: c7946ccc93549804ba584359673a04ab,
-    type: 3}
+  gun_ShootPoint: {fileID: 1793792416012486985}
   ray_RaycastMask:
     serializedVersion: 2
     m_Bits: 2687
