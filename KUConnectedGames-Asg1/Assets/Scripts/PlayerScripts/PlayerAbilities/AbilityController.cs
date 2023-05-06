@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Photon.Pun;
 
 public interface IAbilityController
 {
 	void AbilityUse(Vector3 playerPosition);
 }
 
-public class AbilityController : MonoBehaviour
+public class AbilityController : MonoBehaviourPunCallbacks
 {
 	private IAbilityController activeAbility;
 
@@ -75,7 +76,7 @@ public class AbilityController : MonoBehaviour
 				Vector3 playerPosition = transform.position;
 				activeAbility.AbilityUse(playerPosition);
 
-				currentAbilityVisualEffect.Play();
+				photonView.RPC("PlayAbilityVisualEffect", RpcTarget.All);
 
 				AudioManager.instance.PlayOneShotAudio(abilitySound);
 
@@ -84,7 +85,19 @@ public class AbilityController : MonoBehaviour
 		}
 		if(!abilityTriggered)
 		{
-			currentAbilityVisualEffect.Stop();
+			photonView.RPC("StopAbilityVisualEffect", RpcTarget.All);
 		}
     }
+
+	[PunRPC]
+	private void PlayAbilityVisualEffect()
+	{
+		currentAbilityVisualEffect.Play();
+	}
+
+	[PunRPC]
+	private void StopAbilityVisualEffect() 
+	{
+		currentAbilityVisualEffect.Stop();
+	}
 }
