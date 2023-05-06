@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Photon.Pun;
 
 public interface IAbilityController
 {
 	void AbilityUse(Vector3 playerPosition);
 }
 
-public class AbilityController : MonoBehaviour
+public class AbilityController : MonoBehaviourPunCallbacks
 {
 	private IAbilityController activeAbility;
 
@@ -23,6 +24,8 @@ public class AbilityController : MonoBehaviour
 
 	[SerializeField] ParticleSystem dashAbilityVisualEffect;
 	ParticleSystem currentAbilityVisualEffect;
+
+	private GameObject AbilityIcon;
 
 	AudioManager.AudioClipEnum abilitySound;
 
@@ -52,6 +55,7 @@ public class AbilityController : MonoBehaviour
 		}
 
 		currentAbilityVisualEffect.Stop();
+		AbilityIcon = ReferenceManager.instance.AbilityIcon;
 	}
 
 	public void SetActiveAbility(IAbilityController ability)
@@ -75,16 +79,30 @@ public class AbilityController : MonoBehaviour
 				Vector3 playerPosition = transform.position;
 				activeAbility.AbilityUse(playerPosition);
 
-				currentAbilityVisualEffect.Play();
+				photonView.RPC("PlayAbilityVisualEffect", RpcTarget.All);
 
 				AudioManager.instance.PlayOneShotAudio(abilitySound);
 
 				lastAbilityTriggeredTime = Time.time;
 			}
+			AbilityIcon.SetActive(true);
 		}
-		if(!abilityTriggered)
+		else
 		{
-			currentAbilityVisualEffect.Stop();
+			photonView.RPC("StopAbilityVisualEffect", RpcTarget.All);
+			AbilityIcon.SetActive(false);
 		}
     }
+
+	[PunRPC]
+	private void PlayAbilityVisualEffect()
+	{
+		currentAbilityVisualEffect.Play();
+	}
+
+	[PunRPC]
+	private void StopAbilityVisualEffect() 
+	{
+		currentAbilityVisualEffect.Stop();
+	}
 }

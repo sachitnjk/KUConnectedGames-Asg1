@@ -1212,6 +1212,7 @@ MonoBehaviour:
   abilityTriggered: 0
   playerAbilityType: 0
   abilityCooldown: 5
+  dashAbilityVisualEffect: {fileID: 0}
 --- !u!114 &7965351393409222785
 MonoBehaviour:
   m_ObjectHideFlags: 0
