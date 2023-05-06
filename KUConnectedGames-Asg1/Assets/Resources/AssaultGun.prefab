@@ -4119,6 +4119,9 @@ MonoBehaviour:
   gun_PlayerVirtualCam: {fileID: 0}
   gun_PlayerMainCam: {fileID: 0}
   gun_ShootPoint: {fileID: 5227972523398715800}
+  gun_ShootPointTransform: {fileID: 1063865159837236848}
+  gun_MuzzleFlash: {fileID: 5379863592887089241, guid: c966916d26c05764d9b2db1338347d93,
+    type: 3}
   ray_RaycastMask:
     serializedVersion: 2
     m_Bits: 2687

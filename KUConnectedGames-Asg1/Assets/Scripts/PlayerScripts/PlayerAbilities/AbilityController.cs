@@ -54,7 +54,10 @@ public class AbilityController : MonoBehaviourPunCallbacks
 			abilitySound = AudioManager.AudioClipEnum.Dash;
 		}
 
-		currentAbilityVisualEffect.Stop();
+		if(currentAbilityVisualEffect != null) 
+		{
+			currentAbilityVisualEffect.Stop();
+		}
 		AbilityIcon = ReferenceManager.instance.AbilityIcon;
 	}
 
@@ -79,7 +82,10 @@ public class AbilityController : MonoBehaviourPunCallbacks
 				Vector3 playerPosition = transform.position;
 				activeAbility.AbilityUse(playerPosition);
 
-				photonView.RPC("PlayAbilityVisualEffect", RpcTarget.All);
+				if(currentAbilityVisualEffect != null) 
+				{
+					photonView.RPC("PlayAbilityVisualEffect", RpcTarget.AllBuffered);
+				}
 
 				AudioManager.instance.PlayOneShotAudio(abilitySound);
 

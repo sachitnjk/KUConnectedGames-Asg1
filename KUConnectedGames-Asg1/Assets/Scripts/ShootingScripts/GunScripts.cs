@@ -16,6 +16,8 @@ public class GunScripts : MonoBehaviourPunCallbacks
 	[SerializeField] private CinemachineVirtualCamera gun_PlayerVirtualCam;
 	[SerializeField] private Camera gun_PlayerMainCam;
 	[SerializeField] private GameObject gun_ShootPoint;
+	[SerializeField] private Transform gun_ShootPointTransform;
+	[SerializeField] private VisualEffect gun_MuzzleFlash;
 
 	[SerializeField] private LayerMask ray_RaycastMask;
 
@@ -211,6 +213,9 @@ public class GunScripts : MonoBehaviourPunCallbacks
 				GameObject hitImpact_basic = PhotonNetwork.Instantiate(bullet_Impact.name, bullet_Target, Quaternion.identity);
 
 				AudioManager.instance.PlayOneShotAudio(gunShootAudio); //Gunshot pew sound
+				GameObject gunMuzzleFlashGO = PhotonNetwork.Instantiate(gun_MuzzleFlash.name, gun_ShootPointTransform.position, Quaternion.identity);
+
+
 
 				if (hitObject.CompareTag("Enemy"))
 				{
@@ -228,7 +233,7 @@ public class GunScripts : MonoBehaviourPunCallbacks
 					
 					}
 				}
-				StartCoroutine(DestroyHitImpact(hitImpact_basic));
+				StartCoroutine(DestroyHitImpactAndMuzzleFlash(hitImpact_basic, gunMuzzleFlashGO));
 
 			}
 			else
@@ -248,13 +253,18 @@ public class GunScripts : MonoBehaviourPunCallbacks
 			}
 		}
 	}
-	IEnumerator DestroyHitImpact(GameObject hitImpactObject)
+	IEnumerator DestroyHitImpactAndMuzzleFlash(GameObject hitImpactObject, GameObject gunMuzzleFlashObject)
 	{
 		yield return new WaitForSeconds(.5f);
 		if(bullet_Impact != null)
 		{
 			bullet_Impact.Stop();
 			Destroy(hitImpactObject.gameObject);
+		}
+		if(gun_MuzzleFlash != null) 
+		{
+			gun_MuzzleFlash.Stop();
+			Destroy(gunMuzzleFlashObject.gameObject);
 		}
 	}
 
@@ -296,5 +306,4 @@ public class GunScripts : MonoBehaviourPunCallbacks
 			burstFireIcon.SetActive(false);
 		}
 	}
-
 }
