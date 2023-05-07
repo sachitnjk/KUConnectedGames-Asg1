@@ -4961,7 +4961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun_RateOfFire: 10
-  gun_ReloadTime: 1.5
+  gun_ReloadTime: 1.2
   gun_MagazineSize: 20
   gun_MagazineCount: 2
   gun_PlayerVirtualCam: {fileID: 0}
