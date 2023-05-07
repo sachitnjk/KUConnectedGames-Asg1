@@ -213,7 +213,12 @@ public class GunScripts : MonoBehaviourPunCallbacks
 				GameObject hitImpact_basic = PhotonNetwork.Instantiate(bullet_Impact.name, bullet_Target, Quaternion.identity);
 
 				AudioManager.instance.PlayOneShotAudio(gunShootAudio); //Gunshot pew sound
-				GameObject gunMuzzleFlashGO = PhotonNetwork.Instantiate(gun_MuzzleFlash.name, gun_ShootPointTransform.position, Quaternion.identity);
+
+				Quaternion muzzleFlashRotation = Quaternion.Euler(0, 80, 0);
+				GameObject gunMuzzleFlashGO = PhotonNetwork.Instantiate(gun_MuzzleFlash.name, gun_ShootPointTransform.position, muzzleFlashRotation);
+				gunMuzzleFlashGO.transform.SetParent(gun_ShootPointTransform, false);
+				gunMuzzleFlashGO.transform.localPosition = Vector3.zero;
+				gunMuzzleFlashGO.transform.localRotation = muzzleFlashRotation;
 
 
 

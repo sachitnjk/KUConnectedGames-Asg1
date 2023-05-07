@@ -724,6 +724,16 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8052448301568605087, guid: de8b507764b14044f8ecbbef278cbb9b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8052448301568605087, guid: de8b507764b14044f8ecbbef278cbb9b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4
+      objectReference: {fileID: 0}
     - target: {fileID: 8870643181897504611, guid: de8b507764b14044f8ecbbef278cbb9b,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -741,90 +751,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de8b507764b14044f8ecbbef278cbb9b, type: 3}
---- !u!1001 &1308082419
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5379863592887089191, guid: c966916d26c05764d9b2db1338347d93,
-        type: 3}
-      propertyPath: m_Name
-      value: MuzzleFlash_VFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 5379863592887089240, guid: c966916d26c05764d9b2db1338347d93,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5379863592887089240, guid: c966916d26c05764d9b2db1338347d93,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.019889116
-      objectReference: {fileID: 0}
-    - target: {fileID: 5379863592887089240, guid: c966916d26c05764d9b2db1338347d93,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.84
-      objectReference: {fileID: 0}
-    - target: {fileID: 5379863592887089240, guid: c966916d26c05764d9b2db1338347d93,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.66464
-      objectReference: {fileID: 0}
-    - target: {fileID: 5379863592887089240, guid: c966916d26c05764d9b2db1338347d93,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5379863592887089240, guid: c966916d26c05764d9b2db1338347d93,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5379863592887089240, guid: c966916d26c05764d9b2db1338347d93,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5379863592887089240, guid: c966916d26c05764d9b2db1338347d93,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5379863592887089240, guid: c966916d26c05764d9b2db1338347d93,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5379863592887089240, guid: c966916d26c05764d9b2db1338347d93,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5379863592887089240, guid: c966916d26c05764d9b2db1338347d93,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5379863592887089241, guid: c966916d26c05764d9b2db1338347d93,
-        type: 3}
-      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.x
-      value: 0.34090424
-      objectReference: {fileID: 0}
-    - target: {fileID: 5379863592887089241, guid: c966916d26c05764d9b2db1338347d93,
-        type: 3}
-      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.y
-      value: 0.7169812
-      objectReference: {fileID: 0}
-    - target: {fileID: 5379863592887089241, guid: c966916d26c05764d9b2db1338347d93,
-        type: 3}
-      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.z
-      value: 0.38049132
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c966916d26c05764d9b2db1338347d93, type: 3}
 --- !u!1 &1764214107
 GameObject:
   m_ObjectHideFlags: 0
