@@ -109,7 +109,8 @@ public class PlayerInteraction : MonoBehaviourPunCallbacks
 	[PunRPC]
 	private void LoadNextLevel()
 	{
-		SceneManager.LoadScene(4);
+		int currentSceneBuildIndex = SceneManager.GetActiveScene().buildIndex;
+		SceneManager.LoadScene(currentSceneBuildIndex + 1);
 	}
 
 }

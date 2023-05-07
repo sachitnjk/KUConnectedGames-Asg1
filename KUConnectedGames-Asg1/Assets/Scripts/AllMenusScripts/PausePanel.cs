@@ -2,10 +2,12 @@ using StarterAssets;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Photon.Pun;
+using Photon.Realtime;
+using UnityEngine.SceneManagement;
 
 public class PausePanel : MonoBehaviourPunCallbacks
 {
-	PlayerInput _input;
+	public static PlayerInput _input;
 	InputAction _pauseAction;
 	ThirdPersonController _thirdPersonController;
 	ThirdPersonShooter _thirdPersonShooter;
@@ -14,28 +16,32 @@ public class PausePanel : MonoBehaviourPunCallbacks
 	[SerializeField] GameObject pausePanel;
 	private bool isPaused;
 
-	private void Start()
+	private void Awake()
 	{
-		GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-		foreach(GameObject player in players)
+		if( _input == null )
 		{
-			_input = player.GetComponent<PlayerInput>();
-			if(_input != null)
+			GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+			foreach (GameObject player in players)
 			{
-				_thirdPersonController = player.GetComponent<ThirdPersonController>();
-				_thirdPersonShooter = player.GetComponent<ThirdPersonShooter>();
-				_gunSwitcher = player.GetComponentInChildren<GunSwitcher>();
-				break;
+				_input = player.GetComponent<PlayerInput>();
+				if (_input != null)
+				{
+					_thirdPersonController = player.GetComponent<ThirdPersonController>();
+					_thirdPersonShooter = player.GetComponent<ThirdPersonShooter>();
+					_gunSwitcher = player.GetComponentInChildren<GunSwitcher>();
+
+					_pauseAction = _input.actions["Pause"];
+					break;
+				}
 			}
 		}
-
-		_pauseAction = _input.actions["Pause"];
 
 		pausePanel.SetActive(false);
 
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Confined;
 	}
+
 	private void Update()
 	{
 		PauseGame();
