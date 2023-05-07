@@ -4042,7 +4042,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8753335366833419041}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.1410766, y: 1.1108255, z: 1.3697884}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4113,7 +4113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun_RateOfFire: 10
-  gun_ReloadTime: 2
+  gun_ReloadTime: 1.5
   gun_MagazineSize: 20
   gun_MagazineCount: 2
   gun_PlayerVirtualCam: {fileID: 0}
