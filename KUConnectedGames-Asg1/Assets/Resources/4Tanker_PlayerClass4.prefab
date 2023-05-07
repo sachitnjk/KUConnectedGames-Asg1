@@ -966,8 +966,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityTriggered: 0
   playerAbilityType: 0
-  abilityCooldown: 5
-  dashAbilityVisualEffect: {fileID: 0}
+  abilityCooldown: 3
+  dashAbilityVisualEffect: {fileID: 4907272279386522441}
+  impulseAbilityVisualEffect: {fileID: 0}
 --- !u!114 &7965351393409222785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2704,6 +2705,86 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2070925441746177671, guid: a1a802ecaf6775746bb2a929fb554ad8,
     type: 3}
   m_PrefabInstance: {fileID: 1432322656311887174}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2626031934342548385
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5203196234925244275}
+    m_Modifications:
+    - target: {fileID: 6947831578883834600, guid: eafd25120105a3a48af4271cbdf42d15,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6947831578883834600, guid: eafd25120105a3a48af4271cbdf42d15,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6947831578883834600, guid: eafd25120105a3a48af4271cbdf42d15,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.089
+      objectReference: {fileID: 0}
+    - target: {fileID: 6947831578883834600, guid: eafd25120105a3a48af4271cbdf42d15,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6947831578883834600, guid: eafd25120105a3a48af4271cbdf42d15,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6947831578883834600, guid: eafd25120105a3a48af4271cbdf42d15,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6947831578883834600, guid: eafd25120105a3a48af4271cbdf42d15,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6947831578883834600, guid: eafd25120105a3a48af4271cbdf42d15,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6947831578883834600, guid: eafd25120105a3a48af4271cbdf42d15,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6947831578883834600, guid: eafd25120105a3a48af4271cbdf42d15,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6947831578883834600, guid: eafd25120105a3a48af4271cbdf42d15,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6947831578883834601, guid: eafd25120105a3a48af4271cbdf42d15,
+        type: 3}
+      propertyPath: m_Name
+      value: Dash_Ability_Trails
+      objectReference: {fileID: 0}
+    - target: {fileID: 6947831580511783144, guid: eafd25120105a3a48af4271cbdf42d15,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 1.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: eafd25120105a3a48af4271cbdf42d15, type: 3}
+--- !u!198 &4907272279386522441 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6947831580511783144, guid: eafd25120105a3a48af4271cbdf42d15,
+    type: 3}
+  m_PrefabInstance: {fileID: 2626031934342548385}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3086459311154713187
 PrefabInstance:

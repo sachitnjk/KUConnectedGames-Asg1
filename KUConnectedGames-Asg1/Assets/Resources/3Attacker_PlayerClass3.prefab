@@ -888,7 +888,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityTriggered: 0
   playerAbilityType: 1
-  abilityCooldown: 5
+  abilityCooldown: 3
   dashAbilityVisualEffect: {fileID: 4566838316303707055}
   impulseAbilityVisualEffect: {fileID: 0}
 --- !u!114 &7817422224171649901
