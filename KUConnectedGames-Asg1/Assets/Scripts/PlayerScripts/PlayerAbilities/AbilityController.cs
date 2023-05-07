@@ -23,6 +23,7 @@ public class AbilityController : MonoBehaviourPunCallbacks
 	[SerializeField] float abilityCooldown;
 
 	[SerializeField] ParticleSystem dashAbilityVisualEffect;
+	[SerializeField] ParticleSystem impulseAbilityVisualEffect;
 	ParticleSystem currentAbilityVisualEffect;
 
 	private GameObject AbilityIcon;
@@ -44,6 +45,7 @@ public class AbilityController : MonoBehaviourPunCallbacks
 		{
 			Ability_Impulse abilityImpulse = gameObject.AddComponent<Ability_Impulse>();
 			SetActiveAbility(abilityImpulse);
+			SetActiveAbilityVisual(impulseAbilityVisualEffect);
 			abilitySound = AudioManager.AudioClipEnum.Impulse;
 		}
 		else if (playerAbilityType == AbilityType.Attacker)
