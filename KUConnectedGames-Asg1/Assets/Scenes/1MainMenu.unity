@@ -8337,6 +8337,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1776391786}
     m_Modifications:
+    - target: {fileID: 3448205070445407464, guid: 17de1b38055b9484db52780a6aa3dabf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fafb630c8cffc2747af9d7b74550675a, type: 2}
+    - target: {fileID: 3448205070494835848, guid: 17de1b38055b9484db52780a6aa3dabf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fafb630c8cffc2747af9d7b74550675a, type: 2}
     - target: {fileID: 3448205070699234129, guid: 17de1b38055b9484db52780a6aa3dabf,
         type: 3}
       propertyPath: m_Name
@@ -8397,6 +8407,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3448205070830154854, guid: 17de1b38055b9484db52780a6aa3dabf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fafb630c8cffc2747af9d7b74550675a, type: 2}
+    - target: {fileID: 3448205070832624994, guid: 17de1b38055b9484db52780a6aa3dabf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fafb630c8cffc2747af9d7b74550675a, type: 2}
+    - target: {fileID: 3448205070897920027, guid: 17de1b38055b9484db52780a6aa3dabf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fafb630c8cffc2747af9d7b74550675a, type: 2}
+    - target: {fileID: 3448205071943719192, guid: 17de1b38055b9484db52780a6aa3dabf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fafb630c8cffc2747af9d7b74550675a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17de1b38055b9484db52780a6aa3dabf, type: 3}
 --- !u!4 &3970753982382490488 stripped
@@ -8412,6 +8442,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1776391786}
     m_Modifications:
+    - target: {fileID: 1200154561724821253, guid: 34bb7268598b0dd4b871817bc8b0347e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fafb630c8cffc2747af9d7b74550675a, type: 2}
+    - target: {fileID: 1598616667410981226, guid: 34bb7268598b0dd4b871817bc8b0347e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fafb630c8cffc2747af9d7b74550675a, type: 2}
+    - target: {fileID: 2209516106234120475, guid: 34bb7268598b0dd4b871817bc8b0347e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fafb630c8cffc2747af9d7b74550675a, type: 2}
+    - target: {fileID: 3466371937871007066, guid: 34bb7268598b0dd4b871817bc8b0347e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fafb630c8cffc2747af9d7b74550675a, type: 2}
+    - target: {fileID: 4773846488991822261, guid: 34bb7268598b0dd4b871817bc8b0347e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fafb630c8cffc2747af9d7b74550675a, type: 2}
     - target: {fileID: 5773752227268786741, guid: 34bb7268598b0dd4b871817bc8b0347e,
         type: 3}
       propertyPath: m_RootOrder
@@ -8472,5 +8527,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Menu Scene_Window_01
       objectReference: {fileID: 0}
+    - target: {fileID: 7556764433774202991, guid: 34bb7268598b0dd4b871817bc8b0347e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fafb630c8cffc2747af9d7b74550675a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34bb7268598b0dd4b871817bc8b0347e, type: 3}
