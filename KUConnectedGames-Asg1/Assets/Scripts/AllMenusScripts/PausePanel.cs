@@ -76,7 +76,6 @@ public class PausePanel : MonoBehaviourPunCallbacks
 
 	public void OnExitButtonClick()
 	{
-		Debug.Log("Exit is called");
 		Application.Quit();
 	}
 }
