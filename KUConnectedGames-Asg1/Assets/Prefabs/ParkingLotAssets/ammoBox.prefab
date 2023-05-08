@@ -484,7 +484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca47078895be21c4583c18d2f46302ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoInBox: 200
+  ammoInBox: 45
   playerTag: Player
 --- !u!1 &4901105230170731094
 GameObject:

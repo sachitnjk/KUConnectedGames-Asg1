@@ -27,8 +27,9 @@ public class ReferenceManager : MonoBehaviour
 	[SerializeField] public GameObject InventoryPanelUI;
 	[SerializeField] public GameObject AbilityIcon;
 
-	[Header("Audio references")]
-	[SerializeField] public Recorder primaryRecorder;
+	//private Recorder primaryRecorder;
+
+	//private VoiceManager voiceManager;
 
 
 	private void Awake()
@@ -41,5 +42,8 @@ public class ReferenceManager : MonoBehaviour
 		{
 			Destroy(this);
 		}
+
+		//voiceManager = VoiceManager.instance;
+		//primaryRecorder = voiceManager.voiceRecorder;
 	}
 }

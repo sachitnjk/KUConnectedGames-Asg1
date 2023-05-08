@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 5088318483505944492, guid: e1eaeaaea6413dc49814a6937d822c63, type: 3}
   type: 2
-  description: Research notes from before the fall of civilization.
+  description: 'The note contains voice log of a person : "Hey *static* I am done
+    with my shift, I''ve ke-*static* the key in teh security room."'

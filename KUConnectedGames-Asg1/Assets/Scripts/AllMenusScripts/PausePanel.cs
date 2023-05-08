@@ -14,9 +14,19 @@ public class PausePanel : MonoBehaviourPunCallbacks
 	GunSwitcher _gunSwitcher;
 
 	[SerializeField] GameObject pausePanel;
+	[SerializeField] GameObject objectivesPanel;
 	private bool isPaused;
 
 	private void Start()
+	{
+		SetPlayerRefData();
+		pausePanel.SetActive(false);
+
+		Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Confined;
+	}
+
+	private void SetPlayerRefData()
 	{
 		GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 		foreach (GameObject player in players)
@@ -32,11 +42,11 @@ public class PausePanel : MonoBehaviourPunCallbacks
 			}
 		}
 
-		_pauseAction = _input.actions["Pause"];
-		pausePanel.SetActive(false);
+		if(_input != null)
+		{
+			_pauseAction = _input.actions["Pause"];
+		}
 
-		Cursor.visible = false;
-		Cursor.lockState = CursorLockMode.Confined;
 	}
 
 	private void Update()
@@ -46,10 +56,14 @@ public class PausePanel : MonoBehaviourPunCallbacks
 
 	public void PauseGame()
 	{
-		if(_input == null) return;
+		if(_input == null)
+		{
+			SetPlayerRefData();
+		}
 
 		if (_pauseAction.triggered && isPaused == false)
 		{
+			objectivesPanel.SetActive(false);
 			pausePanel.SetActive(true);
 			_thirdPersonController.enabled = false;
 			_thirdPersonShooter.enabled = false;
@@ -59,6 +73,10 @@ public class PausePanel : MonoBehaviourPunCallbacks
 			Cursor.lockState = CursorLockMode.None;
 
 			isPaused = true;
+		}
+		else
+		{
+			objectivesPanel.SetActive(true);
 		}
 	}
 	public void OnResumeButtonClicked()

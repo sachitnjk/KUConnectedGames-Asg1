@@ -13,7 +13,7 @@ public class VoiceChatController : MonoBehaviour
 	private void Start()
 	{
 		_input = GetComponent<StarterAssetsInputs>();
-		primaryRecorder = ReferenceManager.instance.primaryRecorder;
+		primaryRecorder = VoiceManager.instance.voiceRecorder;
 
 		primaryRecorder.TransmitEnabled = false;
 	}
