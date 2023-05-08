@@ -19,6 +19,7 @@ public class ThirdPersonShooter : MonoBehaviourPunCallbacks
 
 	private bool shouldAim = false;
 	private bool isAiming = false;
+	private float targetSpeed;
 	private Animator _animator;
 
 	private void Awake()
@@ -26,6 +27,8 @@ public class ThirdPersonShooter : MonoBehaviourPunCallbacks
 		_input = GetComponent<StarterAssetsInputs>();
 		_TPController = GetComponent<ThirdPersonController>();
 		_animator = GetComponent<Animator>();
+
+		targetSpeed = Mathf.Abs(_TPController.targetSpeed);
 	}
 
 	private void Update()
@@ -54,7 +57,7 @@ public class ThirdPersonShooter : MonoBehaviourPunCallbacks
 				_TPController.SetRotateOnMove(false);
 
 				//Aim blend tree anims
-				float targetSpeed = Mathf.Abs(_TPController.targetSpeed);
+				targetSpeed = Mathf.Abs(_TPController.targetSpeed);
 				_animator.SetFloat("Speed", targetSpeed);
 
 				_animator.SetLayerWeight(1, Mathf.Lerp(_animator.GetLayerWeight(1), 1f, Time.deltaTime * 10f));
@@ -83,6 +86,13 @@ public class ThirdPersonShooter : MonoBehaviourPunCallbacks
 			if(_input.Shoot.IsPressed())
 			{
 				_TPController.SetRotateOnMove(false);
+
+				_animator.SetFloat("Speed", targetSpeed);
+
+				_animator.SetLayerWeight(1, Mathf.Lerp(_animator.GetLayerWeight(1), 1f, Time.deltaTime * 10f));
+
+				float weight = Mathf.Lerp(_animator.GetLayerWeight(1), 1f, Time.deltaTime * 10f);
+				photonView.RPC("SetLayerWeight", RpcTarget.All, weight);
 
 				Vector3 worldAimTarget = mouseWorldPosition;
 				worldAimTarget.y = transform.position.y;
