@@ -10906,7 +10906,7 @@ MonoBehaviour:
   - {fileID: 330181072}
   - {fileID: 1883161509}
   phView: {fileID: 394038668}
-  enemyNumberToSpawn: 5
+  enemyNumberToSpawn: 3
 --- !u!114 &394038668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54739,7 +54739,7 @@ MonoBehaviour:
   enemySpawnPoints:
   - {fileID: 2119831778}
   phView: {fileID: 1837618535}
-  enemyNumberToSpawn: 1
+  enemyNumberToSpawn: 3
 --- !u!114 &1837618535
 MonoBehaviour:
   m_ObjectHideFlags: 0

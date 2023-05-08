@@ -50,7 +50,7 @@ public class ThirdPersonShooter : MonoBehaviourPunCallbacks
 				photonView.RPC("SetAiming", RpcTarget.All, shouldAim);
 			}
 
-			if (isAiming)
+			if (isAiming || _input.Shoot.IsPressed())
 			{
 				cm_AimVirtualCamera.gameObject.SetActive(true);
 				_TPController.SetSensitivity(aimSensitivity);
@@ -86,13 +86,6 @@ public class ThirdPersonShooter : MonoBehaviourPunCallbacks
 			if(_input.Shoot.IsPressed())
 			{
 				_TPController.SetRotateOnMove(false);
-
-				_animator.SetFloat("Speed", targetSpeed);
-
-				_animator.SetLayerWeight(1, Mathf.Lerp(_animator.GetLayerWeight(1), 1f, Time.deltaTime * 10f));
-
-				float weight = Mathf.Lerp(_animator.GetLayerWeight(1), 1f, Time.deltaTime * 10f);
-				photonView.RPC("SetLayerWeight", RpcTarget.All, weight);
 
 				Vector3 worldAimTarget = mouseWorldPosition;
 				worldAimTarget.y = transform.position.y;
