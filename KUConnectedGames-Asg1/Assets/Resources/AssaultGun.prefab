@@ -4128,8 +4128,8 @@ MonoBehaviour:
   _input: {fileID: 0}
   gun_MaxAmmo: 0
   gun_CurrentAmmo: 50
-  currentFireMode: 0
-  addProjectile: 1
+  currentFireMode: 2
+  addProjectile: 0
   bullet_Prefab: {fileID: 3906352131627959738, guid: 0946b80a53a889141bc0aa73c0fe7a2e,
     type: 3}
   bullet_Impact: {fileID: 1684090314261528999, guid: f3a8399bf60a7664e9d872e1768d6d7a,

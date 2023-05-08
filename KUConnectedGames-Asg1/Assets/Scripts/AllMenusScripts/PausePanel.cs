@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PausePanel : MonoBehaviourPunCallbacks
 {
-	public static PlayerInput _input;
+	PlayerInput _input;
 	InputAction _pauseAction;
 	ThirdPersonController _thirdPersonController;
 	ThirdPersonShooter _thirdPersonShooter;
@@ -16,26 +16,23 @@ public class PausePanel : MonoBehaviourPunCallbacks
 	[SerializeField] GameObject pausePanel;
 	private bool isPaused;
 
-	private void Awake()
+	private void Start()
 	{
-		if( _input == null )
+		GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+		foreach (GameObject player in players)
 		{
-			GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-			foreach (GameObject player in players)
+			_input = player.GetComponent<PlayerInput>();
+			if (_input != null)
 			{
-				_input = player.GetComponent<PlayerInput>();
-				if (_input != null)
-				{
-					_thirdPersonController = player.GetComponent<ThirdPersonController>();
-					_thirdPersonShooter = player.GetComponent<ThirdPersonShooter>();
-					_gunSwitcher = player.GetComponentInChildren<GunSwitcher>();
+				_thirdPersonController = player.GetComponent<ThirdPersonController>();
+				_thirdPersonShooter = player.GetComponent<ThirdPersonShooter>();
+				_gunSwitcher = player.GetComponentInChildren<GunSwitcher>();
 
-					_pauseAction = _input.actions["Pause"];
-					break;
-				}
+				break;
 			}
 		}
 
+		_pauseAction = _input.actions["Pause"];
 		pausePanel.SetActive(false);
 
 		Cursor.visible = false;

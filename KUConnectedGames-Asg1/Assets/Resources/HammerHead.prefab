@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 289209827607245186, guid: 139c8bddc4a0f1e4d9dbe47a38edbbf4, type: 3}
+  - {fileID: 2100000, guid: 9afbec49aa54b964590eb637e0400b3c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1088,7 +1088,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 289209827607245186, guid: 139c8bddc4a0f1e4d9dbe47a38edbbf4, type: 3}
+  - {fileID: 2100000, guid: 9afbec49aa54b964590eb637e0400b3c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3578,7 +3578,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -9067771015139787952, guid: 139c8bddc4a0f1e4d9dbe47a38edbbf4, type: 3}
+  - {fileID: 2100000, guid: 9afbec49aa54b964590eb637e0400b3c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4976,7 +4976,7 @@ MonoBehaviour:
   _input: {fileID: 0}
   gun_MaxAmmo: 0
   gun_CurrentAmmo: 50
-  currentFireMode: 0
+  currentFireMode: 1
   addProjectile: 0
   bullet_Prefab: {fileID: 3906352131627959738, guid: 0946b80a53a889141bc0aa73c0fe7a2e,
     type: 3}
@@ -5832,7 +5832,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 289209827607245186, guid: 139c8bddc4a0f1e4d9dbe47a38edbbf4, type: 3}
+  - {fileID: 2100000, guid: 9afbec49aa54b964590eb637e0400b3c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

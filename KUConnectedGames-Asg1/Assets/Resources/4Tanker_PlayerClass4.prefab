@@ -965,7 +965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityTriggered: 0
-  playerAbilityType: 0
+  playerAbilityType: 1
   abilityCooldown: 3
   dashAbilityVisualEffect: {fileID: 4907272279386522441}
   impulseAbilityVisualEffect: {fileID: 0}
