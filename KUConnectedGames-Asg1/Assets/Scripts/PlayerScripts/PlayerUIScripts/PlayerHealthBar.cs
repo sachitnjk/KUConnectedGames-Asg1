@@ -22,7 +22,6 @@ public class PlayerHealthBar : MonoBehaviourPunCallbacks
 
     public void TakeDamage(int damage)
     {
-        Debug.Log("player taking damage");
         currentHealth -= damage;
         healthBar?.SetHealth(currentHealth);
     }

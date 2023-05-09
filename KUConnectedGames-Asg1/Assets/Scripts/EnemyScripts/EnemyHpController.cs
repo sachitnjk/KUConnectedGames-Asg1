@@ -41,7 +41,6 @@ public class EnemyHpController : MonoBehaviourPunCallbacks
 	{
 		if(photonView.IsMine)
 		{
-			Debug.Log("Enemy is dying");
 			PhotonNetwork.Destroy(this.gameObject);
 		}
 	}
