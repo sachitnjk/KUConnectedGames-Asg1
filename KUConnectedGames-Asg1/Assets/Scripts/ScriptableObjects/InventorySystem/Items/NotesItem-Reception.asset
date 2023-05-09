@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 714d139ab3ed92c4791ebdf81db5adb0, type: 3}
   m_Name: NotesItem-Reception
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5088318483505944492, guid: e1eaeaaea6413dc49814a6937d822c63, type: 3}
+  prefab: {fileID: 5088318483505944492, guid: bda6e4eebc3b2014cbdc3851c699363c, type: 3}
   type: 2
   description: 'Contains Voice log: "*bzzzzt*  *STATIC* Office entrance key *STATIC*
     "under the grates."'
